@@ -1,21 +1,21 @@
 \fullpagehumor[Famous Stories About Some Interesting Bugs]{%
 \textbf{1. The 500-Mile Email Limit} \\[4pt]
-A university system administrator faced a peculiar bug: emails simply wouldn’t travel more than 500 miles. Messages sent to Boston, about 420 miles away, arrived without issue. But anything farther — like Memphis at 520 miles — vanished into the void.\\
-After repeated tests, the cause emerged. A misconfigured timeout field was mistakenly set in nanoseconds rather than as a port number. Since light moves through fiber at roughly 200,000 kilometers per second, the timeout effectively cut off communication past 500 miles.\\[10pt]
+A university sysadmin faced a bizarre bug: emails wouldn't travel more than 500 miles. Boston at 420 miles worked fine; Memphis at 520 miles failed completely.\\
+The cause? A timeout was set in nanoseconds instead of milliseconds. Light travels 200,000 km/s through fiber — the timeout expired at exactly 500 miles.\\[8pt]
 
 \textbf{2. Vanilla Ice Cream vs. Car Security} \\[4pt]
-Drivers of a particular car model reported a baffling issue: their keyless entry systems failed — \textit{but only after visiting one specific ice cream shop, and only if they bought vanilla}. Engineers were understandably skeptical.\\
-Yet data confirmed it. Vanilla buyers experienced failures, chocolate buyers did not. The difference? The vanilla line was shorter. Vanilla customers returned while the car’s engine was still warm, triggering a failure in a temperature-sensitive component that operated correctly once cooled.\\[10pt]
+Drivers reported their keyless entry failed — but only after buying vanilla ice cream at one specific shop. Not chocolate, not strawberry. Just vanilla. Engineers were skeptical until they confirmed it.\\
+The vanilla counter was at the front, chocolate in back. Vanilla buyers returned before the engine cooled, triggering a temperature-sensitive component failure.\\[8pt]
 
 \textbf{3. Passwords That Depend on Posture} \\[4pt]
-An IT team initially dismissed reports that a user’s password worked while standing, but failed when seated. That is, until they saw the video: standing entries succeeded, seated attempts did not.\\
-The root cause? Two keys had been swapped during keyboard maintenance. Standing users looked at the keyboard and typed what they saw. Seated users relied on muscle memory and consistently entered the wrong sequence.\\[10pt]
+An IT team dismissed reports that a password worked standing but failed sitting — until they saw it happen. Same user, same password, different postures, different results.\\
+Two keyboard keys had been swapped. Standing users looked down and typed what they saw. Seated users touch-typed from muscle memory, entering the wrong sequence.\\[8pt]
 
 \textbf{4. The Floor Polisher That Crashed Servers} \\[4pt]
-Night-shift staff at a data center kept reporting server crashes that never happened during the day. No changes in software, no power issues — just silence until sundown.\\
-Eventually, investigators traced the crashes to the cleaning crew’s floor polisher. It vibrated at exactly 60 hertz, unintentionally matching the resonant frequency of certain hard drives. The resulting mechanical resonance caused read/write heads to misalign — briefly but fatally.\\[10pt]
+Night-shift staff reported server crashes that never occurred during the day. No software changes, no power issues — just nightly failures.\\
+The cleaning crew's floor polisher vibrated at 60 Hz, matching certain hard drives' resonant frequency. The vibration misaligned read/write heads just enough to crash the system.\\[8pt]
 
-\textbf{5. Sunlight, Through a Window, at 2:45 PM} \\[4pt]
-A development team noticed something odd: one server crashed at exactly 2:45 PM every day. Logs pointed to thermal throttling, but only at that time.\\
-The answer was simple, and visible. Sunlight streamed through a west-facing window, landing directly on a poorly ventilated rack. At 2:45 PM, the sun’s angle lined up just right. The temperature spike pushed the server past its safe operating limit.%
+\textbf{5. Sunlight at 2:45 PM} \\[4pt]
+One server crashed daily at exactly 2:45 PM. Logs showed thermal throttling, but only at that precise time.\\
+Sunlight through a west-facing window hit the poorly ventilated rack at just the right angle. The temperature spike at 2:45 PM pushed the server past its limit.%
 }

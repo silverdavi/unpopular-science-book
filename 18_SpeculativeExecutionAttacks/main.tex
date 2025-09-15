@@ -38,4 +38,20 @@ Mitigations include inserting serialization barriers (\texttt{LFENCE}), flushing
 
 Speculative execution remains essential to modern processors. Without it, pipelines would stall on every conditional, and throughput would collapse under latency. But it must now be treated as a visible layer. Once attackers gained the tools to observe side effects at nanosecond resolution, the fiction of architectural isolation broke. The vulnerability was not in computation. It was in assumption.
 
+The initial Spectre and Meltdown discoveries opened a research frontier. Each processor optimization became a potential side channel. Each microarchitectural component — vector units, return predictors, schedulers, virtualization boundaries — revealed new attack surfaces.
+
+Downfall exploits Intel's AVX vector instructions. When the processor speculatively gathers data using vector operations, it may transiently load values from unauthorized memory regions into vector registers. These values, though architecturally invisible after rollback, leave cache footprints. The attack extracts cryptographic keys and sensitive data by timing which vector elements were speculatively accessed. Intel processors from 6th through 11th generation carry this flaw — a consequence of optimizing SIMD operations without considering transient visibility.
+
+Retbleed demonstrates that even hardened defenses fail. The retpoline mitigation redirected indirect branches through a carefully constructed infinite loop, preventing speculative execution down attacker-controlled paths. But return instructions — fundamental to every function call — use their own prediction mechanism. By poisoning the return stack buffer, attackers force speculative execution of arbitrary gadgets. The defense became the attack vector.
+
+AMD processors, once thought less vulnerable, revealed their own transient weaknesses. The Transient Scheduler Attacks exploit how the CPU decides which instructions to execute when multiple paths compete for resources. The scheduler's decisions, meant to maximize throughput, leak through timing which operations were prioritized. Chain these leaks together, and privileged memory becomes readable — bit by bit, decision by decision.
+
+Most recently, VMScape shattered virtualization's security model. Virtual machines should be isolated — their branch predictors independent, their speculation contained. But optimization demanded sharing. The branch target buffer, trained by one VM, influences predictions in another. A malicious guest VM extracts host secrets by manipulating shared prediction state, then measuring the host's speculative behavior through timing artifacts. The attack works because isolation was sacrificed for performance — branch predictor state crosses the VM boundary.
+
+Each attack follows the same pattern: find a performance optimization, induce transient behavior, measure the side effects. The optimizations vary — vector gather instructions, return prediction, scheduling decisions, branch target sharing — but the principle remains constant. The processor's eagerness to compute reveals what should stay hidden.
+
+Mitigations accumulate like scar tissue. Microcode patches disable vulnerable instructions. Kernel updates flush predictor state on context switches. Hypervisors insert barriers between guests and hosts. Each fix extracts a performance penalty. The cost compounds: a modern fully-mitigated system may run 30\% slower than its vulnerable predecessor. We traded a decade of Moore's Law gains for the illusion that speculation was invisible.
+
+The deeper lesson transcends any specific vulnerability. Modern processors are not simple state machines executing instructions in sequence. They are predictive engines, constantly guessing, speculating, and racing ahead. Every optimization creates observable effects. Every shared resource becomes a communication channel. Every abstraction leaks through physics.
+
 \clearpage

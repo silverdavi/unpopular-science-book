@@ -1,0 +1,103 @@
+\documentclass[11pt,openany]{book}
+
+\input{preamble}
+
+% Enable only specific chapters
+
+
+% Second Set
+
+
+\begin{comment}
+
+\end{comment}
+% Title and author
+\title{Unpopular Science}
+\author{David H. Silver}
+\date{\today}
+
+\begin{document}
+
+% Cover page
+\begin{titlepage}
+
+        
+    \begin{tikzpicture}[remember picture, overlay]
+        % Background image
+        \node[anchor=center] at (current page.center) {
+            \includegraphics[width=\paperwidth,height=\paperheight]{cover/ChatGPT Image Apr 18, 2025, 06_49_29 PM.png}
+        };
+
+        % Title
+        \node[anchor=center, align=center] at ([yshift=-9cm]current page.center) {
+            \fontsize{48}{52}\selectfont
+            \bfseries\color{white}{Unpopular Science}\\
+            \fontsize{48}{52}\selectfont
+            \bfseries\color{red}{DRAFT}
+        };
+
+
+        % Author
+        \node[anchor=center] at ([yshift=-11cm]current page.center) {
+            \fontsize{18}{32}\selectfont
+            \itshape\color{white} David H. Silver
+        };
+    \end{tikzpicture}
+    \vfill
+        
+\end{titlepage}
+
+% Academic title page
+\input{titlepage}
+
+% Table of contents
+\tableofcontents
+
+% Introduction
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\vfill
+\input{intro}
+\vfill
+\clearpage
+
+% Prologue
+\chapter*{Prologue}
+\addcontentsline{toc}{chapter}{Prologue}
+\input{prologue}
+
+
+\begin{comment}
+        \chapter[]{}
+    \label{ch:}
+    \inputstory{44_IronMask}
+\end{comment}
+
+\chapterwithsummaryfromfile[ch:bignumbers]{17_BigNumbers}
+\inputstory{17_BigNumbers} %Approved
+
+\chapterwithsummaryfromfile[ch:speculativeexecutionattacks]{18_SpeculativeExecutionAttacks}
+\inputstory{18_SpeculativeExecutionAttacks}%Approved
+
+\chapterwithsummaryfromfile[ch:cosmicraymuons]{19_CosmicRayMuons}
+\inputstory{19_CosmicRayMuons} %Approved
+
+\chapterwithsummaryfromfile[ch:chineseroomargument]{20_ChineseRoomArgument}
+\inputstory{20_ChineseRoomArgument}  %Approved
+
+\chapterwithsummaryfromfile[ch:exponentialmapslietheory]{21_ExponentialMapsLieTheory}
+\inputstory{21_ExponentialMapsLieTheory} %Approved
+
+\chapterwithsummaryfromfile[ch:minecraftcreeper]{22_MinecraftCreeper}
+\inputstory{22_MinecraftCreeper} %Approved
+
+\chapterwithsummaryfromfile[ch:blackholetimedilationredshift]{23_BlackHoleTimeDilationRedshift}
+\inputstory{23_BlackHoleTimeDilationRedshift} %Approved
+
+\chapterwithsummaryfromfile[ch:4dspacetime]{24_FourDSpacetime}
+\inputstory{24_FourDSpacetime}  %Approved
+
+\chapterwithsummaryfromfile[ch:fireflybioluminescence]{25_FireflyBioluminescence}
+\inputstory{25_FireflyBioluminescence}
+
+\end{document}

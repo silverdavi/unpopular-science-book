@@ -1,11 +1,7 @@
 \begin{SideNotePage}{
-  \textbf{Chapter Content:} \par
-  This sidenote provides supplementary visual content and explanations related to the main chapter material. The content here expands on key concepts, provides historical context, or offers alternative perspectives on the topics discussed.
+  \textbf{Top (Celebrity in Disguise):} A secret value is hidden in either Room A or Room B, represented by the celebrity and their doppelgänger. The attacker does not know which room contains the real secret. \par
+  \textbf{Middle (Reporter’s Probe):} The reporter (attacker) sends a crafted request: ordering crème brûlée to Room A. This dish is special because only the celebrity would ever order it. The CPU (chef) speculatively begins preparing it, lighting the torch even before the order is fully confirmed. \par
+  \textbf{Bottom (Timing Side Channel):} The reporter then makes a normal order, sweet potato pie. If the torch is still warm, the pie finishes faster — revealing that the crème brûlée preparation occurred, and thus that the celebrity is in Room A. If no torch warmth remains, the celebrity must be in Room B. This mirrors speculative execution: incorrect paths are rolled back architecturally, but their side effects persist in microarchitectural state, leaking secrets through timing. \par
 
-  \vspace{0.5em}
-  Additional details, diagrams, or explanations can be added here to enhance understanding of the chapter's core concepts.
-
-  \vspace{0.5em}
-  This section can include mathematical derivations, historical anecdotes, or visual representations that complement the main text.
 }{18_SpeculativeExecutionAttacks/18_ A Leaky Crystal Ball.pdf}
 \end{SideNotePage}

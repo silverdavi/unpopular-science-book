@@ -1,10 +1,10 @@
 The exponential function appears early in mathematical education, often as the solution to continuous growth or the base of natural logarithms. Yet its role extends far beyond early calculus. It mediates a transition — from additive rules to multiplicative behavior, from local definitions to global constructions, from linear approximation to curved geometry.
 
-The number \( e \) arises in several classical formulations: as the limit of compound interest expressions, as the value of a power series, or as the solution to a differential equation with constant rate of change. These expressions agree, not by coincidence, but because they encode the same underlying transformation. The exponential function is the canonical object that extends additive structure in a way compatible with composition and scaling.
+The number \( e \) arises in several classical formulations: as the limit of compound interest expressions, as the value of a power series, or as the solution to a differential equation with constant rate of change. These expressions agree, not by coincidence, but because they capture the same underlying transformation. The exponential function is the canonical object that extends additive structure in a way compatible with composition and scaling.
 
 This role recurs across mathematics. In differential geometry, the exponential map projects vectors in a tangent space to points on a manifold along geodesics. In Lie theory, it transports algebraic generators into group elements via time-one flows. In sheaf cohomology, it mediates between additive and multiplicative sheaves. In category theory, it characterizes internal function spaces. Though these definitions differ in content, each expresses a tightly constrained passage from local or linear data to global or compositional structure.
 
-The purpose of this chapter is not to unify these constructions under a single definition, but to isolate their shared logic. Each exponential map arises from the demands of its ambient structure. Each encodes how infinitesimal change extends coherently across space, algebra, or abstraction.
+The purpose of this chapter is not to unify these constructions under a single definition, but to isolate their shared logic. Each exponential map arises from the demands of its ambient structure. Each expresses how infinitesimal change extends coherently across space, algebra, or abstraction.
 
 We may remember several equivalent definitions of the number \( e \), or the exponential function \( \exp(x) \), from calculus. One learns that the limit $\left(1 + x/n\right)^n$,
 the inverse of the integral of \( 1/x \), the power series \( \sum x^n/n! \), and the solution to the differential equation \( f' = f \) with \( f(0) = 1 \), all yield the same function.
@@ -15,10 +15,10 @@ Some of these maps are defined analytically by convergent series. Others are def
 
 
 \begin{center}
-\renewcommand{\arraystretch}{1.65}
-\setlength{\tabcolsep}{2.5pt}
-\small
-\begin{tabular}{|>{\centering\arraybackslash}m{2.4cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{4.6cm}|>{\centering\arraybackslash}m{5.0cm}|}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{2pt}
+\footnotesize
+\begin{tabular}{|>{\centering\arraybackslash}m{2.0cm}|>{\centering\arraybackslash}m{2.8cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{4.2cm}|}
 \hline
 \textbf{Context} &
 \textbf{Definition of \( \exp(x) \) or Analogue} &
@@ -36,19 +36,19 @@ Lie algebra \( \to \) Lie group &
 Locally diffeomorphic; flows compose via group law \\
 \hline
 Eigenfunction of Derivation &
-\( K(f) = \lambda f \), with \( f(0) = 1 \); operator \( K \) linear, Leibniz, kills constants &
-Functions \( A \to B \), where \( A \) is additive, \( B \) a unital algebra &
-We get: \( f(x+y) = f(x)f(y) \) \\
+\( K(f) = \lambda f \), \( f(0) = 1 \); \( K \) linear, Leibniz &
+Functions \( A \to B \), \( A \) additive, \( B \) unital &
+\( f(x+y) = f(x)f(y) \) \\
 \hline
 Sheaf Theory &
 Exact seq: \( 0 \to \mathbb{Z} \to \mathcal{O} \xrightarrow{\exp} \mathcal{O}^* \) &
 Sheaf \( \mathcal{O} \to \mathcal{O}^* \) &
-Cohomological link between additive and multiplicative sheaves \\
+Links additive and multiplicative sheaves \\
 \hline
 Algebraic Homomorphism &
 Hom \( \phi \) with \( \phi(x+y) = \phi(x)\phi(y) \) &
 Additive group or module \( A \to M^\times \) &
-Characterizes exponentials over torsion-free \( A \); unique up to scalar \\
+Unique up to scalar for torsion-free \( A \) \\
 \hline
 Category Theory &
 Exponential object \( Y^X \) by adjunction rule &
@@ -58,7 +58,7 @@ Satisfies: \( \mathrm{Hom}(A \otimes X, Y) \cong \mathrm{Hom}(A, Y^X) \) \\
 Riemannian Geometry &
 \( \exp_p(v) := \gamma_v(1) \), endpoint of geodesic &
 Tangent space \( T_p M \to M \) &
-Linear data lifts to curved motion; locally diffeomorphic near \( 0 \) \\
+Linear \(\to\) curved; local diffeo near \( 0 \) \\
 \hline
 \end{tabular}
 \end{center}
@@ -67,7 +67,7 @@ The goal is not to conflate these maps, but to examine what they preserve. In ea
 
 In analysis, the exponential function solves the differential equation \( f' = f \). This characterizes it as the unique function whose local rate of change matches its global value. The transition is from differentiation, which is additive and local, to evaluation, which is multiplicative and global.
 
-In Lie theory, a Lie algebra encodes infinitesimal symmetries via antisymmetric bilinear brackets. The associated Lie group encodes global symmetries via group multiplication. The exponential map takes an element of the Lie algebra and returns the value at time one of the corresponding one-parameter subgroup. This map is locally a diffeomorphism, transporting linear structure into nonlinear group composition.
+In Lie theory, a Lie algebra represents infinitesimal symmetries via antisymmetric bilinear brackets. The associated Lie group embodies global symmetries via group multiplication. The exponential map takes an element of the Lie algebra and returns the value at time one of the corresponding one-parameter subgroup. This map is locally a diffeomorphism, transporting linear structure into nonlinear group composition.
 
 In Riemannian geometry, the exponential map sends a tangent vector \( v \in T_p M \) to the point \( \gamma_v(1) \in M \) reached by the geodesic starting at \( p \) in direction \( v \). The tangent space is linear; the manifold may be curved. The exponential expresses how straight-line data induces motion in a curved space, governed by the connection.
 
@@ -85,7 +85,7 @@ In categorical settings, exponential objects arise in monoidal categories throug
 \]
 The exponential object \( Y^X \) characterizes internal homomorphisms and governs how composition distributes over products. This structure generalizes the function space construction from set theory into more abstract environments.
 
-Across these domains, the exponential map consistently encodes the extension of additive, derivational, or linear data into structures where combination is governed by multiplication, curvature, or action. The recurrence of this pattern across analytic, geometric, algebraic, and categorical frameworks indicates that the exponential is not a formula, but a way extend local rules into globally coherent transformations.
+Across these domains, the exponential map consistently mediates the extension of additive, derivational, or linear data into structures where combination is governed by multiplication, curvature, or action. The recurrence of this pattern across analytic, geometric, algebraic, and categorical frameworks indicates that the exponential is not a formula, but a way extend local rules into globally coherent transformations.
 
 
 \begin{commentary}[Generalizations]
@@ -95,7 +95,7 @@ Such recurrence is not unique to exponentiation. Mathematics frequently extends 
 
 The derivative generalizes beyond calculus into measure theory. The Radon–Nikodym derivative expresses the rate of change between two measures — preserving the Leibniz rule and linearity while removing dependence on pointwise evaluation. In each case, the derivative remains an object that localizes variation, though its technical definition shifts.
 
-Curvature also admits generalization. From elementary circle-based definitions, it extends to Gaussian and mean curvature in surfaces, and further to the Riemann curvature tensor in higher-dimensional manifolds. The notion of curvature continues to encode deviation from flatness, but its role adapts to the presence of connections, holonomy, and coordinate invariance.
+Curvature also admits generalization. From elementary circle-based definitions, it extends to Gaussian and mean curvature in surfaces, and further to the Riemann curvature tensor in higher-dimensional manifolds. The notion of curvature continues to measure deviation from flatness, but its role adapts to the presence of connections, holonomy, and coordinate invariance.
 
 Counting begins with cardinality and extends through Lebesgue measure, volume forms, and Haar measure on locally compact groups. Each construction preserves the formal role of assigning size, additivity over disjoint unions, and invariance under structure-preserving transformations — whether these are translations, isometries, or group actions.
 
