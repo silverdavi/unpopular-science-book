@@ -4,60 +4,70 @@
 \newcommand{\F}[1]{\textcolor{blue!60!black}{#1}}   % Scalars from F
 
 \begin{technical}
-{\Large\textbf{Two Equivalences of the Exponential Map}}\\
+{\Large\textbf{Two Equivalences of the Exponential Map}}\\[0.3em]
 
-\noindent\textbf{Functional Characterization via Derivation Operator}\\
+\noindent\textbf{1. Functional Characterization via Derivation Operator}\\[0.2em]
 
 Let \( \A{A} \) be an additive group and \( \B{B} \) a unital algebra over a field \( \F{F} \). Let \( \mathrm{Func}(\A{A}, \B{B}) \) denote the algebra of functions from \( \A{A} \) to \( \B{B} \), equipped with pointwise operations inherited from \( \B{B} \). Suppose there exists a linear operator
 \[
 K: \mathrm{Func}(\A{A}, \B{B}) \to \mathrm{Func}(\A{A}, \B{B})
 \]
 satisfying for all \( g, h \in \mathrm{Func}(\A{A}, \B{B}) \), and all \( \F{c} \in \F{F} \):
-\begin{itemize}[noitemsep,topsep=0pt]
-  \item[(i)] Linearity: \( K(g + h) = K(g) + K(h) \), \( K(\F{c} \cdot g) = \F{c} \cdot K(g) \)
+
+\begin{itemize}
+  \item[(i)] Linearity: \( K(g + h) = K(g) + K(h), \quad K(\F{c} \cdot g) = \F{c} \cdot K(g) \)
   \item[(ii)] Product Rule: \( K(g \cdot h) = K(g) \cdot h + g \cdot K(h) \)
   \item[(iii)] Kills Constants: \( K(c_{\B{b}}) = \B{0} \), where \( c_{\B{b}}(\A{x}) \equiv \B{b} \in \B{B} \)
 \end{itemize}
+
 Let \( f \in \mathrm{Func}(\A{A}, \B{B}) \) satisfy:
-\begin{itemize}[noitemsep,topsep=0pt]
+
+\begin{itemize}
   \item[(iv)] \( K(f) = \F{\lambda} \cdot f \)
   \item[(v)] \( f(\A{0}) = \B{1} \)
   \item[(vi)] For all \( \A{y} \in \A{A} \), define \( g_{\A{y}}(\A{x}) := f(\A{x} \A{+} \A{y}) \), and assume \( K(g_{\A{y}}) = \F{\lambda} \cdot g_{\A{y}} \)
   \item[(vii)] If \( K(g) = \F{\lambda} \cdot g \) and \( g(\A{0}) = \B{0} \), then \( g(\A{x}) = \B{0} \) for all \( \A{x} \)
 \end{itemize}
 
-Define the function \( g(\A{x}) := f(\A{x} \A{+} \A{y}) - f(\A{x}) \B{\cdot} f(\A{y}) \).
-\begin{align*}
-g(\A{0}) 
-&= f(\A{y}) - f(\A{0}) \B{\cdot} f(\A{y}) \\
-&= f(\A{y}) - \B{1} \B{\cdot} f(\A{y}) \\
-&= \B{0}.
-\end{align*}
+Define the function:
+\[
+g(\A{x}) := f(\A{x} \A{+} \A{y}) - f(\A{x}) \B{\cdot} f(\A{y}).
+\]
+Then \( g(\A{0}) = f(\A{y}) - f(\A{0}) \B{\cdot} f(\A{y}) = f(\A{y}) - \B{1} \B{\cdot} f(\A{y}) = \B{0} \).
 
-Now compute \( K(g) \), using linearity and the product rule:
-\begin{align*}
-K(g)(\A{x}) 
-&= K\big(f(\A{x} \A{+} \A{y})\big) - K\big(f(\A{x}) \B{\cdot} f(\A{y})\big) \\
-&= \F{\lambda} \cdot f(\A{x} \A{+} \A{y}) - \Big( K(f(\A{x})) \B{\cdot} f(\A{y}) + f(\A{x}) \B{\cdot} K(f(\A{y})) \Big) \\
-&= \F{\lambda} \cdot f(\A{x} \A{+} \A{y}) - \Big( \F{\lambda} \cdot f(\A{x}) \B{\cdot} f(\A{y}) + \F{\lambda} \cdot f(\A{x}) \B{\cdot} f(\A{y}) \Big) \\
-&= \F{\lambda} \cdot f(\A{x} \A{+} \A{y}) - 2 \F{\lambda} \cdot f(\A{x}) \B{\cdot} f(\A{y}) \\
+Now compute \( K(g) \), using linearity and the product rule. We have \( K(g)(\A{x}) = K(f(\A{x} \A{+} \A{y})) - K(f(\A{x}) \B{\cdot} f(\A{y})) \).
+
+By (vi): \( K(f(\A{x} \A{+} \A{y})) = \F{\lambda} \cdot f(\A{x} \A{+} \A{y}) \).
+
+By the product rule:
+\[
+K(f(\A{x}) \B{\cdot} f(\A{y})) = K(f(\A{x})) \B{\cdot} f(\A{y}) + f(\A{x}) \B{\cdot} K(f(\A{y})).
+\]
+
+By (iv): \( K(f(\A{x})) = \F{\lambda} \cdot f(\A{x}) \) and \( K(f(\A{y})) = \F{\lambda} \cdot f(\A{y}) \).
+
+Therefore:
+\begin{align}
+K(g)(\A{x}) &= \F{\lambda} \cdot f(\A{x} \A{+} \A{y}) - 2\F{\lambda} \cdot f(\A{x}) \B{\cdot} f(\A{y}) \\
 &= \F{\lambda} \cdot \left( f(\A{x} \A{+} \A{y}) - f(\A{x}) \B{\cdot} f(\A{y}) \right) \\
 &= \F{\lambda} \cdot g(\A{x}).
-\end{align*}
+\end{align}
 
 So \( K(g) = \F{\lambda} \cdot g \), and since \( g(\A{0}) = \B{0} \), uniqueness (vii) implies \( g(\A{x}) = \B{0} \) for all \( \A{x} \). Hence:
 \[
 f(\A{x} \A{+} \A{y}) = f(\A{x}) \B{\cdot} f(\A{y}).
 \]
 
-So the exponential law results from the derivation structure, normalization, and shift invariance — independent of analytic assumptions.
+This confirms that the exponential law emerges directly from the derivation structure, normalization, and shift invariance — independent of analytic assumptions.
 
-\vspace{0.5em}
+\bigskip
 
-\noindent\textbf{Geometric Interpretation in Riemannian Manifolds}\\
+\noindent\textbf{2. Geometric Interpretation in Riemannian Manifolds}\\[0.3em]
 
 Let \( M \) be a Riemannian manifold and \( p \in M \). The exponential map at \( p \) is defined as \( \exp_p(v) := \gamma_v(1) \), where \( \gamma_v \) is the geodesic starting at \( p \) with velocity \( v \), solving:
-\( \frac{D}{dt} \dot{\gamma}_v(t) = 0 \), \( \gamma_v(0) = p \), \( \dot{\gamma}_v(0) = v \).
+\[
+\frac{D}{dt} \dot{\gamma}_v(t) = 0, \quad \gamma_v(0) = p, \quad \dot{\gamma}_v(0) = v.
+\]
 
 In \( \mathbb{R}^n \), geodesics are straight lines: \( \gamma_v(t) = p + tv \), so \( \exp_p(v) = p + v \).
 
@@ -67,7 +77,8 @@ This mirrors the scalar case: \( x'(t) = ax(t) \), \( x(0) = 1 \) yields \( x(t)
 
 The exponential map lifts linear generators — derivations or tangent vectors — to integrated flows across groups or manifolds, justifying its name in both analytic and geometric settings.
 
-\vspace{0.3em}
+\medskip
 \noindent\textbf{References:}\\
-Lang, S. (2001). \textit{Fundamentals of Differential Geometry}. Springer.
+Lang, S. (2001). \textit{Fundamentals of Differential Geometry}. Springer.\\
+Kobayashi, S., \& Nomizu, K. (1963). \textit{Foundations of Differential Geometry, Vol. I}. Wiley.
 \end{technical}

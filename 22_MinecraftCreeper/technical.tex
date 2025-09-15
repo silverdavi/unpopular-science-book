@@ -1,13 +1,12 @@
 \begin{technical}
-{\Large\textbf{Swapped Axes and Emergent Behavior: A Minimal Model of the Creeper}}\\[0.7em]
+{\Large\textbf{Swapped Axes and Emergent Behavior: A Minimal Model of the Creeper}}\\[0.1em]
 
-\noindent\textbf{Geometry Misassignment and Entity Instantiation}\\[0.5em]
 Entity models in early Minecraft were defined using bounding boxes in Java. 
 Each model was specified via constructor calls like:
 \[
 \begin{aligned}
-\texttt{ModelBox(}&\,\texttt{name,\ x,\ y,\ z,} \\
-                &\,\texttt{length,\ height,\ width)}.
+\texttt{ModelBox(}&\texttt{name, x, y, z,} \\
+&\texttt{length, height, width)}.
 \end{aligned}
 \]
 For passive mobs, proportions typically followed:
@@ -16,6 +15,7 @@ For passive mobs, proportions typically followed:
 \texttt{length} &\approx 1.2, \\
 \texttt{height} &\approx 0.9.
 \end{align*}
+
 Due to a developer error, \texttt{length} and \texttt{height} were swapped:
 \[
 (\ell,\ h,\ w)\ \mapsto\ (h,\ \ell,\ w).
@@ -39,8 +39,6 @@ on the front-facing surface using pixel coordinates:
 \texttt{eyes} &:\quad (x,y) \in \{(3,12), (10,12)\}, \\
 \texttt{mouth} &:\quad (x,y) \in \{(5,6), (4,4), (10,4)\}.
 \end{align*}
-Eye blocks were \(2 \times 2\) pixels. Mouth blocks formed a 3-part asymmetric pattern.
-This produced a static expression whose visual ambiguity increased with height.
 
 \vspace{0.3em}
 \noindent\textbf{AI Composition and Swell Behavior}\\[0.5em]
@@ -54,13 +52,11 @@ The Creeper’s actions derive from prioritized AI goals:
 Explosion occurs if the player remains within range \( r_s = 2.5 \) blocks for the full
 fuse duration. Let \( r(t) \) denote distance to the player at time \( t \). Then:
 \[
-\texttt{if } r(t) < r_s \ \forall t \in [t_0, t_0 + \tau],
-\quad \texttt{then } \texttt{Explode()}.
+\texttt{if } r(t) < r_s \ \forall t \in [t_0, t_0 + \tau], \texttt{Explode()}.
 \]
 Damage output is modeled by radial falloff:
 \[
-D(x) = \max\left(0, E_{\max}
-\left(1 - \frac{\|x - x_0\|}{R}\right)\right),
+D(x) = \max\left(0, E_{\max}\left(1 - \frac{\|x - x_0\|}{R}\right)\right),
 \]
 where \( x_0 \) is the explosion center and \( R \approx 7 \) blocks in air.
 
@@ -69,10 +65,7 @@ where \( x_0 \) is the explosion center and \( R \approx 7 \) blocks in air.
 The diagram below illustrates the result of axis misassignment during model construction.
 On the left, the intended pig model appears with a horizontal body and frontal facial features.
 On the right, the same parameters are rendered with the \texttt{length} and \texttt{height}
-values swapped. This results in a tall, upright figure that visually preserves the face but
-radically alters its proportions and alignment. No new geometry was created — only the
-original box dimensions were reinterpreted. This inversion laid the foundation for the
-Creeper’s distinctive form.
+values swapped. This inversion laid the foundation for the Creeper’s distinctive form.
 
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
