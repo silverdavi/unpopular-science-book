@@ -11,12 +11,12 @@ Evaluate both at \( x_t = 2 \), \( y_t = \tfrac{1}{2} \). What contradiction ari
 
 \vspace{1em}
 \textbf{2. Monty Hall Problem} \\[0.5em]
-A game show presents three closed doors. Behind one is a car; behind the other two, goats. You choose one door (say, Door 1). The host, who knows what is behind each door, opens a different door (say, Door 3), revealing a goat. He then offers you the option to switch your choice to the remaining unopened door (Door 2). Should you switch?
+A game show presents three closed doors. Behind one is a car; behind the other two, goats. You choose one door (say, Door 1, or D1). The host, who knows what is behind each door, opens a different door (say, Door 3), revealing a goat. He then offers you the option to switch your choice to the remaining unopened door (Door 2). Should you switch?
 
 \textit{Hint:} The host never opens the door you chose, and never reveals the car. Compute:
 \[
-P(\text{Car behind Door 1} \mid \text{Host opens Door 3}) \quad \text{vs.} \quad
-P(\text{Car behind Door 2} \mid \text{Host opens Door 3}).
+P(\text{Car behind D1} \mid \text{Host opens D3}) \quad \text{vs.} \quad
+P(\text{Car behind D2} \mid \text{Host opens D3}).
 \]
 Use Bayes' theorem. The host’s choice depends on your initial pick and the hidden car placement.
 
@@ -39,14 +39,4 @@ Sleeping Beauty is put to sleep. A fair coin is tossed. If heads, she is woken M
 
 \textit{Hint:} Model the wake-up events: \( \{\text{H-M}, \text{T-M}, \text{T-T}\} \). Normalize using the condition: "I am awake now."
 
-
-\vspace{1em}
-\textbf{6. St. Petersburg Paradox} \\[0.5em]
-You win \( 2^n \) dollars where \( n \) is the number of coin flips until the first heads. What is the expected value of the game?
-
-\textit{Hint:} Compute:
-\[
-\mathbb{E} = \sum_{n=1}^\infty 2^n \cdot \left(\tfrac{1}{2}\right)^n.
-\]
-What does this say about rational betting behavior?
 }
