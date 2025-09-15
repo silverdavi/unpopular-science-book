@@ -1,89 +1,66 @@
 \begin{technical}
-{\Large\textbf{Large Numbers: Mathematical Formulation}}\\[0.7em]
+{\Large\textbf{Hierarchy of Growth Rates}}\\[0.7em]
 
-\textbf{Busy Beaver Function}\\[0.5em]
-The Busy Beaver function $\text{BB}(n)$ is defined as:
-$$
-\text{BB}(n) = \max\{s(M) : M \text{ is an $n$-state Turing machine that halts}\},
-$$
-where $s(M)$ is the number of steps taken by machine $M$ before halting. Known values include:
+\textbf{Level 1: Elementary Functions}
 \begin{align}
-\text{BB}(1) &= 1\\
-\text{BB}(2) &= 4\\
-\text{BB}(3) &= 6\\
-\text{BB}(4) &= 13\\
-\text{BB}(5) &> 47{,}176{,}870
+f(n) &= n + c \text{ (linear)}\\
+f(n) &= n^k \text{ (polynomial)}\\
+f(n) &= k^n \text{ (exponential)}\\
+f(n) &= n! \approx \sqrt{2\pi n}\left(\frac{n}{e}\right)^n
 \end{align}
 
-The function is uncomputable: there is no algorithm that can compute $\text{BB}(n)$ for arbitrary $n$. This follows from the unsolvability of the halting problem.
+\textbf{Level 2: Iterated Exponentials}\\
+Tetration: ${}^ka = \underbrace{a^{a^{\cdot^{\cdot^{\cdot^a}}}}}_{k \text{ times}}$\\
+Growth: ${}^k2$ has $\sim 2^{k-2}$ digits.
 
-\textbf{Ackermann Function}\\[0.5em]
-The Ackermann function is defined recursively as:
+\textbf{Level 3: Ackermann Function}
 \begin{align}
-A(0, n) &= n + 1\\
-A(m+1, 0) &= A(m, 1)\\
-A(m+1, n+1) &= A(m, A(m+1, n))
+A(0,n) &= n+1\\
+A(m+1,0) &= A(m,1)\\
+A(m+1,n+1) &= A(m, A(m+1,n))
 \end{align}
-It grows faster than any primitive recursive function but remains total recursive. Key values:
+Growth: $A(1,n) \approx 2n$, $A(2,n) \approx 2^n$, $A(3,n) \approx {}^{n+3}2$, $A(4,n)$ exceeds tetration.
+
+\textbf{Level 4: Knuth Arrows}
 \begin{align}
-A(3, 4) &= 2^{2^{2^2}} - 3 = 2^{16} - 3 = 65{,}533\\
-A(4, 2) &= 2^{2^{2^{2^2}}} - 3 \approx 2.0 \times 10^{19{,}728}
+a \uparrow^0 b &= ab\\
+a \uparrow^{k+1} b &= a \uparrow^k (a \uparrow^{k+1} (b-1))
 \end{align}
+$3 \uparrow 3 = 27$, $3 \uparrow\uparrow 3 = 7{,}625{,}597{,}484{,}987$\\
+$3 \uparrow\uparrow\uparrow 3 = 3 \uparrow\uparrow 7{,}625{,}597{,}484{,}987$
 
-\textbf{Rayo Function}\\[0.5em]
-Rayo's function is defined as:
-$$
-\text{Rayo}(n) = \min\{k \in \mathbb{N} : k \text{ cannot be defined in first-order set theory using } \leq n \text{ symbols}\}.
-$$
-This definition uses diagonal argument techniques similar to those in Russell's paradox. The function grows much faster than any function definable in first-order set theory.
-
-\textbf{TREE Function}\\[0.5em]
-The TREE function arises from Kruskal's tree theorem. TREE$(n)$ is the maximum length of a sequence of labeled trees with labels from $\{1, 2, \ldots, n\}$ such that no tree in the sequence is inf-embeddable into a later tree.
-
-Known bounds on TREE$(3)$ are astronomical:
-$$
-\text{TREE}(3) > \underbrace{A(A(\cdots A}_{A(9^{9^9}) \text{ iterations}}(9^{9^9})\cdots)).
-$$
-The number is so large that it exceeds the Fast-Growing Hierarchy evaluated at enormous ordinals.
-
-\textbf{Fast-Growing Hierarchy}\\[0.5em]
-The fast-growing hierarchy $\{f_\alpha\}_{\alpha < \varepsilon_0}$ is defined using ordinal indexing:
+\textbf{Level 5: Fast-Growing Hierarchy}\\
+Indexed by ordinals:
 \begin{align}
-f_0(n) &= n + 1\\
-f_{\alpha+1}(n) &= f_\alpha^n(n) \text{ (iterate $f_\alpha$ $n$ times)}\\
-f_\lambda(n) &= f_{\lambda[n]}(n) \text{ for limit ordinal $\lambda$}
+f_0(n) &= n+1\\
+f_{\alpha+1}(n) &= f_\alpha^n(n)\\
+f_\omega(n) &= f_n(n)\\
+f_{\omega^2}(n) &= f_{\omega \cdot n}(n)\\
+f_{\varepsilon_0}(n) &\text{ dominates finite } \omega \text{ towers}
 \end{align}
-where $\lambda[n]$ is the $n$-th element in the fundamental sequence for $\lambda$.
 
-\textbf{Large Cardinals}\\[0.5em]
-Large cardinals form a hierarchy of infinite numbers with increasing consistency strength:
+\textbf{Level 6: TREE Function}\\
+TREE$(n)$ = max sequence of $n$-labeled trees with no embeddings.\\
+TREE$(1) = 1$, TREE$(2) = 3$\\
+TREE$(3) > f_{\theta(\Omega^\omega)}(n)$ for any reasonable $n$.
 
-\textbf{Inaccessible Cardinal:} A cardinal $\kappa$ such that:
-\begin{itemize}
-\item $\kappa$ is uncountable
-\item $\kappa$ is a strong limit: $2^\lambda < \kappa$ for all $\lambda < \kappa$  
-\item $\kappa$ is regular: $\text{cf}(\kappa) = \kappa$
-\end{itemize}
+\textbf{Level 7: Busy Beaver}\\
+BB$(n)$ = max steps of halting $n$-state Turing machine.\\
+BB$(4) = 13$, BB$(5) > 47{,}176{,}870$\\
+BB$(6) > 3.5 \times 10^{18267}$\\
+Eventually dominates all computable functions.
 
-\textbf{Mahlo Cardinal:} An inaccessible cardinal $\kappa$ such that the set of inaccessible cardinals less than $\kappa$ is stationary in $\kappa$.
+\textbf{Level 8: Rayo Function}\\
+Rayo$(n)$ = smallest number not definable in set theory with $\leq n$ symbols.\\
+Dominates any $n$-symbol definable function by diagonalization.
 
-\textbf{Strongly Compact Cardinal:} A cardinal $\kappa$ such that the logic $L_{\kappa,\kappa}$ satisfies a strong compactness property: every set of sentences of size $\kappa$ has a model if every subset of size less than $\kappa$ has a model.
+\textbf{Growth Comparison}\\
+For large $n$: polynomial $\ll$ exponential $\ll$ Ackermann $\ll$ arrows $\ll f_{\varepsilon_0} \ll$ TREE $\ll$ BB $\ll$ Rayo
 
-\textbf{Supercompact Cardinal:} A cardinal $\kappa$ such that for every $\lambda \geq \kappa$, there exists an elementary embedding $j: V \rightarrow M$ with critical point $\kappa$, $j(\kappa) > \lambda$, and $M^\lambda \subseteq M$.
-
-The hierarchy continues indefinitely with huge cardinals, n-huge cardinals, superhuge cardinals, and beyond.
-
-\textbf{Consistency Strength Ordering}\\[0.5em]
-These large cardinal concepts are ordered by consistency strength. If $\phi$ and $\psi$ are large cardinal properties, then $\phi$ has greater consistency strength than $\psi$ if:
-$$
-\text{ZFC} + \phi \vdash \text{Con}(\text{ZFC} + \psi).
-$$
+Each level uses fundamentally stronger recursion principles.
 
 \vspace{0.5em}
 \textbf{References:}\\
-Radó, T. (1962). On non-computable functions. \textit{Bell System Technical Journal}, 41(3):877-884.\\
-Ackermann, W. (1928). Zum Hilbertschen Aufbau der reellen Zahlen. \textit{Math. Ann.}, 99(1):118-133.\\
-Rayo, A. (2007). On the length of proofs. \textit{Logique et Analyse}, 50(200):565-586.\\
-Friedman, H. (2006). Long finite sequences. \textit{Journal of Combinatorial Theory}, Series A, 95(1):102-144.\\
-Jech, T. (2003). \textit{Set Theory: The Third Millennium Edition}. Springer-Verlag.
+Löb \& Wainer, \textit{Arch. Math. Logik} \textbf{13}, 1 (1970).\\
+Friedman, \textit{J. Comb. Theory A} \textbf{95}, 102 (2006).
 \end{technical}
