@@ -1,0 +1,67 @@
+\begin{technical}
+{\Large\textbf{False Vacuum Decay: Mathematical Formulation}}\\[0.7em]
+
+\textbf{Higgs Potential and Vacuum Stability}\\[0.5em]
+The Higgs potential in the Standard Model takes the form
+$$
+V(\phi) = \mu^2 \phi^2 + \lambda \phi^4,
+$$
+where $\phi$ is the Higgs field, $\mu^2 < 0$ for spontaneous symmetry breaking, and $\lambda > 0$ for stability. The vacuum expectation value is $\langle \phi \rangle = v = \sqrt{-\mu^2/\lambda} \approx 246$ GeV.
+
+However, renormalization group running modifies the effective potential at high energies. The quartic coupling evolves as
+$$
+\frac{d\lambda}{d\ln Q} = \beta_\lambda = \frac{1}{16\pi^2}\left(12\lambda^2 - 6\lambda y_t^2 + \frac{3}{4}y_t^4 + \text{gauge terms}\right),
+$$
+where $y_t$ is the top quark Yukawa coupling and $Q$ is the energy scale. For Higgs mass $m_H \approx 125$ GeV and top mass $m_t \approx 173$ GeV, $\lambda$ runs negative at scales $Q \sim 10^{10}$ GeV, creating a second minimum at large field values.
+
+\textbf{Coleman-De Luccia Instanton}\\[0.5em]
+Vacuum decay proceeds via bubble nucleation described by the Euclidean action
+$$
+S_E = \int d^4x \left[\frac{1}{2}(\partial_\mu \phi)^2 + V(\phi)\right].
+$$
+The critical bubble solution has $O(4)$ symmetry in Euclidean space, satisfying
+$$
+\frac{d^2\phi}{d\rho^2} + \frac{3}{\rho}\frac{d\phi}{d\rho} = \frac{dV}{d\phi},
+$$
+where $\rho = \sqrt{x_1^2 + x_2^2 + x_3^2 + x_4^2}$ is the four-dimensional radius.
+
+The nucleation rate per unit volume is
+$$
+\Gamma = A e^{-S_E/\hbar},
+$$
+where $A$ is a prefactor and $S_E$ is the Euclidean action of the bounce solution. For the Standard Model, current estimates give $S_E/\hbar \sim 400-500$, making spontaneous decay negligible over cosmic timescales.
+
+\textbf{High-Energy Triggers}\\[0.5em]
+Particle collisions can catalyze vacuum decay if they create field configurations that reduce the effective barrier. The critical energy for nucleation scales as
+$$
+E_{\text{crit}} \sim \frac{M_{\text{Pl}}^2}{M_{\text{inst}}},
+$$
+where $M_{\text{Pl}} = 1.2 \times 10^{19}$ GeV is the Planck mass and $M_{\text{inst}} \sim 10^{10}$ GeV is the instanton scale. This gives $E_{\text{crit}} \sim 10^{28}$ GeV, far above current accelerator capabilities but within the range of ultra-high-energy cosmic rays.
+
+\textbf{Bubble Dynamics}\\[0.5em]
+Once nucleated, the bubble wall obeys
+$$
+\gamma^2 = \frac{1}{1-v^2}, \quad \frac{d\gamma}{dt} = \frac{1}{\gamma}\frac{d\gamma}{dr}\frac{dr}{dt} = \frac{v}{\gamma}\frac{d\gamma}{dr},
+$$
+where $v$ is the wall velocity and $\gamma$ is the Lorentz factor. For thin walls, the terminal velocity approaches the speed of light as
+$$
+v \to 1 - \frac{3\sigma^2}{2\epsilon^2},
+$$
+where $\sigma$ is the surface tension and $\epsilon$ is the energy difference between vacua.
+
+\textbf{Renormalization Group Uncertainty}\\[0.5em]
+The stability analysis depends critically on precise measurements of Standard Model parameters. The most sensitive quantities are:
+\begin{align}
+m_t &= 173.1 \pm 0.9 \text{ GeV} \\
+m_H &= 125.25 \pm 0.17 \text{ GeV} \\
+\alpha_s(M_Z) &= 0.1179 \pm 0.0010
+\end{align}
+A 1 GeV increase in the top mass would push the vacuum from metastable to unstable, while a 3 GeV increase in the Higgs mass would restore absolute stability.
+
+\vspace{0.5em}
+\textbf{References:}\\
+Coleman, S., De Luccia, F. (1980). Gravitational effects on and of vacuum decay. \textit{Phys. Rev. D}, 21(12):3305.\\
+Degrassi, G., et al. (2012). Higgs mass and vacuum stability in the Standard Model at NNLO. \textit{JHEP}, 2012(8):098.\\
+Isidori, G., et al. (2008). On the metastability of the standard model vacuum. \textit{Nucl. Phys. B}, 609(3):387-409.\\
+Andreassen, A., et al. (2017). Precision metastability in the standard model. \textit{Phys. Rev. D}, 95(8):085011.
+\end{technical}

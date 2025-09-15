@@ -1,0 +1,51 @@
+Number,Folder Name,Topic,Title,Main PDF,Other PDFs,Has title.tex,Has summary.tex,Has main.tex,Has technical.tex,Has historical.tex,Has sidenote.tex,Has topicmap.tex,Has quote.tex,Has exercises.tex,Has joke.tex,Has Images
+1,01_BanachTarskiParadox,BanachTarskiParadox,An Axiom of Your Choice,01_ An Axiom of Your Choice.pdf,UNPOP SCI - BANACH TARSKI - vF.pdf; banach-tarski.pdf; Wu.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+2,02_TopologicalInsulators,TopologicalInsulators,Edges of Tomorrow,02_ Edges of Tomorrow.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+3,03_GoldRelativity,GoldRelativity,All That Gold Glitters,03_ All That Gold Glitters.pdf,UNPOP SCI - Gold.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+4,04_EMFieldsEnergyFlow,EMFieldsEnergyFlow,Think Outside the Wire,04_ Think Outside the Wire.pdf,UNPOP SCI - ELECTRON DRIFT.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+5,05_CircleWheel,CircleWheel,A Circle of PIE,05_ A Full Circle of PIE.pdf,etymology_graph_portrait_v105.pdf; indo_european_tree_tall.pdf; indo_european_tree_tall_big.pdf; UNPOP SCI - INDO EUROPEAN TREE.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+6,06_GravityTimeDilation,GravityTimeDilation,The Apple Falls the Shortest Path from the Tree,06_ The Apple Falls the Shortest Path from the Tree.pdf,UNPOP SCI - Relativity and Gravity.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+7,07_BilliardsConicsPorism,BilliardsConicsPorism,A Complex (Projective) Billiard Game,07_ A Complex (Projective) Billiard Game.pdf,UNPOPSCI - BILLIARDS - vF.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+8,08_BoundedPrimeGaps,BoundedPrimeGaps,"70-Million Steps for Primes, One Giant Leap for Number Theory","08_ 70-Million Steps for Primes, One Giant Leap for Number Theory.pdf",UnpopSci - Primes 70m.pdf; UNPOP SCI - 70 Million Primes.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+9,09_ArrowTheoremTopology,ArrowTheoremTopology,Real Democracy Has Never Been Tried,09_ Real Democracy Has Never Been Tried.pdf,UNPOPSCI - DEMOCRACY - vF.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes,Yes
+10,10_SolarFusionQuantumTunneling,SolarFusionQuantumTunneling,The Tunnel at the Beginning of Light,10_ The Tunnel at the Beginning of Light.pdf,UNPOPSCI - solar fusion + quantum tunneling .pdf; UNPOP SCI - Solar Fusion & Quantum Tunneling _LABELED_.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+11,11_AcceleratingUniverse,AcceleratingUniverse,Dark Energies Are Pushing Us Apart,11_DarkEnergiesArePushingUsApart.pdf,hubble_graph_portrait.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+12,12_GSMEncryptionOrder,GSMEncryptionOrder,You Would Like to Order First,12_ You Would Like to Order First.pdf,UNPOP SCI - Cryptography.pdf; 27290598.pdf; a52hacktool (1).pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+13,13_PoissonsSpot,PoissonsSpot,Right on Spot,13_ Right on Spot.pdf,UnpopSci - DoubleSlit - vF.pdf; 6135-.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+14,14_CompactTwinParadox,CompactTwinParadox,A Circle of Time,14_ A Circle of Time.pdf,UNPOP SCI - TWIN PARADOX.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+15,15_EnvelopeParadox,EnvelopeParadox,The Better Envelope,15_ The Better Envelope.pdf,UNPOP SCI - Double or Half.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+16,16_FalseVacuumThreat,FalseVacuumThreat,The Most Dangerous Hill in the Universe,16_ The Most Dangerous Hill in the Universe.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+17,17_BigNumbers,BigNumbers,Beyond the Infinite: A Hierarchy of Incomprehensible Numbers,17_ Beyond the Infinite_ A Hierarchy of Impossible Numbers.pdf,texput.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+18,18_SpeculativeExecutionAttacks,SpeculativeExecutionAttacks,A Leaky Crystal Ball,18_ A Leaky Crystal Ball.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes,Yes
+19,19_CosmicRayMuons,CosmicRayMuons,Consider the Muon's PoV,19_ Consider the Muon_s PoV.pdf,Standard_Model_of_Elementary_Particles.pdf; no_customization_frame.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+20,20_ChineseRoomArgument,ChineseRoomArgument,"Capish, Comprehendes, Computes?","20_ Capish, Comprende, Computes_.pdf",UNPOP SCI - CHINESE ROOM - vF.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+21,21_ExponentialMapsLieTheory,ExponentialMapsLieTheory,Exponentially Generalizable,21_ Exponentially Generalizable.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+22,22_MinecraftCreeper,MinecraftCreeper,Creeping Bug,22_ Creeping Bug.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+23,23_BlackHoleTimeDilationRedshift,BlackHoleTimeDilationRedshift,A Place at the End of Time,23_ A Place at the End of Time.pdf,UNPOP SCI - END OF TIME.pdf; penrose_diagram.pdf; penrose_diagram_small.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes,Yes
+24,24_FourDSpacetime,FourDSpacetime,Put on Your 4D Glasses,24_ Put on Your 4D Glasses.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+25,25_FireflyBioluminescence,FireflyBioluminescence,Let There Be Bioluminescence,25_ Let There Be Bioluminsecence.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+26,26_JewishCalendar,JewishCalendar,When Midnight Means Nothing: Calendar Chaos at the Ends of the Earth,26_ When Midnight Means Nothing.pdf,placeholder.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+27,27_PlanetarySkyColors,PlanetarySkyColors,A Spectrum of Skies,27_ A Spectrum of Skies.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes,No,No,Yes
+28,28_NegativeTemp,NegativeTemp,Too Hot Or Too Cold,28_ Too Hot or Too Cold.pdf,hubble_graph_portrait.pdf; placeholder.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+29,29_HatMonotile,HatMonotile,The Plane Hat of Einstein,29_ The Plane Hat of Einstein.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+30,30_SimpsonsParadox,SimpsonsParadox,Divide and Conquer,30_ Divide & Conquer.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+31,31_osmosis_Debye,osmosis_Debye,Concentrate on Osmosis,31_ Concentrate on Osmosis.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+32,32_AtomicClocks,AtomicClocks,Timing Is Everything,32_ Timing is Everything.pdf,placeholder.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+33,33_IncubationInequality,IncubationInequality,The Center Holds,33_ Gaussian Correlation Inequality.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+34,34_BoltzmannBrain,BoltzmannBrain,A Thought About Nothing,34_ A Thought About Nothing.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+35,35_TreesFromAir,TreesFromAir,From Air to Arbor,35_ From Air to Arbor.pdf,UNPOP SCI - HARDENED AIR - vF.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+36,36_qft_vs_gr,qft_vs_gr,Renormalize All the Things,36_ When Theories Collide.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+37,37_DarkMatterEvidence,DarkMatterEvidence,The Invisible Scaffold,37_ The Invisible Scaffold.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+38,38_ChristmasTruce1914,ChristmasTruce1914,A Pause in the Pattern,38_ A Pause in Pattern.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+39,39_SuperpermutationsBreakthrough,SuperpermutationsBreakthrough,Superanonymous,39_ Superanonymous.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+40,40_DNASequencing,DNASequencing,Tattered Life,40_ Shredding and Rebuilding the Encyclopedia of Life.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+41,41_HoughTransfrom,HoughTransfrom,It Is Just a Phase,41_ It Is Just a Phase.pdf,hough_transform_visualization.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+42,42_IceSlipperiness,IceSlipperiness,"Wet, Cold, Slippery Slope","42_ Wet, Cold, Slippery Slope.pdf",,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+43,43_NearFlatUniverse,NearFlatUniverse,Infinite Yet Born,43_ Infinite Yet Born.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+44,44_IronMask,IronMask,The Mask of Administrative Silence,44_ Mask of Administrative Silence.pdf,placeholder.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+45,45_MaxwellDemon,MaxwellDemon,Entropy's Gatekeeper,45_ Entropy_s Gatekeeper.pdf,UNPOP SCI - MAXWELLS DEMON - vF.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+46,46_WoodwardHoffmannRules,WoodwardHoffmannRules,Orbital Affairs,46_ Symmetry_s Chemical Logic.pdf,placeholder.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+47,47_ObserverDependentVacuum,ObserverDependentVacuum,An Optimist’s Take on Vacuum,47_ Optimist_s Take on Vacuum.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+48,48_three_body,three_body,Chaotic Neutrality,48_ Chaotic Neutrality.pdf,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+49,49_IVFmtDNA,IVFmtDNA,Genetically Modified Organism,49_ Tattered.pdf,placeholder.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
+50,50_LangtonsAnt,LangtonsAnt,Is Anybody Home,50_Consciousness.pdf,placeholder.pdf,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes
