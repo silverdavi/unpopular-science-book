@@ -7,13 +7,13 @@
 
   \vspace{1.5em}
   \textbf{Banach-Tarski as a Card Game:} \par
-  Imagine a deck with cards \(A, B, A', B'\), where you can make any pile of cards, under one rule: $A$ and $A'$ cancel, $B$ and $B'$ cancel (the cards dissapear if they are next to one another). Each card represents a rigid rotation: \(A, A'\) rotate around one axis; \(B, B'\) around another. In the diagram, blue and red are inverses, as are green and yellow.
+  Imagine a deck with cards \(A, B, A^{-1}, B^{-1}\), where you can make any pile of cards, under one rule: $A$ and $A^{-1}$ cancel, $B$ and $B^{-1}$ cancel (the cards dissapear if they are next to one another). Each card represents a rigid rotation: \(A, A^{-1}\) rotate around one axis; \(B, B^{-1}\) around another. In the diagram, blue and red are inverses, as are green and yellow.
 
   \vspace{0.5em}
-  Four players each take all reduced sequences (no canceling cards neighbor each other) beginning with a specific card, forming four disjoint point sets: \(S_A, S_{A'}, S_B, S_{B'}\).
+  Four players each take all reduced sequences (no canceling cards neighbor each other) beginning with a specific card, forming four disjoint point sets: \(S_A, S_{A^{-1}}, S_B, S_{B^{-1}}\).
 
   \vspace{0.5em}
-  Now prepend an \(A\) to every sequence in \(S_{A'}\), practiaclly rotating the whole set, forming \(A \cdot S_{A'}\). This transforms sequences that began with \(A'\) into sequences that no longer do. For instance, \(A'BA \mapsto BA\), and \(A' \mapsto\) identity. The union \(S_A \cup A \cdot S_{A'}\) now covers all sequences — forming one full copy of the sphere. Similarly, \(S_B \cup B \cdot S_{B'}\) forms a second.
+  Now prepend an \(A\) to every sequence in \(S_{A^{-1}}\), practiaclly rotating the whole set, forming \(A \cdot S_{A^{-1}}\). This transforms sequences that began with \(A^{-1}\) into sequences that no longer do. For instance, \(A^{-1}BA \mapsto BA\), and \(A^{-1} \mapsto\) identity. The union \(S_A \cup A \cdot S_{A^{-1}}\) now covers all sequences — forming one full copy of the sphere. Similarly, \(S_B \cup B \cdot S_{B^{-1}}\) forms a second.
 
 }{01_BanachTarskiParadox/01_ An Axiom of Your Choice.pdf}
 \end{SideNotePage}

@@ -1,105 +1,67 @@
 \begin{technical}
-{\Large\textbf{Jewish Calendar: Mathematical Formulation}}\\[0.7em]
+{\Large\textbf{Calendar Mathematics}}\\[0.5em]
 
-\textbf{Lunar Month and Molad Calculation}\\[0.5em]
-The Jewish calendar is fundamentally lunar, with months beginning at the molad (new moon). The average length of a lunar month is:
-$$
-\text{Month} = 29 \text{ days}, 12 \text{ hours}, 44 \text{ minutes}, 3\frac{1}{3} \text{ seconds} = 29.530594 \text{ days}.
-$$
-This value, established by tradition, differs slightly from the modern astronomical value of 29.530589 days.
+\textbf{Molad Calculation}\\[0.3em]
+The traditional Jewish lunar month length:
+\[
+29d\,12h\,44m\,3\tfrac{1}{3}s = 29.530594\text{ days}
+\]
+Modern astronomical value: 29.530589 days. Error accumulates at:
+\[
+\Delta = 5 \times 10^{-6} \times N \text{ days}
+\]
+where $N$ is months elapsed. After 1000 years ($\approx$12,400 months): error $\approx$ 2.6 hours.
 
-The molad for any month can be calculated using:
-$$
-M_n = M_0 + n \cdot \Delta M,
-$$
-where $M_0$ is a reference molad, $n$ is the number of months since the reference, and $\Delta M$ is the mean lunation interval.
+\textbf{Metonic Cycle}\\[0.3em]
+19 solar years $\approx$ 235 lunar months:
+\[
+19 \times 365.2422 = 6939.602\text{ days}
+\]
+\[
+235 \times 29.530594 = 6939.689\text{ days}
+\]
+Difference: 0.087 days per 19-year cycle. Leap years occur in years 3, 6, 8, 11, 14, 17, 19.
 
-\textbf{Metonic Cycle and Intercalation}\\[0.5em]
-To align the lunar calendar with solar seasons, the Jewish calendar uses a 19-year cycle with 7 leap years:
-$$
-19 \text{ solar years} \approx 235 \text{ lunar months}
-$$
-More precisely: $19 \times 365.2422 = 6939.6018$ days, while $235 \times 29.530594 = 6939.6893$ days.
-
-Leap years occur in years 3, 6, 8, 11, 14, 17, and 19 of each 19-year cycle. In leap years, the month of Adar is doubled (Adar I and Adar II).
-
-\textbf{Dechiyot (Postponement Rules)}\\[0.5em]
-Rosh Hashanah cannot fall on Sunday, Wednesday, or Friday, to prevent conflicts with Sabbath observance and Yom Kippur. The postponement rules (dechiyot) are:
-
-\begin{enumerate}
-\item \textbf{Lo ADU:} If the molad falls on Sunday, Wednesday, or Friday
-\item \textbf{Molad Zaken:} If the molad occurs after 18:00 (6 PM)
-\item \textbf{GaTRaD:} In regular years, if molad falls on Tuesday after 9:204 AM
-\item \textbf{BeTuTaKPaT:} In years following leap years, if molad falls on Monday after 15:589 AM
+\textbf{Dechiyot (Postponements)}\\[0.3em]
+Rosh Hashanah cannot fall on Sun, Wed, or Fri:
+\begin{enumerate}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item \textbf{Lo ADU}: Direct postponement
+\item \textbf{Molad Zaken}: If molad $\geq$ 18:00
+\item \textbf{GaTRaD}: Regular year, Tuesday $\geq$ 9h 204p
+\item \textbf{BeTuTaKPaT}: After leap, Monday $\geq$ 15h 589p
 \end{enumerate}
 
-\textbf{Polar Region Solutions}\\[0.5em]
-For locations with extended polar day/night, several halachic approaches exist:
+\textbf{Ben Meir Dispute (922 CE)}\\[0.3em]
+Ben Meir: Molad threshold = 642 parts\\
+Traditional: Molad threshold = 0 parts\\
+For Tishrei 4683 (922 CE):\\
+Ben Meir: Day 2, 9h 204p\\
+Saadia: Day 2, 15h 589p\\
+Modern calculation confirms Saadia.
 
-\textbf{Fixed Time Method:} Use the last observable sunset/sunrise times:
-$$
-t_{\text{Shabbat}} = t_{\text{last sunset}} + 7 \times 24 \text{ hours}
-$$
+\textbf{Polar Day Solutions}\\[0.3em]
+\textit{Sun-circle method}: Each 24h circuit = 1 day\\
+\textit{Origin timezone}: Follow departure location\\
+\textit{Proportional}: Calculate theoretical solar angle:
+\[
+h = 15°(t-12) - \lambda + E
+\]
 
-\textbf{Proportional Method:} Calculate theoretical solar position:
-$$
-h = 15° \times (t - 12) - \lambda + E
-$$
-where $h$ is solar hour angle, $t$ is local time, $\lambda$ is longitude, and $E$ is equation of time.
+\textbf{Date Line Positions}\\[0.3em]
+International: 180° from Greenwich\\
+Chazon Ish: 90° E of Jerusalem (125.2°E)\\
+Practical: Follow local civil date\\
 
-\textbf{Home Community Method:} Follow origin timezone:
-$$
-t_{\text{local}} = t_{\text{home}} + \Delta T_{\text{zone}}
-$$
-
-\textbf{International Date Line Calculations}\\[0.5em]
-When crossing the date line during holidays, different approaches apply:
-
-\textbf{Civil Date Method:} Follow local civil calendar
-\textbf{Continuous Count Method:} Maintain unbroken day count regardless of date line
-\textbf{Halachic Day Method:} Calculate based on sunset-to-sunset cycles
-
-For flight crossing date line:
-$$
-t_{\text{holiday}} = \begin{cases}
-t_{\text{departure}} + \text{flight time} & \text{(continuous method)} \\
-t_{\text{local arrival}} & \text{(civil method)} \\
-\text{next local sunset} & \text{(halachic method)}
-\end{cases}
-$$
-
-\textbf{Calendar Accuracy and Drift}\\[0.5em]
-The traditional molad interval accumulates error over time. The current drift is approximately:
-$$
-\text{Error} = (29.530594 - 29.530589) \times N = 5 \times 10^{-6} \times N \text{ days}
-$$
-where $N$ is the number of months since epoch.
-
-After 1000 years: Error ≈ 7.3 hours
-After 2000 years: Error ≈ 14.6 hours
-
-\textbf{Ben Meir Controversy Mathematics}\\[0.5em]
-The 922 CE dispute centered on molad timing. Ben Meir calculated:
-$$
-\text{Molad Tishrei} = \text{Day 2, Hour 9, Part 204}
-$$
-Saadia Gaon calculated:
-$$
-\text{Molad Tishrei} = \text{Day 2, Hour 15, Part 589}
-$$
-The difference of approximately 6 hours led to different postponement rule applications, resulting in Rosh Hashanah dates two days apart.
-
-\textbf{Modern Computational Verification}\\[0.5em]
-Using modern astronomical data, the actual new moon for Tishrei 4683 (922 CE) occurred at approximately:
-$$
-\text{JD} = 2071260.125 \pm 0.001
-$$
-corresponding to Day 2, Hour 15, Part 589 in the traditional system, supporting Saadia Gaon's calculation.
+\textbf{Orbital Period}\\[0.3em]
+ISS orbit: 90 minutes\\
+Sunrises per day: 16\\
+Solution: Follow launch site timezone
 
 \vspace{0.5em}
 \textbf{References:}\\
-Reingold, E. M., Dershowitz, N. (2018). \textit{Calendrical Calculations}, 4th ed. Cambridge University Press.\\
-Stern, S. (2012). \textit{Calendars in Antiquity}. Oxford University Press.\\
-Bushwick, N. (1989). The Jewish calendar system. In \textit{Mapping Time}. John Wiley \& Sons.\\
-Resnikoff, L. (1943). Jewish calendar calculations. \textit{Scripta Mathematica}, 9:191-195.
+{\footnotesize
+Feldman, W.M. (1931). \textit{Rabbinical Mathematics}.\\
+Stern, S. (2019). \textit{The Jewish Calendar Controversy of 921/2}.\\
+Lifschitz, Y. (1850). \textit{Tiferet Yisrael}, Berakhot 1.
+}
 \end{technical}
