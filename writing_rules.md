@@ -20,7 +20,7 @@ Each chapter follows a three-part structure:
 
 **Em Dash Usage**: Use em dashes only when structurally necessary, and always pad with spaces on both sides (" — " not " --- ").
 
-**Eliminate Filler Words**: Remove words that don't add substance. Target vague softeners ("rather," "somewhat," "quite," "fairly"), empty intensifiers ("very," "extremely," "highly"), and structural fillers ("underlying," "overall," "general"). Every word must contribute meaning.
+**Eliminate Filler Words**: Remove words that don't add substance. Target vague softeners ("rather," "somewhat," "quite," "fairly"), empty intensifiers ("very," "extremely," "highly," "even," "entire"), and structural fillers ("underlying," "overall," "general," "fundamental," "modern," "severe," "specific" when used as generic modifiers). Every word must contribute meaning.
 
 **Preserve Technical Language**: Distinguish between filler and precise technical terms. Words like "fundamental," "significant," "multiple," "complex," "crucial," "important," and "specific" are legitimate when they convey technical meaning:
 - ✓ "multiple paths" (physics: many geodesics exist)
@@ -40,6 +40,19 @@ Each chapter follows a three-part structure:
 - "The key insight is..."
 - "This pattern appears..."
 - "These attacks succeed because..."
+- "Physical actions leave traces..."
+- "These attacks expose a truth..."
+- "It lies in..."
+- Opening sentences that announce the topic instead of entering it directly
+
+Examples:
+- ✗ "Meltdown uses indirection. It never successfully reads forbidden memory."
+- ✓ "Meltdown never successfully reads forbidden memory."
+- ✗ "The timing channel requires precision."
+- ✓ Just explain timing requirements directly
+- ✗ "Processors achieve high performance through pipelines..."
+- ✓ "Processors execute instructions through pipelines..."
+
 Just present the content directly without announcing it.
 
 **Contextual Contrast Scaffolding**: Generally avoid "not only... but also..." constructions, "this XXX is not merely YYY but ZZZ" patterns, and "not because X but because Y" structures. However, preserve these when they express meaningful logical relationships:
@@ -53,9 +66,26 @@ Just present the content directly without announcing it.
 - ✗ "structure of the argument," "underlying structure," "mathematical structure"
 Use specific synonyms: "framework," "organization," "pattern," "relationship," "architecture," "configuration."
 
-**Avoid Repetition**: Do not repeat explanations or phrasing across adjacent sections or sentences. Each sentence must advance content.
+**Avoid Repetition**: Do not repeat explanations or phrasing across adjacent sections or sentences. Each sentence must advance content. Remove:
+- Redundant concluding sentences that merely restate what was just explained
+- Paragraphs that circle back to already-covered material
+- Multiple explanations of the same concept in different words
+- Summary sentences at the end of sections (save summaries for summary.tex)
+
+**Watch for Overused Domain Words**: In technical chapters, certain domain-specific words can become crutches. Monitor and vary usage of:
+- In computer science: "processor," "memory," "cache," "architectural," "speculative/speculatively"
+- In physics: "quantum," "relativistic," "fundamental," "observer"
+- In mathematics: "topological," "geometric," "algebraic"
+Replace with synonyms where possible: "CPU/hardware" for processor, "storage" for memory, "execution" for speculative operation.
 
 **Personal Voice in Commentary**: Allow more personal, reflective voice in commentary sections and sidenotes while maintaining technical accuracy in main content.
+
+**Accessibility Without Dumbing Down**: When introducing technical concepts:
+- Use concrete analogies for abstract concepts (warehouse for memory hierarchy, assembly line for pipelines)
+- Define technical terms naturally in context on first use
+- Progress from familiar to unfamiliar (web browser → instructions → memory → caches)
+- Make stakes concrete with relatable examples (banking passwords, private photos) rather than abstract "sensitive data"
+- Ensure the first page is accessible to readers without domain expertise
 
 ## Mathematical and Technical Rules
 
@@ -105,6 +135,14 @@ Each chapter aims for exactly **8 pages**:
 **Precision**: Use technically accurate language. Avoid approximations in language that could mislead about the underlying science.
 
 **No Manufactured Wonder**: Don't tell readers how to feel ("This is mind-blowing!"). Let the material speak for itself.
+
+**Reject Dramatic Injections**: Avoid:
+- Artificial tension builders ("But what if...?", "The distance?")
+- Sensational transitions ("lies in its ingenuity")
+- False profundity ("These attacks expose a truth...")
+- Breathless revelation ("reveals the shocking fact")
+- Dad joke setups in technical content
+The science is interesting enough without theatrical additions.
 
 ## Summary Style Guidelines
 
