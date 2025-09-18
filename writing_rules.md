@@ -34,6 +34,14 @@ Each chapter follows a three-part structure:
 
 **No Rhetorical Questions**: Enter topics directly. Avoid rhetorical questions, dramatization, or surprise framing.
 
+**Eliminate Meta-Commentary**: Remove sentences that describe what the text is doing. Avoid phrases like:
+- "This demonstrates/reveals/shows..."
+- "X uses Y technique" (when followed by explanation of that technique)
+- "The key insight is..."
+- "This pattern appears..."
+- "These attacks succeed because..."
+Just present the content directly without announcing it.
+
 **Contextual Contrast Scaffolding**: Generally avoid "not only... but also..." constructions, "this XXX is not merely YYY but ZZZ" patterns, and "not because X but because Y" structures. However, preserve these when they express meaningful logical relationships:
 - ✗ "Gold is not just yellow but also metallic" (redundant contrast)
 - ✓ "Proper time depends not only on local geometry but also on global topology" (two distinct physical contributions)
@@ -90,7 +98,7 @@ Each chapter aims for exactly **8 pages**:
 
 **Authoritative but Humble**: Present information with confidence while acknowledging complexity and nuance.
 
-**Direct Entry**: Begin discussions immediately without preamble or throat-clearing.
+**Direct Entry**: Begin discussions immediately without preamble or throat-clearing. Eliminate unnecessary lead-in sentences like "X demonstrates Y" or "This reveals Z." Instead of "Meltdown uses indirection. It never successfully reads forbidden memory," write "Meltdown never successfully reads forbidden memory." Cut meta-commentary that describes what you're about to say — just say it.
 
 **Substance Over Style**: Let the inherent fascination of scientific concepts drive engagement rather than linguistic flourishes.
 
