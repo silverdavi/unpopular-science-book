@@ -1,49 +1,44 @@
 \begin{technical}
-{\Large\textbf{Two Standard Euler-Formula Arguments}}\\[0.3em]
+{\Large\textbf{Transfer Matrix Method for Domino Tilings}}\\[0.7em]
 
-\textbf{A) Average face/vertex degrees in any edge-to-edge tiling}\\[0.2em]
-Let a locally finite, edge-to-edge tiling of the plane have:
-\begin{itemize}[topsep=0pt,itemsep=2pt]
-\item $F$ faces (tiles), $E$ edges, $V$ vertices in a large simply connected patch.
-\item Face degrees $p_f$ (sides per tile), vertex degrees $q_v$ (tiles meeting at a vertex).
-\end{itemize}
-Define
-\begin{align*}
-\bar{p} &= \frac{1}{F}\sum_f p_f, & \bar{q} &= \frac{1}{V}\sum_v q_v.
-\end{align*}
-Double counting:
-\begin{align*}
-\sum_f p_f &= 2E - e_\partial, & \sum_v q_v &= 2E - e'_\partial,
-\end{align*}
-where $e_\partial, e'_\partial$ are boundary corrections. For a large patch, $e_\partial/E \to 0$. Hence
-\begin{align*}
-\frac{2E}{F} &\to \bar{p}, & \frac{2E}{V} &\to \bar{q}.
-\end{align*}
-Euler on a simply connected patch: $V - E + F = 1$. Divide by $E$ and pass to the limit:
+\noindent\textbf{Problem:} Count tilings of a $3 \times 2n$ cylinder with $1 \times 2$ dominoes.\\[0.5em]
+View the tiling column by column. Each column's state describes which cells are occupied by dominoes from the previous column. Valid states (0 = empty, 1 = occupied):
 \[
-\frac{V}{E} - 1 + \frac{F}{E} \to 0.
+|0\rangle = \begin{pmatrix}0\\0\\0\end{pmatrix}, 
+|1\rangle = \begin{pmatrix}0\\1\\1\end{pmatrix},
+|2\rangle = \begin{pmatrix}1\\0\\0\end{pmatrix},
+|3\rangle = \begin{pmatrix}1\\0\\1\end{pmatrix},
+|4\rangle = \begin{pmatrix}1\\1\\0\end{pmatrix},
+|5\rangle = \begin{pmatrix}1\\1\\1\end{pmatrix}
 \]
-Using $V/E \to 2/\bar{q}$ and $F/E \to 2/\bar{p}$, we get the \textbf{Euler balance}
-\[
-\boxed{\frac{1}{\bar{p}} + \frac{1}{\bar{q}} = \frac{1}{2}}.
-\]
-Immediate consequences:
-\begin{itemize}[topsep=0pt,itemsep=2pt]
-\item Since $q_v \geq 3$, $\bar{q} \geq 3$, so $1/\bar{p} = 1/2 - 1/\bar{q} \leq 1/2 - 1/3 = 1/6$, hence $\boxed{\bar{p} \leq 6}$.
-\item Dually, $p_f \geq 3$ gives $\boxed{\bar{q} \leq 6}$.
-\end{itemize}
 
-\textbf{Corollary.} In any edge-to-edge tiling by convex polygons, either every tile is a hexagon with $\bar{p} = 6$ and $\bar{q} = 3$, or there exists at least one tile with $\leq 5$ sides.
-(If all tiles had $\geq 6$ sides with some $> 6$, then $\bar{p} > 6$, contradicting $\bar{p} \leq 6$.)
+\noindent\textbf{Transfer Matrix:} Entry $T_{ij}$ counts ways to transition from state $i$ to state $j$:
+\[
+T = \begin{pmatrix}
+1 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 0 \\
+0 & 0 & 0 & 1 & 0 & 1 \\
+1 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 1
+\end{pmatrix}
+\]
+Number of tilings = $\text{tr}(T^{2n})$ (cycles returning to initial state).
 
-\textbf{B) Classification of regular tilings via Euler}\\[0.2em]
-A regular (uniform) tiling $\{p,q\}$ has every face a regular $p$-gon, and $q$ faces meet at each vertex. Then $\bar{p} = p$ and $\bar{q} = q$, so
+\noindent\textbf{Spectral Analysis:} Characteristic polynomial:
 \[
-\frac{1}{p} + \frac{1}{q} = \frac{1}{2}.
+\det(T - \lambda I) = \lambda^6 - 3\lambda^4 - \lambda^3 + 3\lambda + 1
 \]
-With integers $p, q \geq 3$, the only solutions are
+Dominant eigenvalue $\lambda_1 \approx 1.8393$. For large $n$:
 \[
-(p,q) \in \{(3,6), (4,4), (6,3)\}.
+\text{tr}(T^{2n}) \sim c \cdot (1.8393)^{2n}
 \]
-So the only regular Euclidean tilings are by equilateral triangles, squares, and regular hexagons.
+Entropy per unit area: $h = \frac{1}{6}\ln(\lambda_1^2) \approx 0.2028$.
+
+\noindent\textbf{Physical Connection:} This entropy equals the free energy of the dimer model on a cylindrical lattice at zero temperature. The transfer matrix extends to compute correlations and phase transitions. For planar regions, this connects to the Arctic circle phenomenon where random tilings exhibit frozen regions near boundaries.
+
+\vspace{0.5em}
+\noindent\textbf{References:}\\
+Kenyon, R. (2009). \textit{Lectures on Dimers}. arXiv:0910.3129.\\
+Mohar, B., Thomassen, C. (2001). \textit{Graphs on Surfaces}. Johns Hopkins Press.
 \end{technical}

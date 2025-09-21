@@ -76,7 +76,8 @@ Use specific synonyms: "framework," "organization," "pattern," "relationship," "
 - In computer science: "processor," "memory," "cache," "architectural," "speculative/speculatively"
 - In physics: "quantum," "relativistic," "fundamental," "observer"
 - In mathematics: "topological," "geometric," "algebraic"
-Replace with synonyms where possible: "CPU/hardware" for processor, "storage" for memory, "execution" for speculative operation.
+- Cross-domain: "emerge/emerges/emerging," "structure/structural," "deep," "fundamental," "transform/transforms/transforming"
+Replace with synonyms where possible: "CPU/hardware" for processor, "storage" for memory, "execution" for speculative operation. For "emerge," consider: "arise," "develop," "result," "follow," "appear," or simply describe the process directly. For "transform," consider: "convert," "change," "turn," "translate," "modify," or describe the specific change.
 
 **Personal Voice in Commentary**: Allow more personal, reflective voice in commentary sections and sidenotes while maintaining technical accuracy in main content.
 

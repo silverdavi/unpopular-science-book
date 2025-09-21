@@ -4,9 +4,10 @@
 
 \noindent\textbf{Radiative Transfer and Blackbody Radiation}\\[0.2em]
 The propagation of specific intensity \( I_\nu \) along a path \( s \) is governed by the equation of radiative transfer:
-\[
-\frac{dI_\nu}{ds} = j_\nu - \alpha_\nu I_\nu - \sigma_\nu I_\nu + \iint \sigma_\nu(\Omega', \Omega) I_\nu(\Omega')\, d\Omega'
-\]
+\begin{align*}
+\frac{dI_\nu}{ds} &= j_\nu - \alpha_\nu I_\nu - \sigma_\nu I_\nu \\
+&\quad + \iint \sigma_\nu(\Omega', \Omega) I_\nu(\Omega')\, d\Omega'
+\end{align*}
 where \( j_\nu \) is the emission coefficient, \( \alpha_\nu \) is the absorption coefficient, and \( \sigma_\nu \) is the scattering coefficient. The optical depth is \( d\tau_\nu = (\alpha_\nu + \sigma_\nu)\, ds \). In local thermodynamic equilibrium (LTE), the source function \( S_\nu = j_\nu/\alpha_\nu \) approaches the Planck function:
 \[
 B_\nu(T) = \frac{2h\nu^3}{c^2} \left[ \exp\left( \frac{h\nu}{kT} \right) - 1 \right]^{-1}
@@ -41,11 +42,7 @@ The Doppler effect shifts wavelengths by
 \[
 \frac{\Delta \lambda}{\lambda_0} = \frac{v_r}{c}, \quad (v_r \ll c)
 \]
-where \( v_r \) is the radial velocity. Redshift (\( \Delta \lambda > 0 \)) indicates recession; blueshift indicates approach. For distant galaxies, the cosmological redshift \( z \) is related to the scale factor \( R(t) \) via:
-\[
-1 + z = \frac{R(t_{\text{obs}})}{R(t_{\text{emit}})}
-\]
-and follows Hubble's law for \( z \ll 1 \): \( v = H_0 d \).
+where \( v_r \) is the radial velocity. Redshift (\( \Delta \lambda > 0 \)) indicates recession; blueshift indicates approach. For distant galaxies, the cosmological redshift \( z \) is related to the scale factor \( R(t) \) via $1 + z = R(t_{\text{obs}})/R(t_{\text{emit}})$ and follows Hubble's law for \( z \ll 1 \): \( v = H_0 d \).
 
 Extinction by dust is quantified by
 \[
