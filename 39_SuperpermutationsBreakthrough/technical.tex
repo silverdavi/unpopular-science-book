@@ -12,10 +12,7 @@ The anonymous 4chan user showed that for all $n \geq 2$, the minimal length sati
 \[
 L(n) \geq n! + (n-1)! + (n-2)! + n - 3.
 \]
-The proof bounds the number of edges in any Hamiltonian path that must have weight greater than 1. Let $\mathcal{P}$ be any Hamiltonian path through $G_n$. At best, two permutations can overlap by $n-1$ symbols, requiring only one new symbol to transition. However, weight-1 transitions alone cannot form a complete path due to overlap constraints. The proof partitions permutations into blocks where:
-- One block must be traversed without overlap (initial permutation).
-- Some fraction of transitions must necessarily use edges with higher cost due to incompatible suffix-prefix structure.
-- Using known bounds on the number of minimal-overlap transitions, one can count how many higher-cost edges must occur and compute their contribution.
+The proof bounds the number of edges in any Hamiltonian path that must have weight greater than 1. Let $\mathcal{P}$ be any Hamiltonian path through $G_n$. At best, two permutations can overlap by $n-1$ symbols, requiring only one new symbol to transition. However, weight-1 transitions alone cannot form a complete path due to overlap constraints. The proof partitions permutations into blocks where: One block must be traversed without overlap (initial permutation). Some fraction of transitions must necessarily use edges with higher cost due to incompatible suffix-prefix structure. Using known bounds on minimal-overlap transitions, one can count higher-cost edges and compute their contribution.
 The derived lower bound is tight for small $n$ and remains the strongest known general lower bound for $L(n)$.
 
 \noindent\textbf{Egan's Constructive Upper Bound}\\
@@ -23,21 +20,19 @@ Greg Egan constructed a general method for building superpermutations of length 
 \[
 L(n) \leq n! + (n-1)! + (n-2)! + (n-3)! + n - 3.
 \]
-The method generates Hamiltonian paths through subsets of permutations with controlled overlaps:
-- Begin with a path that efficiently traverses permutations of $n-1$ symbols.
-- Lift the path into $S_n$ by inserting the new symbol in controlled positions.
-- Design the insertion and merge process to preserve maximal overlaps where possible.
-Egan's construction uses Cayley graph traversal techniques and reuses structural symmetries. The difference between the upper and lower bounds is $(n-3)!$:
+The method generates Hamiltonian paths through subsets of permutations with controlled overlaps: Begin with a path that efficiently traverses permutations of $n-1$ symbols. Lift the path into $S_n$ by inserting the new symbol in controlled positions. Design the insertion and merge process to preserve maximal overlaps where possible. Egan's construction uses Cayley graph traversal techniques and reuses structural symmetries. The difference between the upper and lower bounds is $(n-3)!$:
 \[
 \Delta(n) = L_{\text{upper}}(n) - L_{\text{lower}}(n) = (n-3)!.
 \]
 \noindent\textbf{Example: The Case $n = 7$}\\
-The number of permutations is $7! = 5040$. Applying the bounds:
+Applying the bounds:
 \begin{align}
-\text{Lower bound: } & 5040 + 720 + 120 + 7 - 3 = 5884, \\
-\text{Upper bound: } & 5040 + 720 + 120 + 24 + 7 - 3 = 5908.
+\text{Lower bound: } & 5040 + 720 + 120 + 7 - 3\\
+ &= 5884, \\
+\text{Upper bound: } & 5040 + 720 + 120 + 24 + 7 - 3\\
+ &= 5908.
 \end{align}
-The shortest known construction, found by Charlie Vane, is 5906 characters long — 22 above the lower bound and 2 below the upper bound. The true value of $L(n)$ for $n = 7$ remains unknown.
+The shortest known construction, found by Charlie Vane, is 5906. The true value of $L(n)$ for $n = 7$ remains unknown.
 
 \noindent\textbf{References:}\\
 Houston, R. (2014). \textit{Obvious Does Not Imply True: The Minimal Superpermutation Conjecture Is False}. arXiv:1408.5108.\\
