@@ -35,7 +35,7 @@ Pacific Biosciences (PacBio) developed single-molecule real-time (SMRT) sequenci
 Oxford Nanopore technology uses no enzymes or fluorescence. It passes a single DNA strand through a protein nanopore embedded in a membrane. An applied voltage drives both the DNA and an ionic current. As the DNA translocates, nucleotides in the pore's 1.4-nanometer constriction modulate the current. The narrowest region spans approximately five bases, so the signal reflects a 5-mer. Neural networks decode the complex current modulations into a DNA sequence, achieving >95\% accuracy and read lengths that can exceed one million bases.
 
 Long reads simplified assembly graphs dramatically, as most repeats become trivial to span. Modern projects often use a hybrid approach: Illumina provides an accurate short-read backbone, while PacBio or Nanopore provides a long-read scaffold to resolve repeats and structural variants.
-
+\newpage
 \begin{commentary}[On Assembly Statistics]
 Evaluating a genome assembly requires understanding its output format. Assemblies consist of fragments at two organizational levels. A \textbf{contig} is a contiguous stretch of sequence assembled from overlapping reads — an unbroken text. A \textbf{scaffold} links multiple contigs that are ordered and oriented but separated by gaps of estimated size. Consider recovering a book's text from shredded copies: contigs are complete pages reconstructed from overlapping fragments, scaffolds are chapters where page order is known but some pages remain missing.
 

@@ -4,43 +4,45 @@
 \textbf{Sequencing by Synthesis}\\[0.5em]
 Illumina uses reversible terminators with cleavable fluorescent labels. Each cycle:
 \begin{align}
-\text{DNA}_n + \text{dNTP-3'-blocker-fluor} &\xrightarrow{\text{polymerase}} \text{DNA}_{n+1}\\
-\text{Imaging} &\rightarrow \text{Base identification}\\
-\text{Chemical cleavage} &\rightarrow \text{3'-OH restoration}
+&\text{DNA}_n + \text{dNTP-3'-block-fluor}\\
+&\quad\xrightarrow{\text{pol}} \text{DNA}_{n+1}\\
+&\text{Imaging} \rightarrow \text{Base identification}\\
+&\text{Chemical cleavage} \rightarrow \text{3'-OH restoration}
 \end{align}
 
-Bridge amplification creates clonal clusters ($\sim10^3$ copies) on flow cell surface. Fluorescence signal $S \propto N_{\text{molecules}}$ enables robust base calling with error rate $\varepsilon \approx 0.1\%$.
+Bridge amplification creates clonal clusters ($\sim10^3$ copies) on flow cell surface. Fluorescence signal $S \propto N_{\text{mol}}$ enables base calling with error rate $\varepsilon \approx 0.1\%$.
 
 \textbf{De Bruijn Graph Construction}\\[0.5em]
 For read set $\mathcal{R}$ with k-mer length $k$:
 \begin{align}
 V &= \{w \in \Sigma^k : w \text{ appears in } \mathcal{R}\}\\
-E &= \{(u,v) : \text{suffix}_{k-1}(u) = \text{prefix}_{k-1}(v)\}
+E &= \{(u,v) : \text{suffix}_{k-1}(u)\\
+&\quad\quad = \text{prefix}_{k-1}(v)\}
 \end{align}
 
-Each read of length $L$ contributes $L-k+1$ vertices and $L-k$ edges. The graph compresses redundant sequence information.
+Each read of length $L$ contributes $L-k+1$ vertices and $L-k$ edges, compressing redundant sequence information.
 
 \textbf{Eulerian Path Assembly}\\[0.5em]
 Assembly seeks Eulerian path through $G$:
 \begin{align}
-\text{Path} &= e_1e_2...e_m \text{ where } \forall i: \text{head}(e_i) = \text{tail}(e_{i+1})\\
-\text{Genome} &= \text{spell}(v_0) + \text{last}(e_1) + ... + \text{last}(e_m)
+\text{Path} &= e_1e_2...e_m \text{ where}\\
+&\quad \forall i: \text{head}(e_i) = \text{tail}(e_{i+1})\\
+\text{Genome} &= \text{spell}(v_0) + \text{last}(e_1)\\
+&\quad + ... + \text{last}(e_m)
 \end{align}
 
 For existence, graph must be connected with:
-- All vertices balanced: $\text{in-degree} = \text{out-degree}$, or
+- All vertices balanced: in-degree = out-degree, or
 - Exactly two semi-balanced vertices
 
 \textbf{Coverage and k-mer Selection}\\[0.5em]
 Expected k-mer coverage:
-\[
-C_k = C_{\text{read}} \cdot \frac{L-k+1}{L}
-\]
-where $C_{\text{read}} = NL/G$ (reads × length / genome size).
+\[C_k = C_{\text{read}} \cdot \frac{L-k+1}{L}\]
+where $C_{\text{read}} = NL/G$ (reads $\times$ length / genome).
 
 Optimal $k$ balances:
-- Small $k$: More connections, higher coverage, more ambiguity
-- Large $k$: Fewer repeats, lower coverage, more gaps
+- Small $k$: More connections, higher coverage, ambiguity
+- Large $k$: Fewer repeats, lower coverage, gaps
 
 Typically $k \in [21, 127]$ for Illumina data.
 
@@ -52,17 +54,15 @@ Real graphs contain:
 \item \textbf{Repeats}: Create branching/convergence
 \end{itemize}
 
-Error correction: Remove k-mers with coverage $< \text{threshold}$.
+Error correction: Remove k-mers with coverage $<$ threshold.
 
 \textbf{Paired-End Constraints}\\[0.5em]
 Insert size $d \sim \mathcal{N}(\mu, \sigma^2)$ provides scaffolding:
-\[
-\text{Path constraint: } |p(r_1, r_2) - \mu| < 3\sigma
-\]
+\[|p(r_1, r_2) - \mu| < 3\sigma\]
 where $p(r_1, r_2)$ is genomic distance between read pairs.
 
 \vspace{0.5em}
 \textbf{References:}\\
-Bentley, D. R., et al. (2008). \textit{Nature}, 456:53-59.\\
-Pevzner, P. A., et al. (2001). \textit{PNAS}, 98:9748-9753.
+Bentley et al. (2008). \textit{Nature} 456:53-59.\\
+Pevzner et al. (2001). \textit{PNAS} 98:9748-9753.
 \end{technical}
