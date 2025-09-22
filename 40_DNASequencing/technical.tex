@@ -1,123 +1,68 @@
 \begin{technical}
-{\Large\textbf{DNA Sequencing Technologies: Technical Formulation}}\\[0.7em]
+{\Large\textbf{Illumina Sequencing and De Bruijn Assembly}}\\[0.7em]
 
-\textbf{Sanger Chain Termination Method}\\[0.5em]
-Sanger sequencing uses dideoxynucleotides (ddNTPs) that lack the 3'-OH group required for phosphodiester bond formation:
-$$
-\text{dNTP: } \text{Base}-\text{Sugar}(\text{3'-OH, 5'-PO}_4) \rightarrow \text{Extension possible}
-$$
-$$
-\text{ddNTP: } \text{Base}-\text{Sugar}(\text{3'-H, 5'-PO}_4) \rightarrow \text{Termination}
-$$
+\textbf{Sequencing by Synthesis}\\[0.5em]
+Illumina uses reversible terminators with cleavable fluorescent labels. Each cycle:
+\begin{align}
+\text{DNA}_n + \text{dNTP-3'-blocker-fluor} &\xrightarrow{\text{polymerase}} \text{DNA}_{n+1}\\
+\text{Imaging} &\rightarrow \text{Base identification}\\
+\text{Chemical cleavage} &\rightarrow \text{3'-OH restoration}
+\end{align}
 
-The probability of termination at position $n$ for ddNTP concentration ratio $r$ is:
-$$
-P_{\text{term}}(n) = \frac{r}{1+r}
-$$
-where $r = [\text{ddNTP}]/[\text{dNTP}]$. Optimal ratios typically range from 1:50 to 1:200.
+Bridge amplification creates clonal clusters ($\sim10^3$ copies) on flow cell surface. Fluorescence signal $S \propto N_{\text{molecules}}$ enables robust base calling with error rate $\varepsilon \approx 0.1\%$.
 
-\textbf{Next-Generation Sequencing Platforms}\\[0.5em]
+\textbf{De Bruijn Graph Construction}\\[0.5em]
+For read set $\mathcal{R}$ with k-mer length $k$:
+\begin{align}
+V &= \{w \in \Sigma^k : w \text{ appears in } \mathcal{R}\}\\
+E &= \{(u,v) : \text{suffix}_{k-1}(u) = \text{prefix}_{k-1}(v)\}
+\end{align}
 
-\textbf{454 Pyrosequencing:} Detects pyrophosphate release during DNA synthesis:
-$$
-\text{dNTP} + \text{DNA}_n \xrightarrow{\text{polymerase}} \text{DNA}_{n+1} + \text{PPi}
-$$
-$$
-\text{PPi} + \text{APS} \xrightarrow{\text{sulfurylase}} \text{ATP} + \text{SO}_4^{2-}
-$$
-$$
-\text{ATP} + \text{luciferin} \xrightarrow{\text{luciferase}} \text{light} + \text{AMP} + \text{PPi}
-$$
+Each read of length $L$ contributes $L-k+1$ vertices and $L-k$ edges. The graph compresses redundant sequence information.
 
-Light intensity is proportional to number of incorporated nucleotides: $I \propto n_{\text{bases}}$.
+\textbf{Eulerian Path Assembly}\\[0.5em]
+Assembly seeks Eulerian path through $G$:
+\begin{align}
+\text{Path} &= e_1e_2...e_m \text{ where } \forall i: \text{head}(e_i) = \text{tail}(e_{i+1})\\
+\text{Genome} &= \text{spell}(v_0) + \text{last}(e_1) + ... + \text{last}(e_m)
+\end{align}
 
-\textbf{Ion Torrent:} Measures pH changes from proton release:
-$$
-\text{dNTP incorporation} \rightarrow \text{H}^+ \text{ release} \rightarrow \Delta\text{pH} \rightarrow \Delta V_{\text{ISFET}}
-$$
-ISFET voltage response: $\Delta V = \frac{kT}{q} \ln(10) \times \Delta\text{pH}$ where $k$ is Boltzmann constant, $T$ is temperature, $q$ is elementary charge.
+For existence, graph must be connected with:
+- All vertices balanced: $\text{in-degree} = \text{out-degree}$, or
+- Exactly two semi-balanced vertices
 
-\textbf{Illumina Sequencing:} Uses reversible terminators with fluorescent labels:
-$$
-\text{Terminator} \xrightarrow{\text{incorporation}} \text{Imaging} \xrightarrow{\text{cleavage}} \text{Next cycle}
-$$
-Each cycle produces 4-color fluorescence image with signal-to-noise ratio typically >10:1.
+\textbf{Coverage and k-mer Selection}\\[0.5em]
+Expected k-mer coverage:
+\[
+C_k = C_{\text{read}} \cdot \frac{L-k+1}{L}
+\]
+where $C_{\text{read}} = NL/G$ (reads × length / genome size).
 
-\textbf{Third-Generation Sequencing}\\[0.5em]
+Optimal $k$ balances:
+- Small $k$: More connections, higher coverage, more ambiguity
+- Large $k$: Fewer repeats, lower coverage, more gaps
 
-\textbf{Pacific Biosciences (PacBio):} Single-molecule real-time sequencing in zero-mode waveguides (ZMWs):
-$$
-\text{ZMW diameter} \approx 100\text{nm} < \lambda_{\text{excitation}}/2n
-$$
-where $\lambda$ is excitation wavelength and $n$ is refractive index. This confines illumination to ~20 zeptoliters.
+Typically $k \in [21, 127]$ for Illumina data.
 
-Pulse width analysis determines base identity:
-$$
-t_{\text{pulse}} = t_{\text{incorporation}} + t_{\text{diffusion}}
-$$
-Different bases show characteristic pulse duration distributions.
+\textbf{Graph Complexity}\\[0.5em]
+Real graphs contain:
+\begin{itemize}[leftmargin=*, topsep=0pt, itemsep=0pt]
+\item \textbf{Bubbles}: SNPs/errors create parallel paths
+\item \textbf{Tips}: Coverage gaps form dead ends
+\item \textbf{Repeats}: Create branching/convergence
+\end{itemize}
 
-\textbf{Oxford Nanopore:} Measures current modulation as DNA translocates through protein pores:
-$$
-I(t) = f(\text{5-mer sequence at time } t)
-$$
-Current levels are sequence-dependent with ~20 pA differences between bases. Base calling uses hidden Markov models or recurrent neural networks.
-
-\textbf{Genome Assembly Algorithms}\\[0.5em]
-
-\textbf{De Bruijn Graph Construction:} For reads $R$ and k-mer length $k$:
-$$
-G = (V, E) \text{ where } V = \{k\text{-mers}\}, E = \{(u,v) : \text{suffix}_{k-1}(u) = \text{prefix}_{k-1}(v)\}
-$$
-
-\textbf{Eulerian Path Assembly:} Seek path visiting each edge exactly once:
-$$
-\text{Assembly} = \text{sequence corresponding to Eulerian path in } G
-$$
-
-For ideal case with perfect coverage and no repeats:
-$$
-|\text{Genome}| = |E| + k - 1
-$$
-
-\textbf{Coverage and Assembly Statistics}\\[0.5em]
-Expected coverage follows Poisson distribution:
-$$
-P(\text{coverage} = c) = \frac{\lambda^c e^{-\lambda}}{c!}
-$$
-where $\lambda = \frac{N \times L}{G}$ (reads × read length / genome size).
-
-Probability of zero coverage: $P(c = 0) = e^{-\lambda}$
-
-For complete assembly with probability $p$: $\lambda \geq -\ln(1-p)$
-
-N50 statistic: Length $L$ such that 50\% of assembly is in contigs ≥ $L$.
+Error correction: Remove k-mers with coverage $< \text{threshold}$.
 
 \textbf{Paired-End Constraints}\\[0.5em]
-Insert size distribution typically normal: $\text{Insert} \sim \mathcal{N}(\mu, \sigma^2)$
-
-For scaffolding, gap size estimation:
-$$
-\text{Gap} = \text{Insert size} - \text{Read}_1 - \text{Read}_2 - \text{Overlap}
-$$
-
-Mate-pair validation: $|\text{Observed distance} - \text{Expected}| < 3\sigma$
-
-\textbf{Error Models}\\[0.5em]
-Illumina error rate: $\varepsilon \approx 0.1\%$ per base
-PacBio error rate: $\varepsilon \approx 10-15\%$ per base (mostly indels)
-Nanopore error rate: $\varepsilon \approx 5-10\%$ per base
-
-Quality scores: $Q = -10\log_{10}(P_{\text{error}})$
-$$
-P_{\text{error}} = 10^{-Q/10}
-$$
+Insert size $d \sim \mathcal{N}(\mu, \sigma^2)$ provides scaffolding:
+\[
+\text{Path constraint: } |p(r_1, r_2) - \mu| < 3\sigma
+\]
+where $p(r_1, r_2)$ is genomic distance between read pairs.
 
 \vspace{0.5em}
 \textbf{References:}\\
-Sanger, F., Nicklen, S., Coulson, A. R. (1977). DNA sequencing with chain-terminating inhibitors. \textit{Proc. Natl. Acad. Sci.}, 74(12):5463-5467.\\
-Ronaghi, M. (2001). Pyrosequencing sheds light on DNA sequencing. \textit{Genome Res.}, 11(1):3-11.\\
-Bentley, D. R., et al. (2008). Accurate whole human genome sequencing using reversible terminator chemistry. \textit{Nature}, 456(7218):53-59.\\
-Eid, J., et al. (2009). Real-time DNA sequencing from single polymerase molecules. \textit{Science}, 323(5910):133-138.\\
-Pevzner, P. A., Tang, H., Waterman, M. S. (2001). An Eulerian path approach to DNA fragment assembly. \textit{Proc. Natl. Acad. Sci.}, 98(17):9748-9753.
+Bentley, D. R., et al. (2008). \textit{Nature}, 456:53-59.\\
+Pevzner, P. A., et al. (2001). \textit{PNAS}, 98:9748-9753.
 \end{technical}

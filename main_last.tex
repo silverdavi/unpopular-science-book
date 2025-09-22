@@ -1,0 +1,128 @@
+
+\documentclass[11pt,openany]{book}
+
+\input{preamble}
+
+% Enable only specific chapters
+
+
+% Second Set
+
+
+\begin{comment}
+
+\end{comment}
+% Title and author
+\title{Unpopular Science}
+\author{David H. Silver}
+\date{\today}
+
+\begin{document}
+
+% Cover page
+\begin{titlepage}
+
+        
+    \begin{tikzpicture}[remember picture, overlay]
+        % Background image
+        \node[anchor=center] at (current page.center) {
+            \includegraphics[width=\paperwidth,height=\paperheight]{cover/ChatGPT Image Apr 18, 2025, 06_49_29 PM.png}
+        };
+
+        % Title
+        \node[anchor=center, align=center] at ([yshift=-9cm]current page.center) {
+            \fontsize{48}{52}\selectfont
+            \bfseries\color{white}{Unpopular Science}\\
+            \fontsize{48}{52}\selectfont
+            \bfseries\color{red}{DRAFT}
+        };
+
+
+        % Author
+        \node[anchor=center] at ([yshift=-11cm]current page.center) {
+            \fontsize{18}{32}\selectfont
+            \itshape\color{white} David H. Silver
+        };
+    \end{tikzpicture}
+    \vfill
+        
+\end{titlepage}
+
+% Academic title page
+\input{titlepage}
+
+% Table of contents
+\tableofcontents
+
+% Introduction
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\vfill
+\input{intro}
+\vfill
+\clearpage
+
+% Prologue
+\chapter*{Prologue}
+\addcontentsline{toc}{chapter}{Prologue}
+\input{prologue}
+
+
+\begin{comment}
+        \chapter[]{}
+    \label{ch:}
+    \inputstory{44_IronMask}
+\end{comment}
+
+
+\chapterwithsummaryfromfile[ch:treesfromair]{35_TreesFromAir}
+\inputstory{35_TreesFromAir} %Approved
+
+\chapterwithsummaryfromfile[ch:qftvsgr]{36_qft_vs_gr}
+\inputstory{36_qft_vs_gr} %Approved
+
+\chapterwithsummaryfromfile[ch:darkmatterevidence]{37_DarkMatterEvidence}
+\inputstory{37_DarkMatterEvidence} %Approved
+
+\chapterwithsummaryfromfile[ch:christmastruce1914]{38_ChristmasTruce1914}
+\inputstory{38_ChristmasTruce1914} %Approved
+
+\chapterwithsummaryfromfile[ch:superpermutationsbreakthrough]{39_SuperpermutationsBreakthrough}
+\inputstory{39_SuperpermutationsBreakthrough} %Approved
+
+\chapterwithsummaryfromfile[ch:dnasequencing]{40_DNASequencing}
+\inputstory{40_DNASequencing} 
+
+\chapterwithsummaryfromfile[ch:hough]{41_HoughTransfrom}
+\inputstory{41_HoughTransfrom} 
+
+\chapterwithsummaryfromfile[ch:iceslipperiness]{42_IceSlipperiness}
+\inputstory{42_IceSlipperiness} %Approved
+
+\chapterwithsummaryfromfile[ch:nearflatuniverse]{43_NearFlatUniverse}
+\inputstory{43_NearFlatUniverse} %Approved
+
+\chapterwithsummaryfromfile[ch:ironmask]{44_IronMask}
+\inputstory{44_IronMask} %Approved
+
+\chapterwithsummaryfromfile[ch:maxwelldemon]{45_MaxwellDemon}
+\inputstory{45_MaxwellDemon} %Approved
+
+\chapterwithsummaryfromfile[ch:woodwardhoffmannrules]{46_WoodwardHoffmannRules}
+\inputstory{46_WoodwardHoffmannRules} %Approved
+
+\chapterwithsummaryfromfile[ch:observervac]{47_ObserverDependentVacuum}
+\inputstory{47_ObserverDependentVacuum} %Approved
+
+\chapterwithsummaryfromfile[ch:threebody]{48_three_body}
+\inputstory{48_three_body}  %Approved
+
+\chapterwithsummaryfromfile[ch:ivfmtdna]{49_IVFmtDNA}
+\inputstory{49_IVFmtDNA} 
+
+\chapterwithsummaryfromfile[ch:langtons]{50_LangtonsAnt}
+\inputstory{50_LangtonsAnt} 
+
+
+\end{document}
+
