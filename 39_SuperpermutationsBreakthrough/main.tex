@@ -57,10 +57,8 @@ The origin of this disproof traces back to an unexpected source: an anonymous di
 
 In 2011, an anonymous user on the \texttt{/sci/} board of the website 4chan posed a question that, at first glance, seemed whimsical: what is the shortest possible viewing sequence that includes every ordering of the 14 episodes of the anime \emph{The Melancholy of Haruhi Suzumiya}? The show, known for its non-linear narrative and varying episode orders across different broadcasts, had developed a cult following that embraced its combinatorial potential. Beneath the framing, however, lay a precise mathematical question: how short can a string be while still containing every permutation of a 14-element set as a contiguous substring? In effect, the prompt was a popular-culture formulation of the superpermutation problem for $n = 14$.
 
-In response, another anonymous poster provided a compact but mathematically rigorous derivation of a new general lower bound:
-\begin{align}
-$L(n) \geq n! + (n - 1)! + (n - 2)! + n - 3$
-\end{align}
+In response, another anonymous poster provided a compact but mathematically rigorous derivation of a new general lower bound: $L(n) \geq n! + (n - 1)! + (n - 2)! + n - 3$. 
+
 This inequality, valid for all $n \geq 2$, immediately strengthened all previously known bounds. Though presented informally, the proof was internally precise. It treated permutations as vertices in a directed graph, with directed edges representing overlaps between adjacent substrings. The minimal-length superpermutation corresponded to a Hamiltonian path through this graph, and the proof established a lower bound on the total cost of any such path by analyzing the unavoidable overlaps.
 
 Despite its clarity, the result went largely unnoticed at the time. The platform offered no mechanisms for citation or persistence: posts were anonymous, threads expired automatically, and archival relied entirely on user initiative. The derivation was eventually copied to a fandom-hosted mathematics wiki, but remained obscure and disconnected from formal literature.
@@ -69,10 +67,8 @@ In 2018, mathematician Robin Houston independently rediscovered the argument, ve
 
 The impact was immediate. The new lower bound provided a rigorous floor against which all proposed constructions could be measured. Shortly thereafter, Houston constructed a superpermutation on six symbols of length 872 — one less than the conjectured minimum of 873 — thereby disproving the long-standing sum-of-factorials conjecture. The result showed that minimal lengths could deviate subtly, but definitively, from previous expectations.
 
-Later that year, author and mathematician Greg Egan proposed a constructive upper bound:
-\begin{align}
-$L(n) \leq n! + (n-1)! + (n-2)! + (n-3)! + n - 3$
-\end{align}
+Later that year, author and mathematician Greg Egan proposed a constructive upper bound: $L(n) \leq n! + (n-1)! + (n-2)! + (n-3)! + n - 3$
+
 placing the known range for $L(n)$ within a narrow window, bounded above and below by explicit, combinatorially interpretable expressions.
 
 The 4chan derivation now stands as a rare episode in modern mathematics: a significant and previously unknown lower bound for a classical problem, derived anonymously, informally posted, largely ignored, and later validated by professionals. It illustrates how insight can originate outside institutional settings, and how easily such insight can be lost when detached from systems of attribution, preservation, and dissemination. Nevertheless, the mathematics holds. The “Haruhi Problem” has since entered the literature as a textbook case in combinatorial optimization — and its solution, at least in part, belongs to a nameless contributor with no affiliation, no traceable authorship, and a correct idea.
