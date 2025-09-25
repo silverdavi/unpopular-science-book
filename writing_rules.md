@@ -20,7 +20,7 @@ Each chapter follows a three-part structure:
 
 **Em Dash Usage**: Use em dashes only when structurally necessary, and always pad with spaces on both sides (" — " not " --- ").
 
-**Eliminate Filler Words**: Remove words that don't add substance. Target vague softeners ("rather," "somewhat," "quite," "fairly"), empty intensifiers ("very," "extremely," "highly," "even," "entire"), and structural fillers ("underlying," "overall," "general," "fundamental," "modern," "severe," "specific" when used as generic modifiers). Every word must contribute meaning.
+**Eliminate Filler Words**: Remove words that don't add substance. Target vague softeners ("rather," "somewhat," "quite," "fairly"), empty intensifiers ("very," "extremely," "highly," "even," "entire"), and structural fillers ("underlying," "overall," "general," "fundamental," "modern," "severe," "specific" when used as generic modifiers, "emerge/emerges/emerging" when describing vague appearances). Every word must contribute meaning.
 
 **Preserve Technical Language**: Distinguish between filler and precise technical terms. Words like "fundamental," "significant," "multiple," "complex," "crucial," "important," and "specific" are legitimate when they convey technical meaning:
 - ✓ "multiple paths" (physics: many geodesics exist)
