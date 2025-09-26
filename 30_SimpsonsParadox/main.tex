@@ -1,10 +1,10 @@
-In North Carolina's 2012 congressional elections, Democratic candidates received 51\% of votes statewide yet won only 4 of 13 seats. Republicans secured 9 seats with 49\% of votes. No voting machines malfunctioned. No ballots were miscounted. The reversal occurred through district boundaries — lines drawn to group voters in ways that inverted the relationship between votes and representation.
+In North Carolina's 2012 congressional elections, Democratic candidates received 51\% of votes statewide yet won only 4 of 13 seats. Republicans secured 9 seats with 49\% of votes. The reversal occurred through district boundaries — lines drawn to group voters in ways that inverted the relationship between votes and representation.
 
 Statistical association hinges on how data are grouped. The same population can yield opposite conclusions depending on the partition chosen. In extreme cases, a relationship positive in every subgroup becomes negative when groups combine — or a democratic majority becomes a legislative minority through strategic line-drawing.
 
 Simpson's paradox demonstrates correlation reversal. A kidney stone treatment shows 93\% success for small stones and 73\% for large stones. A competing treatment achieves only 87\% for small stones and 69\% for large stones. The first treatment beats the second in both categories. Yet overall success rates reverse: 79\% versus 85.5\%. The paradox arises because doctors used the superior treatment primarily on difficult cases — 70\% of its patients had large stones, while 91\% of the inferior treatment's patients had small stones.
 
-Gerrymandering engineers deliberate reversal. Both major parties employ this tactic when they control redistricting. Wisconsin's 2012 state assembly elections saw Democrats win 53\% of votes but only 39\% of seats. The mechanism: district lines packed Democratic voters into urban districts where they won by 70-80\% margins, while Republican victories spread efficiently across suburban and rural districts with 55-60\% margins. Both phenomena — Simpson's paradox and gerrymandering — exploit the mathematics of aggregation, but with opposite intent. The mathematics underlying both phenomena reduces to weighted averages. When calculating any aggregate statistic — whether treatment success rates or electoral outcomes — the result depends on two factors: the values within each group and the relative sizes of groups. Change either factor and the aggregate shifts.
+Gerrymandering engineers deliberate reversal. Both major parties employ this tactic when they control redistricting. Wisconsin's 2012 state assembly elections saw Democrats win 53\% of votes but only 39\% of seats. The mechanism: district lines packed Democratic voters into urban districts where they won by 70-80\% margins, while Republican victories spread efficiently across suburban and rural districts with 55-60\% margins. Both phenomena — Simpson's paradox and gerrymandering — exploit the mathematics of aggregation, but with different intent. The mathematics underlying both phenomena reduces to weighted averages. When calculating any aggregate statistic — whether treatment success rates or electoral outcomes — the result depends on two factors: the values within each group and the relative sizes of groups. Change either factor and the aggregate changes.
 
 In formal terms, if groups have success rates $p_1, p_2, ..., p_k$ and sizes $n_1, n_2, ..., n_k$, the overall rate is:
 \[
@@ -30,9 +30,9 @@ Treatment B, Overall & 85.5\% & 220 & 188 \\
 \end{tabular}
 \end{center}
 
-Treatment A wins in both stone categories yet loses overall. The reversal mechanism: unequal group distributions. Treatment A handled 70\% difficult cases (large stones), Treatment B only 9\%. When groups combine, Treatment B's easy-case bias overwhelms its inferior performance.
+Treatment A wins in both stone categories yet loses overall. Treatment A handled 70\% difficult cases (large stones), Treatment B only 9\%. When groups combine, Treatment B's easy-case bias overwhelms its inferior performance.
 
-Gerrymandering employs identical mathematics with opposite intent. Consider a simplified state with 10 districts, 5 million voters split evenly between parties:
+Gerrymandering employs similar mathematics with manipulative intent. Consider a simplified state with 10 districts, 5 million voters split evenly between parties:
 
 \begin{center}
 \begin{tabular}{lcc}
@@ -48,27 +48,9 @@ Gerrymandered for B & 3 & 7 \\
 
 The gerrymandered scenarios achieve 70\% of seats with 50\% of votes by controlling group boundaries. Party A might pack Party B voters into 3 districts where B wins 80-20, then spread remaining voters to secure 7 districts with 56-44 margins. Same voters, same preferences, inverted outcome.
 
-In the UC Berkeley admissions case (1973), similar patterns appeared. Women showed lower overall acceptance rates (35\%) than men (44\%), suggesting discrimination. At the department level, women had equal or higher acceptance rates in 4 of 6 departments. The reversal occurred because women disproportionately applied to competitive departments — English admitted 3.4\% of applicants while Engineering admitted 65\%. Group imbalance, not bias, created the aggregate disparity.
+In the UC Berkeley admissions case (1973), similar patterns appeared. Women showed lower overall acceptance rates (35\%) than men (44\%), suggesting discrimination. At the department level, women had equal or higher acceptance rates in 4 of 6 departments. The reversal occurred because women disproportionately applied to competitive departments — English admitted 3.4\% of applicants while Engineering admitted 65\%. 
 
-Simpson's paradox and gerrymandering differ in origin:
-
-\textbf{Simpson's Paradox}: Natural groupings create misleading aggregates
-\begin{itemize}
-\item Doctors assign treatments based on medical judgment
-\item Students choose departments based on interests
-\item Platform users select devices based on preferences
-\item Groups form organically; reversals surprise analysts
-\end{itemize}
-
-\textbf{Gerrymandering}: Artificial groupings engineer specific aggregates
-\begin{itemize}
-\item Politicians draw district lines to maximize seats
-\item Boundaries split communities to dilute opposition votes
-\item Sophisticated algorithms optimize "wasted" votes
-\item Groups form strategically; reversals are the goal
-\end{itemize}
-
-Both exploit the gap between local and global measures. In Simpson's paradox, local measures (department-specific admission rates) tell the truth while global measures (overall rates) mislead. In gerrymandering, local measures (district-level victories) are manipulated to distort global truth (statewide voter preference).
+Simpson’s paradox and gerrymandering exploit the disagreement between local and global measures. In Simpson's paradox, local measures (department-specific admission rates) tell the truth while global measures (overall rates) mislead. In gerrymandering, local measures (district-level victories) are manipulated to distort global truth (statewide voter preference).
 
 For any partition of data into groups, the overall average equals:
 \[
@@ -89,22 +71,17 @@ Real-world detection differs sharply between the phenomena:
 
 Simpson's paradox emerges through analysis. Statisticians discover reversals by examining subgroups. The 2020 COVID-19 case fatality rates showed Italy with higher death rates than China overall, yet lower rates in every age group — Italy's older population created the reversal.
 
-Gerrymandering leaves fingerprints. Districts snake through neighborhoods, splitting cities and joining disparate communities. Pennsylvania's 7th district (pre-2018) stretched like tentacles across five counties to link Republican areas while avoiding Democratic ones. Maryland's 3rd district exhibits similar contortions, engineered by Democrats to dilute Republican votes across Baltimore suburbs. Mathematical tests expose manipulation regardless of party: efficiency gaps exceeding natural variation, districts with fractal-like perimeters, and seat allocations that defy probabilistic models of random districting.
+Gerrymandering leaves fingerprints. Districts snake through neighborhoods, splitting cities and joining disparate communities. Pennsylvania's 7th district (pre-2018) stretched like tentacles across five counties to link Republican areas while avoiding Democratic ones. Maryland's 3rd district exhibits similar contortions, engineered by Democrats to dilute Republican votes across Baltimore suburbs. 
 
-Data interpretation depends on boundaries. Simpson's paradox warns that natural boundaries (patient severity, department selectivity) can mislead when ignored. Gerrymandering demonstrates that artificial boundaries can be weaponized to subvert democratic representation.
+ Simpson's paradox warns that natural parameters (patient severity, department selectivity) can mislead when ignored. Gerrymandering demonstrates that artificial boundaries can be weaponized to subvert democratic representation.
 
 Solutions to Simpson's paradox require disaggregating data and examining subgroups. Medical trials now routinely report results by patient characteristics. Universities analyze admissions by department.
 
-The solution to gerrymandering requires structural reform: independent redistricting commissions, mathematical constraints on district compactness, or algorithmic districting that minimizes partisan advantage. Several states now use efficiency gap calculations in legal challenges to districting plans.
-
-Data's meaning depends on its divisions. Whether divisions arise naturally or through manipulation determines the interpretation of medical trials, election results, and aggregated statistics.
-
+The solution to gerrymandering requires judicial reform: independent redistricting commissions, mathematical constraints on district compactness, or algorithmic districting that minimizes partisan advantage. Several states now use efficiency gap calculations in legal challenges to districting plans.
 
 \vspace*{\fill}
 
 \clearpage
-
-
 
 \begin{center}
 {\Large \textbf{More Statistical Paradoxes and Interpretation Failures}}
@@ -141,7 +118,7 @@ When a statistical association holds across aggregated units — such as regions
 
 \textbf{3. Will Rogers Phenomenon}  
 \emph{Reclassification improves group averages without improving any member.}  
-If individuals from the low end of one group are reclassified into another group with even lower average, both groups may show improved mean outcomes. This occurs in cancer staging and school performance tracking, and reflects the fact that averages are sensitive to how groups are defined — even when no unit changes.
+If individuals from the low end of one group are reclassified into another group with even lower average, both groups may show improved mean outcomes. This occurs in cancer staging and school performance tracking, and reflects the fact that averages are sensitive to how groups are defined.
 
 \vspace{1em}
 
@@ -153,7 +130,7 @@ In spatial analysis, correlations and rates can shift significantly depending on
 
 \textbf{5. Low Birth-Weight Paradox}  
 \emph{Conditioning on an intermediate variable reverses risk comparisons.}  
-Infants born to smoking mothers have higher rates of low birth weight, and low birth weight is associated with higher mortality. But among low birth-weight babies, those born to smokers may show lower mortality than those of non-smokers. The paradox emerges because birth weight is both an effect of smoking and a predictor of mortality. Conditioning on it introduces collider bias, obscuring causal direction.
+Infants born to smoking mothers have higher rates of low birth weight, and low birth weight is associated with higher mortality. But among low birth-weight babies, those born to smokers may show lower mortality than those of non-smokers. The paradox appears because birth weight is both an effect of smoking and a predictor of mortality. Conditioning on it introduces collider bias, obscuring causal direction.
 
 \vspace{1em}
 
