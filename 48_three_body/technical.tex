@@ -30,10 +30,8 @@ Now consider a falling object subject to linear drag. Assuming the drag force is
 \[
 m \frac{d^2 \mathbf{r}}{dt^2} = m \mathbf{g} - \gamma \frac{d\mathbf{r}}{dt},
 \]
-where $\gamma$ is the damping coefficient. The velocity $\mathbf{v}(t) = d\mathbf{r}/dt$ evolves as
-\[
-\mathbf{v}(t) = \mathbf{v}_\infty + (\mathbf{v}_0 - \mathbf{v}_\infty) e^{-\frac{\gamma}{m} t}, \quad \text{with} \quad \mathbf{v}_\infty = \frac{m \mathbf{g}}{\gamma}.
-\]
+where $\gamma$ is the damping coefficient. The velocity $\mathbf{v}(t) = d\mathbf{r}/dt$ evolves as $\mathbf{v}(t) = \mathbf{v}_\infty + (\mathbf{v}_0 - \mathbf{v}_\infty) e^{-\frac{\gamma}{m} t}, \quad$ with $\quad \mathbf{v}_\infty = \frac{m \mathbf{g}}{\gamma}.$
+
 The position follows: $\mathbf{r}(t) = \mathbf{r}_0 + \mathbf{v}_\infty t + (m/\gamma)(\mathbf{v}_0 - \mathbf{v}_\infty)(1 - e^{-\gamma t/m})$. Perturbations decay exponentially with time constant $\tau = m/\gamma$, suppressing initial differences.
 
 \textbf{4. Perturbation Scaling and Averaging}\\
