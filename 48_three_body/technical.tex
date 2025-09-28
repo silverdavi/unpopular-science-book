@@ -1,7 +1,6 @@
 \begin{technical}
-{\Large\textbf{Perturbative Stability and Exponential Sensitivity in Deterministic Systems}}\\[0.7em]
+{\Large\textbf{Perturbative Stability and Exponential Sensitivity in Deterministic Systems}}\\[0.5m]
 
-\textbf{Introduction}\\[0.5em]
 Classical mechanics is deterministic: given initial conditions and governing forces, the trajectory of a system is uniquely determined. However, predictability depends on the evolution of perturbations. In chaotic systems, infinitesimal deviations grow exponentially, whereas in many complex but dissipative systems, fluctuations are suppressed or averaged out, leading to reliable large-scale predictions.
 
 \textbf{1. Lyapunov Exponents and Sensitivity}\\
@@ -27,10 +26,14 @@ These are second-order nonlinear differential equations with explicit coupling b
 
 \textbf{3. Stability in Dissipative Systems}\\
 Now consider a falling object subject to linear drag. Assuming the drag force is proportional to velocity, the center-of-mass motion is governed by
-\[
+$$
 m \frac{d^2 \mathbf{r}}{dt^2} = m \mathbf{g} - \gamma \frac{d\mathbf{r}}{dt},
-\]
-where $\gamma$ is the damping coefficient. The velocity $\mathbf{v}(t) = d\mathbf{r}/dt$ evolves as $\mathbf{v}(t) = \mathbf{v}_\infty + (\mathbf{v}_0 - \mathbf{v}_\infty) e^{-\frac{\gamma}{m} t}, \quad$ with $\quad \mathbf{v}_\infty = \frac{m \mathbf{g}}{\gamma}.$
+$$
+where $\gamma$ is the damping coefficient. The velocity $\mathbf{v}(t) = d\mathbf{r}/dt$ evolves as
+\begin{align}
+\mathbf{v}(t) = \mathbf{v}_\infty + (\mathbf{v}_0 - \mathbf{v}_\infty) e^{-\frac{\gamma}{m} t}\\
+\quad \text{with} \quad \mathbf{v}_\infty = \frac{m \mathbf{g}}{\gamma}.
+\end{align}
 
 The position follows: $\mathbf{r}(t) = \mathbf{r}_0 + \mathbf{v}_\infty t + (m/\gamma)(\mathbf{v}_0 - \mathbf{v}_\infty)(1 - e^{-\gamma t/m})$. Perturbations decay exponentially with time constant $\tau = m/\gamma$, suppressing initial differences.
 
@@ -39,7 +42,7 @@ For a perturbed trajectory $\mathbf{x}_\epsilon(t) = \mathbf{x}_0(t) + \epsilon 
 \[
 \begin{cases}
 \|\delta \mathbf{x}(t)\| \sim \epsilon e^{\lambda t} & \text{chaotic dynamics,} \\[0.5em]
-\|\delta \mathbf{x}(t)\| \lesssim \epsilon & \text{damped or bounded dynamics.}
+\|\delta \mathbf{x}(t)\| \lesssim \epsilon & \text{damped/bounded dynamics.}
 \end{cases}
 \]
 For $N$ microscopic degrees of freedom, macroscopic observables $\mathbf{X}(t) = N^{-1} \sum_{i=1}^N \mathbf{x}_i(t)$ have variance $\mathrm{Var}(\mathbf{X}) \sim N^{-1} \mathrm{Var}(\mathbf{x}_i)$ by the central limit theorem. Thus:
