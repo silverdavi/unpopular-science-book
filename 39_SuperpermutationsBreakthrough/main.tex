@@ -10,7 +10,7 @@ The number of permutations grows as follows:
 \]
 This rapid — factorial — growth means that although the idea of permutations is elementary, the total number becomes intractable to list or store explicitly even for moderate $n$.
 
-To visualize the implications, suppose one attempts to list all permutations of $\{1, 2, 3\}$: these are \texttt{123}, \texttt{132}, \texttt{213}, \texttt{231}, \texttt{312}, and \texttt{321}. Each permutation has length 3, so listing them end-to-end would yield a string of length $6 \times 3 = 18$. For larger $n$, such direct listings become prohibitively long. Moreover, this naive approach repeats overlapping segments across permutations, introducing redundancy. Understanding and managing this combinatorial explosion is relevant to more questions of encoding, compressing, o other problems in the space of permutations.
+To visualize the implications, suppose one attempts to list all permutations of $\{1, 2, 3\}$: these are \texttt{123}, \texttt{132}, \texttt{213}, \texttt{231}, \texttt{312}, and \texttt{321}. Each permutation has length 3, so listing them end-to-end would yield a string of length $6 \times 3 = 18$. For larger $n$, such direct listings become prohibitively long. Moreover, this naive approach repeats overlapping segments across permutations, introducing redundancy. Understanding and managing this combinatorial explosion is relevant to more questions of encoding, compressing, or other problems in the space of permutations.
 
 A \emph{superpermutation} on $n$ symbols is a finite string that contains, as contiguous substrings, every one of the $n!$ distinct permutations of those symbols. In contrast to merely listing permutations separately, a superpermutation aims to \emph{compress} all of them into a single sequence, reusing overlapping segments wherever possible. The constraint is that each permutation must appear somewhere in the string, uninterrupted, and exactly once.
 
@@ -25,10 +25,10 @@ At first glance, the problem of constructing a superpermutation may appear manag
 The trick is that permutations can be arranged so that the end of one serves as the beginning of the next. For instance, the permutation \texttt{123} ends in \texttt{23}, and \texttt{231} begins with \texttt{23}; by placing them consecutively as \texttt{1231}, the two permutations are both represented, and the shared segment \texttt{23} is not duplicated. This principle of overlap allows one to compress multiple permutations into a single string, hopefully, without repeating identical sequences.
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.7\textwidth]{39_SuperpermutationsBreakthrough/permutation_graph_n3_spring.png}
-  \caption{Permutation graph for $n=3$. Each node is one of the six permutations of $\{1,2,3\}$. A directed edge $A\to B$ carries \emph{weight} $w=n-k$, where $k$ is the length of the longest suffix of $A$ matching a prefix of $B$; equivalently, $w$ is the number of extra symbols needed to append $B$ after $A$. Thus, an \emph{overlap} of two symbols ($k=2$) gives \emph{weight 1} (solid blue), and an \emph{overlap} of one symbol ($k=1$) gives \emph{weight 2} (dashed gray).}
-  \label{fig:permgraph3}
+ \centering
+ \includegraphics[width=0.7\textwidth]{39_SuperpermutationsBreakthrough/permutation_graph_n3_spring.png}
+ \caption{Permutation graph for $n=3$. Each node is one of the six permutations of $\{1,2,3\}$. A directed edge $A\to B$ carries \emph{weight} $w=n-k$, where $k$ is the length of the longest suffix of $A$ matching a prefix of $B$; equivalently, $w$ is the number of extra symbols needed to append $B$ after $A$. Thus, an \emph{overlap} of two symbols ($k=2$) gives \emph{weight 1} (solid blue), and an \emph{overlap} of one symbol ($k=1$) gives \emph{weight 2} (dashed gray).}
+ \label{fig:permgraph3}
 \end{figure}
 
 For small values of $n$, exact solutions have been found. Remarkably, for $n = 1$ through $n = 5$, the shortest superpermutations are known, and their lengths follow a simple closed-form pattern:
@@ -53,7 +53,10 @@ The origin of this disproof traces back to an unexpected source: an anonymous di
 
 In 2011, an anonymous user on the \texttt{/sci/} board of the website 4chan posed a question that, at first glance, seemed whimsical: what is the shortest possible viewing sequence that includes every ordering of the 14 episodes of the anime \emph{The Melancholy of Haruhi Suzumiya}? The show, known for its non-linear narrative and varying episode orders across different broadcasts, had developed a cult following that embraced its combinatorial potential. Beneath the framing, however, lay a precise mathematical question: how short can a string be while still containing every permutation of a 14-element set as a contiguous substring? In effect, the prompt was a popular-culture formulation of the superpermutation problem for $n = 14$.
 
-In response, another anonymous poster provided a compact but mathematically rigorous derivation of a new general lower bound: $L(n) \geq n! + (n - 1)! + (n - 2)! + n - 3$
+In response, another anonymous poster provided a compact but mathematically rigorous derivation of a new general lower bound:
+$$
+L(n) \geq n! + (n - 1)! + (n - 2)! + n - 3
+$$
 
 This inequality, valid for all $n \geq 2$, immediately strengthened all previously known bounds. Though presented informally, the proof was ultimately correct. It treated permutations as vertices in a directed graph, with directed edges representing overlaps between adjacent substrings. The minimal-length superpermutation corresponded to a Hamiltonian path through this graph, and the proof established a lower bound on the total cost of any such path by analyzing the unavoidable overlaps.
 
@@ -63,7 +66,10 @@ In 2014, mathematician Robin Houston independently rediscovered the argument, ve
 
 The impact was immediate. The new lower bound provided a rigorous floor against which all proposed constructions could be measured. Shortly thereafter, Houston constructed a superpermutation on six symbols of length 872 — one less than the conjectured minimum of 873 — thereby disproving the long-standing sum-of-factorials conjecture. The result showed that minimal lengths could deviate subtly, but definitively, from previous expectations.
 
-In 2018, an accomplished sci-fi author and mathematician Greg Egan proposed a constructive upper bound: $L(n) \leq n! + (n-1)! + (n-2)! + (n-3)! + n - 3$
+In 2018, an accomplished sci-fi author and mathematician Greg Egan proposed a constructive upper bound:
+$$
+L(n) \leq n! + (n-1)! + (n-2)! + (n-3)! + n - 3
+$$
 
 placing the known range for $L(n)$ within a narrow window, bounded, yet not tightly, from above and from below.
 
@@ -71,7 +77,11 @@ The 4chan derivation now stands as a rare episode in modern mathematics: a signi
 
 \vspace{2em}
 \begin{center}
-    \includegraphics[width=0.7\textwidth]{39_SuperpermutationsBreakthrough/DrTcMa7VYAApwpb.png}\\
-    {\small\textit{The original 4chan post}}
+   \includegraphics[width=0.7\textwidth]{39_SuperpermutationsBreakthrough/DrTcMa7VYAApwpb.png}\\
+   {\small\textit{The original 4chan post}}
 \end{center}
+
+
+
+
 
