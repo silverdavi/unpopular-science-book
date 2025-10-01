@@ -12,13 +12,13 @@ This rapid — factorial — growth means that although the idea of permutations
 
 To visualize the implications, suppose one attempts to list all permutations of $\{1, 2, 3\}$: these are \texttt{123}, \texttt{132}, \texttt{213}, \texttt{231}, \texttt{312}, and \texttt{321}. Each permutation has length 3, so listing them end-to-end would yield a string of length $6 \times 3 = 18$. For larger $n$, such direct listings become prohibitively long. Moreover, this naive approach repeats overlapping segments across permutations, introducing redundancy. Understanding and managing this combinatorial explosion is relevant to more questions of encoding, compressing, or other problems in the space of permutations.
 
-A \emph{superpermutation} on $n$ symbols is a finite string that contains, as contiguous substrings, every one of the $n!$ distinct permutations of those symbols. In contrast to merely listing permutations separately, a superpermutation aims to \emph{compress} all of them into a single sequence, reusing overlapping segments wherever possible. The constraint is that each permutation must appear somewhere in the string, uninterrupted, and exactly once.
+A \emph{superpermutation} on $n$ symbols is a finite string that contains, as contiguous substrings, every one of the $n!$ distinct permutations of those symbols. In contrast to merely listing permutations separately, a superpermutation aims to \emph{compress} all of them into a single sequence, reusing overlapping segments wherever possible. The constraint is that each permutation must appear somewhere in the string uninterrupted.
 
 Consider the case $n = 2$. The two permutations of the symbols $\{1, 2\}$ are \texttt{12} and \texttt{21}. A superpermutation must therefore include both \texttt{12} and \texttt{21} as substrings. The shortest such string is \texttt{121}. It contains \texttt{12} starting at position 1 and \texttt{21} starting at position 2. This is the minimal superpermutation for $n = 2$, and it has length 3.
 
-For $n = 3$, there are $3! = 6$ permutations: \texttt{123}, \texttt{132}, \texttt{213}, \texttt{231}, \texttt{312}, and \texttt{321}. One example of a minimal superpermutation that includes all six of these as contiguous substrings is \texttt{123121321}. It has length 9, and each of the six permutations occurs exactly once within it. No shorter string satisfies the same condition.
+For $n = 3$, there are $3! = 6$ permutations: \texttt{123}, \texttt{132}, \texttt{213}, \texttt{231}, \texttt{312}, and \texttt{321}. One example of a minimal superpermutation that includes all six of these as contiguous substrings is \texttt{123121321}. It has length 9, and each of the six permutations occurs once within it. No shorter string satisfies the same condition.
 
-The central question posed by the \emph{superpermutation problem} is: what is the minimal possible length of such a string for general $n$? That is, given $n$ distinct symbols, what is the shortest string over those symbols that contains every one of their $n!$ permutations as contiguous substrings, each appearing exactly once? As $n$ increases, this problem becomes computationally and combinatorially challenging. The number of permutations grows rapidly, and so does the complexity of arranging them with maximal overlap and no repetition. The search for minimal superpermutations remains an active area of combinatorial optimization.
+The central question posed by the \emph{superpermutation problem} is: what is the minimal possible length of such a string for general $n$? That is, given $n$ distinct symbols, what is the shortest string over those symbols that contains every one of their $n!$ permutations as contiguous substrings? As $n$ increases, this problem becomes computationally and combinatorially challenging. The number of permutations grows rapidly, and so does the complexity of arranging them with maximal overlap. The search for minimal superpermutations remains an active area of combinatorial optimization.
 
 At first glance, the problem of constructing a superpermutation may appear manageable. One might attempt a straightforward solution by writing out all $n!$ permutations of the $n$ symbols and concatenating them end-to-end. Since each permutation is of length $n$, this method produces a string of total length $n \cdot n!$. For example, for $n = 3$, this naive approach would yield a string of length $3 \times 6 = 18$. While this guarantees that all permutations are present, it is highly inefficient. Adjacent permutations often share common segments — such as matching suffixes and prefixes — and these overlaps can be exploited to significantly reduce the total length.
 
@@ -26,8 +26,8 @@ The trick is that permutations can be arranged so that the end of one serves as 
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=0.7\textwidth]{39_SuperpermutationsBreakthrough/permutation_graph_n3_spring.png}
- \caption{Permutation graph for $n=3$. Each node is one of the six permutations of $\{1,2,3\}$. A directed edge $A\to B$ carries \emph{weight} $w=n-k$, where $k$ is the length of the longest suffix of $A$ matching a prefix of $B$; equivalently, $w$ is the number of extra symbols needed to append $B$ after $A$. Thus, an \emph{overlap} of two symbols ($k=2$) gives \emph{weight 1} (solid blue), and an \emph{overlap} of one symbol ($k=1$) gives \emph{weight 2} (dashed gray).}
+ \includegraphics[width=0.7\textwidth]{39_SuperpermutationsBreakthrough/GRAPH2.png}
+ \caption{Permutation overlap digraph for $n=3$. Each node is a permutation of $\{1,2,3\}$. A directed edge $A \to B$ exists when a suffix of $A$ matches a prefix of $B$, with \emph{overlap} length $k$. The \emph{weight} is $w = n-k$, i.e.\ the number of extra symbols needed to append $B$ after $A$. Edges with $k=2$ (weight $1$) are shown in solid blue, edges with $k=1$ (weight $2$) in dashed red. The highlighted green path is the Hamiltonian path $123 \to 231 \to 312 \to 213 \to 132 \to 321$, yielding concatenated string $123121321$ of length $9$ and total cost $6$.}
  \label{fig:permgraph3}
 \end{figure}
 
@@ -75,9 +75,9 @@ placing the known range for $L(n)$ within a narrow window, bounded, yet not tigh
 
 The 4chan derivation now stands as a rare episode in modern mathematics: a significant and previously unknown lower bound for a classical problem, derived anonymously, informally posted, largely ignored, and later validated by professionals. It illustrates how insight can originate outside institutional settings, and how easily such insight can be lost when detached from systems of attribution, preservation, and dissemination. Nevertheless, the mathematics holds. The “Haruhi Problem” has since entered the literature as a textbook case in combinatorial optimization — and its solution, at least in part, belongs to a nameless contributor with no affiliation, no traceable authorship, and a correct idea.
 
-\vspace{2em}
+\vspace{4em}
 \begin{center}
-   \includegraphics[width=0.7\textwidth]{39_SuperpermutationsBreakthrough/DrTcMa7VYAApwpb.png}\\
+   \includegraphics[width=0.8\textwidth]{39_SuperpermutationsBreakthrough/DrTcMa7VYAApwpb.png}\\
    {\small\textit{The original 4chan post}}
 \end{center}
 

@@ -38,9 +38,9 @@ The dominant eigenvalue $\lambda_1 \approx 1.8393$ determines the asymptotic gro
 \end{align}
 Entropy per unit area: $h = \frac{1}{6}\ln(\lambda_1^2) \approx 0.2028$.
 
-\noindent\textbf{Physical Connection:} This entropy equals the free energy of the dimer model on a cylindrical lattice at zero temperature. The transfer matrix method extends to compute correlations and phase transitions. For planar regions, this connects to the Arctic circle phenomenon where random tilings exhibit frozen regions near boundaries.
+\noindent\textbf{Physical Connection:} This entropy equals the free energy of the dimer model on a cylindrical lattice at zero temperature: $f = -k_B T \ln Z$, where $Z = \text{tr}(T^N)$ at $T=0$. The transfer matrix method extends to compute correlations $\langle \tau_i \tau_j \rangle = T^{|i-j|}_{ab}/\lambda_1^{|i-j|}$. For planar regions, this connects to the Arctic circle phenomenon where random tilings exhibit frozen regions near boundaries.
 
-\noindent\textbf{Gerrymandering Analogy:} The transfer matrix counts legal configurations given constraints — like counting valid districtings given population and contiguity rules. Both problems reduce to eigenvalue calculations on state-transition graphs.
+\noindent\textbf{Gerrymandering Analogy:} The transfer matrix counts legal configurations given constraints — like counting valid districtings given population and contiguity rules. For district graph $G$, the count is $N = \text{tr}(A_G^k)$ where $A_G$ encodes adjacency constraints. Both problems reduce to eigenvalue calculations: $N \sim \lambda_{\max}^k$ for large $k$.
 
 \vspace{0.5em}
 \noindent\textbf{References:}\\
