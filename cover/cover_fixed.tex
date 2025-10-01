@@ -59,17 +59,20 @@
 }
 
 \begin{document}
-\begin{tikzpicture}[remember picture,overlay]
-  % Place background image centered on page
-  \node[anchor=center, inner sep=0pt] at (current page.center) {
+\begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+  % Place background image
+  \node[anchor=south west, inner sep=0pt] at (0,0) {
     \includegraphics[width=15.54in,height=10.25in]{cover_wrap_hires.png}
   };
   
-  % The spine center is exactly at the page center
-  % Back cover center is to the left, front cover center is to the right
+  % Calculate positions
+  \newcommand{\spinecenterx}{\dimexpr\bleedwidth+\coverwidth+0.5\spinewidth\relax}
+  \newcommand{\frontcenterx}{\dimexpr\bleedwidth+\coverwidth+\spinewidth+0.5\coverwidth\relax}
+  \newcommand{\backcenterx}{\dimexpr\bleedwidth+0.5\coverwidth\relax}
+  \newcommand{\pagecentery}{5.125in}
   
-  % SPINE TEXT (rotated 90 degrees) - centered on page
-  \node[rotate=90, anchor=center] at (current page.center) {
+  % SPINE TEXT (rotated 90 degrees)
+  \node[rotate=90, anchor=center] at (\spinecenterx,\pagecentery) {
     \begin{tcolorbox}[coverbox, width=7.5in]
       \centering\modernfont
       \fontsize{17}{20}\selectfont
@@ -77,12 +80,8 @@
     \end{tcolorbox}
   };
   
-  % FRONT COVER TEXT (right panel)
-  % Front cover center is spine/2 + coverwidth/2 to the right of page center
-  \pgfmathsetmacro{\frontoffset}{0.5*\spinewidth + 0.5*\coverwidth}
-  
-  % Title
-  \node[anchor=center] at ([xshift=\frontoffset, yshift=2.8in]current page.center) {
+  % FRONT COVER - Title
+  \node[anchor=center] at (\frontcenterx,7.925in) {
     \begin{tcolorbox}[titlebox, width=6in]
       \centering\titlefont\bfseries
       \fontsize{40}{44}\selectfont
@@ -92,8 +91,8 @@
     \end{tcolorbox}
   };
   
-  % Author
-  \node[anchor=center] at ([xshift=\frontoffset, yshift=-2.2in]current page.center) {
+  % FRONT COVER - Author
+  \node[anchor=center] at (\frontcenterx,2.925in) {
     \begin{tcolorbox}[coverbox, width=4in]
       \centering\modernfont
       \fontsize{26}{30}\selectfont
@@ -101,12 +100,8 @@
     \end{tcolorbox}
   };
   
-  % BACK COVER TEXT (left panel)
-  % Back cover center is spine/2 + coverwidth/2 to the left of page center
-  \pgfmathsetmacro{\backoffset}{-0.5*\spinewidth - 0.5*\coverwidth}
-  
-  % Main description
-  \node[anchor=north] at ([xshift=\backoffset, yshift=4.125in]current page.center) {
+  % BACK COVER - Main description
+  \node[anchor=north] at (\backcenterx,9.125in) {
     \begin{tcolorbox}[coverbox, width=5.8in]
       \fontsize{11.5}{16}\selectfont
       \raggedright
@@ -123,8 +118,8 @@
     \end{tcolorbox}
   };
 
-  % Category and metadata - bottom left of back cover
-  \node[anchor=south west] at ([xshift=0.5in, yshift=0.5in]current page.south west) {
+  % BACK COVER - Category and metadata
+  \node[anchor=south west] at (0.5in,0.5in) {
     \begin{tcolorbox}[coverbox, width=3in]
       \centering
       \fontsize{10}{13}\selectfont\sffamily

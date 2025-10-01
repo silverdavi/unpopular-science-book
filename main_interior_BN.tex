@@ -1,17 +1,8 @@
-
-\documentclass[11pt,openright]{book}
+% Interior file for Barnes & Noble print - no cover
+\documentclass[11pt,openany]{book}
 
 \input{preamble}
 
-% Enable only specific chapters
-
-
-% Second Set
-
-
-\begin{comment}
-
-\end{comment}
 % Title and author
 \title{Unpopular Science}
 \author{David H. Silver}
@@ -19,13 +10,14 @@
 
 \begin{document}
 
-% Cover removed for print-ready interior
-% Book starts with academic title page
+% Force book to start on recto (odd) page
+\frontmatter
 
 % Academic title page
 \input{titlepage}
 
-
+% Table of contents
+\tableofcontents
 
 % Introduction
 \chapter*{Introduction}
@@ -33,22 +25,14 @@
 \vfill
 \input{intro}
 \vfill
-\newpage
-% Table of contents
-\tableofcontents
-\newpage
+\clearpage
+
 % Prologue
 \chapter*{Prologue}
 \addcontentsline{toc}{chapter}{Prologue}
 \input{prologue}
 
-
-\begin{comment}
-        \chapter[]{}
-    \label{ch:}
-    \inputstory{44_IronMask}
-\end{comment}
-
+% Main matter - chapters start on recto
 \mainmatter
 
 \chapterwithsummaryfromfile[ch:banach]{01_BanachTarskiParadox}
@@ -201,6 +185,4 @@
 \chapterwithsummaryfromfile[ch:consciousness]{50_Consciousness}
 \inputstory{50_Consciousness} 
 
-
 \end{document}
-
