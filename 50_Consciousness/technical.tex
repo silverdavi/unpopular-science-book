@@ -1,49 +1,82 @@
 \begin{technical}
-    {\Large\textbf{Measuring and Modulating Consciousness: Signals, Channels, Networks}}\\[0.7em]
+    {\Large\textbf{Neural Correlates and Measurement Paradoxes}}\\[0.7em]
 
-    \textbf{1. Molecular/Channel-Level Actions}\\[0.3em]
-    Many general anesthetics enhance inhibitory currents at GABA\textsubscript{A} receptors. A simplified current response under a ligand pulse can be modeled as
-    \[
-        I(t) = g_\text{max}\,P_\text{o}(t)\,\big(V_m - E_{\text{Cl}^-}\big),\qquad
-        \tau_\text{decay}^{-1} = k_\text{off} + k_\text{des} + \cdots
-    \]
-    where increased open probability $P_\text{o}$ and prolonged decay time $\tau_\text{decay}$ under anesthetic shift synaptic integration. NMDA antagonists reduce excitatory drive; two-pore K\textsuperscript{+} (K2P) activation increases leak conductance $g_\text{leak}$, hyperpolarizing membranes,
-    \[
-        C_m\,\frac{dV_m}{dt} = -g_\text{leak}(V_m-E_\text{leak}) - \sum g_i(V_m-E_i) + I_\text{syn}(t).
-    \]
+    \textbf{1. Anesthetic Mechanisms}\\[0.3em]
+    GABA\textsubscript{A} potentiation by propofol follows:
+    \begin{align*}
+        I_\text{syn} &= g_\text{max} P_\text{open}(V_m - E_\text{Cl})\\
+        P_\text{open} &\propto \frac{[\text{GABA}]^2}{[\text{GABA}]^2 + K_d^2}(1 + \alpha[\text{drug}])
+    \end{align*}
+    Network dynamics shift from sustained to transient:
+    \begin{align*}
+        \tau \dot{r} &= -r + f(w_{EE}r_E - w_{EI}r_I)\\
+        w_{EI} &\xrightarrow{\text{anesthetic}} \beta w_{EI}, \quad \beta > 1
+    \end{align*}
 
-    \textbf{2. Signal Complexity and Perturbational Measures}\\[0.3em]
-    Conscious states exhibit rich, integration-capable dynamics. Two empirical proxies:
+    \textbf{2. Readiness Potentials}\\[0.3em]
+    Libet measured Bereitschaftspotential timing:
     \begin{itemize}
-        \item \emph{Lempel--Ziv complexity} (LZc) of EEG/MEG: binarize a band-limited signal $x(t)$ to $s(t)\in\{0,1\}$ and estimate compressibility; lower LZc is observed in deep anesthesia.
-        \item \emph{Perturbational Complexity Index} (PCI): deliver TMS, record cortical responses, compute spatiotemporal compressibility of the evoked pattern. PCI decreases with NREM sleep and surgical anesthesia, increases during wake and REM.
+        \item BP onset: $-550$ ms before movement
+        \item W-time (awareness): $-200$ ms
+        \item EMG onset: $0$ ms
     \end{itemize}
-    These are correlates, not definitions: high complexity can occur without report; low complexity can coexist with residual processing.
+    Schurger's stochastic model:
+    \begin{align*}
+        x(t) &= \int_0^t \xi(s)ds, \quad \text{movement when } x(t) > \theta
+    \end{align*}
+    predicts BP without specific decision onset.
 
-    \textbf{3. Effective Connectivity and “Ignition”}\\[0.3em]
-    Let $\mathbf{x}(t)$ collect region-level activities. Linearized effective connectivity near a working point can be written
-    \[
-        \dot{\mathbf{x}} = A\,\mathbf{x} + \mathbf{u}(t),\qquad A = (a_{ij}).
-    \]
-    Anesthetics often reduce long-range $a_{ij}$ and destabilize reverberant modes (spectral radius $\rho(A)$ decreases), preventing global ignition. Ketamine provides a dissociation: altered excitation/inhibition and thalamic gating change the \emph{content} and \emph{reportability} despite elevated local activity and broadband power.
+    \textbf{3. Consciousness Metrics}\\[0.3em]
+    Integrated Information $\Phi$:
+    \begin{align*}
+        \Phi = \min_{\text{partition}} D_\text{KL}(p_\text{whole} \| p_\text{parts})
+    \end{align*}
+    Computational complexity: $\mathcal{O}(2^{2^N})$.
+    
+    Perturbational Complexity Index:
+    \begin{align*}
+        \text{PCI} = \text{LZ}(\text{binarized TMS response})
+    \end{align*}
+    Threshold: PCI $> 0.31$ correlates with consciousness.
 
-    \textbf{4. Thalamocortical Gating}\\[0.3em]
-    Relay/intralaminar nuclei provide ascending drive and synchronizing bursts. Coherence measures such as
-    \[
-        C_{ij}(f) = \frac{|S_{ij}(f)|^2}{S_{ii}(f)\,S_{jj}(f)}
-    \]
-    between thalamus-connected cortical regions tend to drop with anesthetic depth; selective thalamic lesions in FFI prevent sleep transitions, indicating anatomical choke points for state changes.
+    \textbf{4. Phase Space Structure}\\[0.3em]
+    EEG microstates show power-law dwell times:
+    \begin{align*}
+        p(\tau) \sim \tau^{-1.5}e^{-\tau/\tau_0}
+    \end{align*}
+    Anesthesia increases transition matrix spectral gap, indicating loss of metastability.
 
-    \textbf{5. Theoretical Constructs}\\[0.3em]
-    Global Workspace Theory predicts loss of consciousness when broadcast capacity is reduced (fewer stable, long-range attractors). Integrated Information Theory associates consciousness with high $\Phi$, a function of system partition irreducibility; empirically estimating $\Phi$ at scale is intractable, and surrogate measures can misclassify artificial systems.
+    \textbf{5. Fatal Familial Insomnia}\\[0.3em]
+    Mediodorsal thalamic lesions eliminate:
+    \begin{itemize}
+        \item Sleep spindles (7-14 Hz)
+        \item $\delta$ power (0.5-4 Hz)
+        \item NREM transitions
+    \end{itemize}
+    Wake $\alpha$ (8-12 Hz) preserved.
 
-    \textbf{Limitations and Outlook}\\[0.3em]
-    Channel-level actions are heterogeneous; network signatures are convergent but not universal; complexity metrics are correlational. A minimal unifying picture is multi-route suppression of large-scale effective connectivity and ignition, with exceptions (e.g., ketamine) revealing that content, integration, and report dissociate.
+    \textbf{6. Measurement Recursion}\\[0.3em]
+    Neural correlate validation requires:
+    \begin{align*}
+        P(C|N) = \frac{P(N|C)P(C)}{P(N)}
+    \end{align*}
+    But $P(N|C)$ depends on subject report $R$, which presupposes $C$. The recursion cannot ground.
+
+    \textbf{7. Superdeterminism}\\[0.3em]
+    Bell inequality assumes:
+    \begin{align*}
+        P(a,b|\lambda) = P(a|\lambda)P(b|\lambda)
+    \end{align*}
+    Superdeterminism denies this via:
+    \begin{align*}
+        \psi(t) &= U(t,t_0)\psi_0\\
+        M(t) &= F[\phi(t_0)]
+    \end{align*}
+    Measurement choice $M$ correlates with hidden state $\lambda$ through shared initial conditions.
 
     \vspace{0.5em}
-    \textbf{Suggested readings:}\newline
-    Brown, E. N., Purdon, P. L., Van Dort, C. J. (2011). \emph{General anesthesia and altered states of arousal}.\newline
-    Mashour, G. A., et al. (2020). \emph{Conscious processing and connectivity under anesthesia}.\newline
-    Prusiner, S. B. (1998). \emph{Prions}.\newline
-    Monti, M. M., et al. (2010). \emph{Complexity-based consciousness measures}.
+    \textbf{References:}\newline
+    Libet, B. (1985). \emph{Unconscious cerebral initiative}.\newline
+    Schurger, A., et al. (2012). \emph{Accumulator model}.\newline
+    Casali, A. G., et al. (2013). \emph{Index of consciousness}.
 \end{technical}
