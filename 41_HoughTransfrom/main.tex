@@ -35,7 +35,7 @@ However a straight line is not a local construct. Unlike a gradient, which depen
 One naïve approach is to enumerate all pairs of edge pixels and test whether a third or fourth point lies along the same line. Given $n$ detected edge points, there are $\binom{n}{2}$ possible pairs, and each pair defines a candidate line. For each such line, one must then check whether additional points fall sufficiently close to it, accounting for quantization and discretization artifacts. The combinatorial burden of this process grows quadratically in the number of edge pixels and becomes intractable at practical image resolutions.
 
 The challenge is further exacerbated by noise and occlusion. Genuine lines may be broken into disconnected segments, and false positives may arise from texture or illumination variations. Any method that seeks to identify lines must accommodate partial evidence and operate under pixel-level uncertainty. The core problem is not to test a single hypothesis, but to efficiently search a vast and noisy hypothesis space for a small number of consistent patterns.
-To detect linear structures in a binary edge map, one may adopt a parametric formulation of straight lines. In Cartesian coordinates, the general equation for a line is $y = mx + b$, where $m$ is the slope and $b$ the vertical intercept. The goal is to identify parameter pairs $(m, b)$ that describe lines passing through multiple edge pixels.
+To detect lines in a binary edge map, one may adopt a parametric formulation of straight lines. In Cartesian coordinates, the general equation for a line is $y = mx + b$, where $m$ is the slope and $b$ the vertical intercept. The goal is to identify parameter pairs $(m, b)$ that describe lines passing through multiple edge pixels.
 
 Each edge pixel $(x_0, y_0)$ imposes a constraint on the set of valid $(m, b)$ values. Specifically, if a line passes through $(x_0, y_0)$, then its parameters must satisfy
 \[
@@ -53,11 +53,11 @@ While this method organizes the problem effectively, it remains computationally 
 
 The Hough transform discretizes the $(m, b)$ space into a finite grid. For each edge pixel, it iterates over a predefined set of slope values $m_i$ and computes $b_i = y - m_i x$. A two-dimensional accumulator array stores how many pixels vote for each parameter pair $(m_i, b_i)$. After all edge pixels have contributed, cells in the accumulator with high vote counts correspond to lines that are strongly supported by the data.
 
-This formulation avoids the combinatorial explosion of testing all pixel pairs. Each pixel acts independently, voting for a family of possible lines. Lines with high support emerge as peaks in the accumulator, which can be located efficiently using standard search techniques.
+This formulation avoids the combinatorial explosion of testing all pixel pairs. Each pixel acts independently, voting for a family of possible lines. Lines with high support appear as peaks in the accumulator, which can be located efficiently using standard search techniques.
 
-In practice, this classical parameterization has limitations near vertical lines, where the slope $m$ becomes unbounded. A more robust formulation employs the normal parameterization $\rho = x\cos\theta + y\sin\theta$, which describes lines using distance and orientation. This variant ensures uniform treatment of all orientations, but the essential idea remains unchanged: transform alignment in image space into intersection in parameter space, and use voting to identify consistent structures.
+In practice, this classical parameterization has limitations near vertical lines, where the slope $m$ becomes unbounded. A more robust formulation employs the normal parameterization $\rho = x\cos\theta + y\sin\theta$, which describes lines using distance and orientation. This variant ensures uniform treatment of all orientations, but the essential idea remains: transform alignment in image space into intersection in parameter space, and use voting to identify consistent structures.
 
-The fundamental strength of the Hough transform lies in its ability to decouple the accumulation of evidence from explicit geometric search. Once the core mechanism is established — each edge pixel voting for the set of parameters consistent with its location — the method generalizes seamlessly to more complex shapes.
+The strength of the Hough transform lies in its ability to transform the problem from image space to parameter space. Once the core mechanism is established — each edge pixel voting for the set of parameters consistent with its location — the method generalizes seamlessly to more complex shapes.
 
 For example, consider the problem of detecting circles. A circle in the plane is defined by the equation
 \[
@@ -76,9 +76,6 @@ This generalizes further. Any shape that admits an algebraic parameterization ca
 In each case, the edge pixel votes for a hypersurface in the corresponding parameter space. The transform aggregates these votes, and high-density regions in the accumulator indicate the presence of shapes that are strongly supported by the edge data.
 
 The cost of generality is dimensional: for a shape defined by $k$ parameters, the accumulator array lives in $\mathbb{R}^k$. Memory and computation scale exponentially with $k$, limiting the practical complexity of detectable shapes. Nevertheless, for many applications — especially where the shape class is known and low-dimensional — the Hough transform remains a tractable and robust detection mechanism.
-
-The transform thus serves not only as a line detector, but as a general-purpose framework for parametric shape detection.
-
 
 \begin{figure}[ht]
   \centering
