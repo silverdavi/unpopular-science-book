@@ -26,18 +26,26 @@ Any cluster of hat tiles you identify will appear again elsewhere — rotated, r
 
 The hat tiling exhibits hierarchical structure: clusters of tiles form larger units that themselves cluster at increasing scales. This recursive organization — characteristic of aperiodic tilings — emerges from the local fitting constraints.
 
-The hat connects to a larger phenomenon. In 1984, Dan Shechtman discovered quasicrystals — materials whose atoms arrange aperiodically yet produce sharp diffraction spots. These materials challenged crystallography's foundations: order without periodicity. The hat demonstrates this principle through pure geometry, achieving what Penrose tiles needed matching rules to enforce.
+The hat connects to a larger phenomenon. In 1984, Dan Shechtman discovered quasicrystals — materials whose atoms arrange aperiodically yet produce sharp diffraction spots. Classical crystallography required periodic atomic arrangements; X-ray diffraction of crystals produces discrete spots because periodic structures act as three-dimensional diffraction gratings. Quasicrystals shattered this framework: their diffraction patterns show perfect five-fold symmetry, mathematically impossible in periodic crystals. The atoms follow deterministic rules like Penrose tilings — local matching conditions that propagate to create long-range order without translational symmetry. Aluminum-manganese alloys cooled at specific rates form icosahedral quasicrystals, their atoms arranged in three-dimensional analogs of Penrose patterns.
 
-The discovery process itself is notable. David Smith, a retired printer and amateur tiling enthusiast, first noticed the tile’s behavior through hands-on experimentation. He shared it with researchers Craig Kaplan, Joseph Myers, and Chaim Goodman-Strauss, who formalized the result and constructed rigorous proofs. Their work combined visual intuition, algorithmic exploration, and mathematical formalism — a rare and heartwarming example of how advances in mathematics can begin from curiosity and empirical play.
+David Smith discovered the hat tile in 2022 through manual experimentation with paper cutouts. He recognized its aperiodic behavior and contacted Craig Kaplan, Joseph Myers, and Chaim Goodman-Strauss. The team proved aperiodicity using substitution tiling theory: they showed the hat generates a substitution tiling where larger "metatiles" decompose into smaller copies following strict rules. The proof required verifying that no periodic tiling exists by analyzing the tile's hierarchical structure. They later discovered the "Spectre" — a variant that tiles only with direct congruent copies, solving the stronger "vampire einstein" problem where reflections are forbidden.
 
-\clearpage
+The hat tile solves a half-century-old problem: a single shape that tiles the plane only aperiodically. Its 13-sided form sits at a critical boundary — the minimal complexity needed to encode non-repetition in pure geometry. Like quasicrystals in nature, the hat achieves long-range order without translational symmetry, demonstrating that deterministic rules can generate infinite variety. From Euler's constraint on finite polyhedra to the hat's constraint on infinite tilings, mathematics reveals how local geometry determines global possibility.
 
-\begin{commentary}[Commentary: Amateur Insight and Formal Machinery]
-The hat tile was discovered not by formal derivation but by direct experimentation — David Smith observed its non-repeating behavior through hands-on manipulation. This empirical observation was later developed into a full mathematical result through collaboration with experts in geometry and substitution theory. The Spectre resulted from this joint effort, combining computational enumeration, combinatorial reduction, and formal inflation proofs. The case illustrates how mathematical insight can originate outside institutional settings and be sharpened into theorem by precise formal methods. Discovery here was stabilized through interaction between intuition and method.
+\begin{commentary}[Commentary: The Human Side of the Hat]
+David Smith was a retired print technician in Bridlington, England, experimenting with paper cutouts after designing shapes in PolyForm Puzzle Solver. He noticed one 13-sided shape resisted periodic arrangement. He contacted Craig Kaplan, Joseph Myers, and Chaim Goodman-Strauss. They proved the hat tile aperiodic through substitution tiling theory.
+
+Robert Ammann sorted mail when he independently rediscovered Penrose tiles in the 1970s. Marjorie Rice was a California homemaker who read Martin Gardner's column on pentagonal tilings in 1975. She discovered four new families of convex pentagons that tile the plane. Joan Taylor, an amateur mathematician in Tasmania, found the first disconnected aperiodic monotile.
+
+Within weeks of Smith's announcement, people made hat quilts, cookies, and 3D prints. The PolyForm Puzzle Solver community began exploring variations. Myers proved aperiodicity in just over a week. The team discovered the Spectre variant and an entire continuum of aperiodic tiles. Smith called the excitement "a bit surreal" — he'd been playing with shapes for years, cutting them out on cardstock, arranging them on his kitchen table. 
+
+Later in 2023, Miki Imura released a monotile that tiles in four symmetric spirals. Unlike Smith's hat, Imura's tile can also tile periodically — it allows both spiral and periodic arrangements. This makes it a versatile monotile but not an aperiodic one. Aperiodic monotiles must tile only non-periodically; the hat's significance lies in forcing aperiodicity through shape alone. Imura's tile joins known examples of shapes that admit multiple tiling patterns.\footnote{Imura's tiling generator: \url{https://mk.tiling.jp/playground/}; interactive version: \url{https://polypad.org/DFfSbZKi9eiUmA}}
+
 \end{commentary}
 
-\vspace{2em}
-
+\newpage
+\vspace*{\fill}
+\begin{center}
 \begin{tcolorbox}[
   colback=gray!2,
   colframe=gray!60,
@@ -74,4 +82,5 @@ $$P = 12$$
 
 Therefore, any sphere tiled with pentagons and hexagons (with 3 faces per vertex) must have exactly 12 pentagons, regardless of the number of hexagons. This applies to soccer balls, fullerene molecules, and geodesic domes alike.
 \end{tcolorbox}
-
+\end{center}
+\vspace*{\fill}
