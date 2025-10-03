@@ -35,10 +35,7 @@ A classical theorem states: if an orientation-preserving homeomorphism of a circ
 Our measure \( \mu \) satisfies:\\
 \textbf{Finite:} \( C \) is compact and \( \rho(p) > 0 \) is continuous. \textbf{Non-atomic:} points have zero measure. \textbf{Positive on arcs:} both \( \rho \) and arc-length are positive.
 
-Thus, there exists a homeomorphism \( \varphi: C \to S^1 \) and \( \alpha \in [0,1) \) such that:
-\[
-\varphi \circ T \circ \varphi^{-1} = R_\alpha, \quad \text{where } R_\alpha(\theta) = \theta + \alpha \mod 1.
-\]
+Thus, there exists a homeomorphism \( \varphi: C \to S^1 \) and \( \alpha \in [0,1) \) such that:$ \varphi \circ T \circ \varphi^{-1} = R_\alpha, \quad \text{where } R_\alpha(\theta) = \theta + \alpha \mod 1$
 
 The number \( \alpha \), called the \emph{rotation number} of \( T \), quantifies the average angular displacement per iteration. It is defined as $
 \alpha := \lim_{n \to \infty} \frac{1}{n} \tilde{s}(T^n(p)) \mod 1$, where \( \tilde{s} \) is arc-length on the circle under the conjugacy \( \varphi: C \to S^1 \). This limit exists and is independent of the choice of \( p \). (In smooth settings, it coincides with the normalized measure of the arc from \( p \) to \( T(p) \), i.e., \( \alpha = \mu([p, T(p))) \mod 1 \).)
