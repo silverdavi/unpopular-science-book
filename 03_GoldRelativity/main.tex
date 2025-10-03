@@ -1,6 +1,6 @@
 Atoms consist of a dense nucleus, composed of protons and neutrons, surrounded by electrons that do not follow classical trajectories. Instead of moving in well-defined orbits like planets around a star, electrons in atoms are described by orbitals: spatial distributions derived from the quantum mechanical wavefunction that give the probability of finding the electron in a given region.
 
-These orbitals emerge as solutions to the Schrödinger equation applied to the Coulomb potential created by the positively charged nucleus. Each solution is characterized by a discrete set of parameters — the quantum numbers — which encode the electron's energy, spatial distribution, and angular properties. There are four such quantum numbers:
+These orbitals emerge as solutions to the Schrödinger equation applied to the Coulomb potential created by the positively charged nucleus. Each solution is characterized by a discrete set of parameters — the quantum numbers — which determine the electron's energy, spatial distribution, and angular properties. There are four such quantum numbers:
 
 \begin{itemize}[leftmargin=*]
   \item The \textbf{principal quantum number} $n = 1, 2, 3, \ldots$ determines the energy level and average radial extent of the orbital. Higher $n$ corresponds to greater distance from the nucleus and higher energy.
@@ -11,41 +11,37 @@ These orbitals emerge as solutions to the Schrödinger equation applied to the C
 
 No two electrons in a single atom may occupy the same quantum state. This constraint — known as the Pauli exclusion principle — means that each combination $(n, \ell, m, s)$ can be occupied by at most one electron. For example, the $1s$ orbital can host two electrons: one with spin up and one with spin down.
 
-\medskip
-
 As electrons are added to an atom, they fill available orbitals according to energy minimization principles. This leads to the well-known electron filling sequence:
 \[
 1s,\ 2s,\ 2p,\ 3s,\ 3p,\ 4s,\ 3d,\ 4p,\ 5s,\ \ldots
 \]
 This order does not follow a strict progression in $n$, due to interactions such as shielding and penetration. Inner electrons partially screen the nucleus, reducing the effective nuclear charge experienced by outer electrons. Orbitals with the same $n$ but different $\ell$ values can therefore have different energies.
 
-\medskip
-
 In hydrogen-like atoms (single electron, full nuclear charge), all orbitals with the same $n$ are degenerate — they have the same energy regardless of $\ell$. This symmetry is broken in multi-electron atoms, where electron–electron repulsion and the shape of orbitals result in energy level splitting.
 
 Orbital shapes are determined by both radial and angular components. The radial part depends on $n$ and $\ell$, while the angular part (controlled by $m$ and $\ell$) determines nodal planes and symmetry axes. For instance, a $3d$ orbital has two angular nodes and occupies a region shaped like a cloverleaf.
 
-\medskip
 
 The periodic table reflects these principles. Each row corresponds roughly to a value of $n$, and each column — especially among main-group elements — reflects the number and configuration of valence electrons, those in the outermost shell. Elements with similar valence configurations (e.g., noble gases, alkali metals) exhibit analogous chemical properties.
 
-\medskip
 
 The color and optical appearance of a material are determined by how it interacts with light. Light is an electromagnetic wave, characterized by its wavelength \( \lambda \). When light strikes a material, some wavelengths are absorbed, while others are reflected or transmitted. The observed color corresponds to the reflected portion of the spectrum. For instance, a substance that absorbs blue light and reflects red and green will appear yellow. The mechanism behind absorption is electronic: photons transfer their energy to electrons, promoting them from lower to higher energy states.
 
 This promotion requires the photon's energy to match the gap between electronic states. By the Planck-Einstein relation, $E = hc/\lambda$, shorter wavelengths carry higher energies. When the energy gap between orbitals aligns with a photon's energy, that wavelength is absorbed. These absorptions determine the material's color.
 
-Now let's talk relativity. Special relativity describes the behavior of physical systems at speeds approaching the speed of light \( c \). Its core insight is that measurements of time, length, and mass depend on the observer’s inertial frame. For a particle with rest mass \( m_0 \), the total energy increases with velocity according to the expression:
+Now let's talk relativity. Special relativity describes the behavior of physical systems at speeds approaching the speed of light \( c \). Its core principle is that measurements of time, length, and mass depend on the observer's inertial frame. In Minkowski spacetime, \( c \) is not merely a large speed — it is the natural speed scale that defines the causal structure. Just as angles are bounded by \( 2\pi \) radians or percentages by 100\%, velocities in spacetime are bounded by \( c \). This is a geometric constraint, not a practical limitation.
+
+For a particle with rest mass \( m_0 \), the total energy increases with velocity according to:
 \[
 E = \frac{m_0 c^2}{\sqrt{1 - v^2/c^2}}.
 \]
-This formula implies that as \( v \to c \), the ratio \( v^2/c^2 \) approaches 1, causing the denominator \( \sqrt{1 - v^2/c^2} \) to shrink toward zero. Thus, the total energy \( E \) increases without bound. Physically, this means that accelerating a particle closer to the speed of light requires more and more energy, and reaching \( v = c \) would require infinite energy. As a result, no object with nonzero rest mass can be accelerated to the speed of light.
+As \( v \to c \), the ratio \( v^2/c^2 \) approaches 1, causing the denominator \( \sqrt{1 - v^2/c^2} \) to shrink toward zero, and the energy diverges. The formula reflects that \( c \) marks the boundary of physically realizable velocities in the spacetime structure.
 
 In practice, even modest fractions of \( c \) can result in measurable relativistic energy corrections. For example, at \( v/c = 0.6 \), the denominator becomes \( \sqrt{1 - 0.36} = 0.8 \), so the total energy is increased by a factor of \( 1/0.8 = 1.25 \) above the rest energy. These corrections are small for everyday objects but become substantial for subatomic particles, especially in high-energy regimes such as atomic orbitals in heavy atoms.
 
 When considering electrons in atoms, however, the notion of velocity must be interpreted within quantum mechanics. Electrons in bound states do not follow classical trajectories. Their behavior is described by wavefunctions. Dynamical quantities — such as momentum or velocity — are represented by operators acting on those wavefunctions.
 
-The key insight comes from the uncertainty principle: electrons forced to localize near the nucleus (by strong nuclear attraction) must have high momentum components. In the atomic Schrödinger equation, the kinetic energy term penalizes sharp wavefunction changes (localization), while the potential energy term favors proximity to the nucleus. The balance between these competing effects determines orbital structure. Although electrons in bound states lack classical trajectories, the uncertainty principle implies that tightly localized wavefunctions (as in inner orbitals of high-$Z$ atoms) must involve high-momentum components. These high momenta correspond to kinetic energies where relativistic corrections become crucial. In non-relativistic quantum mechanics, the momentum operator is given by: $\hat{p} = -i\hbar \nabla.$
+Now we introduce the uncertainty principle: electrons forced to localize near the nucleus (by strong nuclear attraction) must have high momentum components. In the atomic Schrödinger equation, the kinetic energy term penalizes sharp wavefunction changes (localization), while the potential energy term favors proximity to the nucleus. The balance between these competing effects determines orbital structure. Although electrons in bound states lack classical trajectories, the uncertainty principle implies that tightly localized wavefunctions (as in inner orbitals of high-$Z$ atoms) must involve high-momentum components. These high momenta correspond to kinetic energies where relativistic corrections become crucial. In non-relativistic quantum mechanics, the momentum operator is given by: $\hat{p} = -i\hbar \nabla.$
 
 To connect this quantum momentum to something resembling classical velocity, we use the relation \( \hat{v} = \hat{p}/m \). Since electrons don't have definite velocities in quantum states, we compute the expectation value \( \langle \hat{v} \rangle = \langle \psi | \hat{p}/m | \psi \rangle \). This expectation value \( \langle \hat{v} \rangle \) offers a statistical measure of the electron's effective motion within the orbital. While it does not describe a definite speed or path, it provides a meaningful average scale for kinetic behavior — telling us roughly how "fast" the electron would be moving if we could somehow average over all its quantum fluctuations.
 
@@ -151,5 +147,5 @@ Mercury ($Z = 80$) reveals a different consequence of relativistic orbital modif
   
   In mechanics one typically uses classical physics, and in chemistry, simplistic atomic models (electrons "orbiting" a nucleus) are adequate for most applications. \textbf{This is why it is remarkable that the color of gold requires relativistic corrections}. The relativistic effects on gold's electron orbitals cause it to absorb blue light and appear yellow, whereas non-relativistic predictions would yield a silvery appearance like its periodic table neighbors.
   
-  It is rare to need special relativity for macroscopic phenomena we encounter daily. This makes gold particularly noteworthy — it represents one of the few cases where a common macroscopic property (color) can only be correctly predicted by including relativistic effects.
+  It is rare to need special relativity for macroscopic phenomena we encounter daily. This makes gold particularly noteworthy — it represents one of the few cases where a common macroscopic property (color) can be correctly predicted only by including relativistic effects.
 \end{commentary}

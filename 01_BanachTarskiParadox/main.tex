@@ -31,7 +31,7 @@ When measuring spatial objects, \textbf{invariance under rigid motions} is requi
 
 Non-measurable sets lead to paradoxical results, including the Banach–Tarski paradox. The paradox states that a 3-dimensional ball can be partitioned into five disjoint subsets, which can then be recombined — using only rigid motions — into two balls congruent to the original. This result reflects the failure of volume to be preserved when applied to non-measurable sets. In physical systems such as a stone or a fluid body, each component contributes additively to the whole. The Banach–Tarski construction defines a setting where this principle fails and volume is not additive.
 
-Consider Hilbert's Hotel: an infinite hotel with rooms numbered $1, 2, 3, \ldots$, all occupied. To accommodate one new guest, shift everyone from room $n$ to room $n+1$, freeing room 1. To accommodate infinitely many new guests, move everyone from room $n$ to room $2n$, freeing all odd-numbered rooms. This illustrates how infinite sets can be reorganized in counterintuitive ways — a property that the Banach–Tarski construction exploits in 3-dimensional space.
+Consider Hilbert's Hotel: an infinite hotel with rooms numbered $1, 2, 3, \ldots$, all occupied. To accommodate one new guest, shift everyone from room $n$ to room $n+1$, freeing room 1. To accommodate infinitely many new guests, move everyone from room $n$ to room $2n$, freeing all odd-numbered rooms.
 
 The Banach–Tarski construction can be presented as a combinatorial game. Consider a deck with four types of cards: $A$, $B$, $A^{-1}$, and $B^{-1}$. These cards can be arranged in sequences, with one rule: if $A$ and $A^{-1}$ appear next to each other, they annihilate. The same applies to $B$ and $B^{-1}$. A sequence like $ABA^{-1}B$ is stable, but a sequence like $B^{-1}BA$ immediately reduces to just $A$. The set of all irreducible sequences forms the free group $F_2$ — all sequences of the cards $A$ and $B$, with the rule that $A$ and $A^{-1}$ annihilate, and $B$ and $B^{-1}$ annihilate.
 
@@ -49,7 +49,7 @@ At this point the Axiom of Choice enters: from each orbit, pick a single represe
 
 Now comes the partitioning that makes the paradox work. Four players will divide the entire sphere among themselves by each taking the representatives $R$ and applying only certain rotation sequences:
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 \item \textbf{Player 1}: Gets all points reached by sequences starting with card $A$ (avoiding immediate $A^{-1}$ cancellation). This creates the point set $S_A$.
 \item \textbf{Player 2}: Gets all points from sequences starting with $A^{-1}$ (avoiding $A$), creating $S_{A^{-1}}$.
 \item \textbf{Player 3}: Gets all points from sequences starting with $B$ (avoiding $B^{-1}$), creating $S_B$.
@@ -58,13 +58,11 @@ Now comes the partitioning that makes the paradox work. Four players will divide
 
 Every possible rotation sequence must start with one of these four cards ($A$, $A^{-1}$, $B$, or $B^{-1}$). This means the four sets are disjoint — no point belongs to two different players — and together they cover the entire sphere (except for fixed points on rotation axes, which are handled separately).
 
-Now we move to the reconstruction. The players will recombine their pieces to create two complete spheres from one:
-
 \textbf{First Sphere Reconstruction:}
 
 Player 2 gives their entire collection $S_{A^{-1}}$ to Player 1. Player 1 then rotates every point in $S_{A^{-1}}$ by applying rotation $A$ before each sequence, creating the new set $A \cdot S_{A^{-1}}$.
 
-The key insight: When you rotate a point reached by sequence $A^{-1}BA$ using rotation $A$, you get $A \cdot (A^{-1}BA) = (AA^{-1})BA = BA$ — the $A$ and $A^{-1}$ cancel. Similarly, rotating the point from sequence $A^{-1}$ gives $A \cdot A^{-1} = $ identity (the original representative point).
+When you rotate a point reached by sequence $A^{-1}BA$ using rotation $A$, you get $A \cdot (A^{-1}BA) = (AA^{-1})BA = BA$ — the $A$ and $A^{-1}$ cancel. Similarly, rotating the point from sequence $A^{-1}$ gives $A \cdot A^{-1} = $ identity (the original representative point).
 
 Player 1 now has $S_A$ (all points reached by sequences starting with $A$) and $A \cdot S_{A^{-1}}$ (all points reached by sequences NOT starting with $A$). Together, these form a complete sphere!
 
@@ -74,9 +72,11 @@ We started with four disjoint pieces that made up one sphere. By rotating two of
 
 This paradoxical outcome depends on selecting representative points from each orbit, which requires a version of the Axiom of Choice. The resulting sets of representatives are non-measurable — they cannot be assigned consistent volumes that preserve both countable additivity and invariance under rotation. The non-measurability arises from the paradoxical nature of the group action itself (the way these rotations act on the sphere).
 
-This construction illustrates the ideas behind the Banach–Tarski paradox. The full theorem decomposes a three-dimensional ball into five pieces, which can then be rotated into two balls of the same size as the original. The core concepts — free groups acting on a sphere, orbit decompositions, the role of the Axiom of Choice in selecting representatives, and the resulting non-measurable sets — remain the same.
+This construction illustrates the ideas underlying the Banach–Tarski paradox. The full theorem decomposes a three-dimensional ball into five pieces, which can then be rotated into two balls of the same size as the original. The core concepts — free groups acting on a sphere, orbit decompositions, the role of the Axiom of Choice in selecting representatives, and the resulting non-measurable sets — remain the same.
 
-The Axiom of Choice occupies a unique position in modern mathematics. Gödel proved that if ZF is consistent, then so is ZFC (relative consistency). Cohen later proved that if ZF is consistent, then so is ZF with the negation of Choice, establishing that the Axiom of Choice is independent of ZF. This independence — the existence of a statement neither provable nor disprovable from the axioms — was revolutionary. Classical theorems across mathematics rely upon it: "every vector space has a basis" and "the product of compact spaces is compact" are equivalent to accepting Choice. 
+The (Axiom of) Choice occupies a unique position in modern mathematics. Gödel proved that if ZF is consistent, then so is ZFC. Cohen later proved that if ZF is consistent, then so is ZF with the negation of Choice, establishing that the Axiom of Choice is independent of ZF. This independence — the existence of a statement neither provable nor disprovable from the axioms — was revolutionary. Classical theorems across mathematics rely upon it: "every vector space has a basis" and "the product of compact spaces is compact" are equivalent to accepting Choice. 
+
+Before dismissing Choice to avoid the paradox, know that its absence also permits some freighting results. When you partition a set into disjoint subsets, selecting one representative from each part typically creates an injection from the index set into the original set — the number of parts cannot exceed the number of elements. Without Choice, this fails. In ZF alone, it is consistent that a partition $X = \bigsqcup_{i \in I} B_i$ exists with no injection $I \hookrightarrow X$, so the cardinality $|I|$ need not be bounded by $|X|$. A set can be split into more parts than it has elements. Rejecting Choice trades one counterintuitive result for another. 
 
 \begin{commentary}[Commentary]
 This chapter forces a distinction between mathematical and physical reasoning. The Banach–Tarski construction is not a paradox in the sense of contradiction or physical impossibility, but it is a good example of the consequences of adopting the Axiom of Choice, showing that intuitive notions like volume are not preserved across all set decompositions. The result is clean and formally sound, yet incompatible with empirical modeling. That gap — between internally consistent mathematics and physically grounded expectation — illustrates the epistemic boundaries explored throughout this book. As with other chapters that emphasize when simplifications fail (relativity in gold, curvature in gravity, topology in voting), this example shows that what appears insane may instead be a well-posed feature of a chosen formal system.
