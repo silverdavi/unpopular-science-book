@@ -1,0 +1,82 @@
+\begin{technical}
+    {\Large\textbf{Neural Correlates and Measurement Paradoxes}}\\[0.7em]
+
+    \textbf{1. Anesthetic Mechanisms}\\[0.3em]
+    GABA\textsubscript{A} potentiation by propofol follows:
+    \begin{align*}
+        I_\text{syn} &= g_\text{max} P_\text{open}(V_m - E_\text{Cl})\\
+        P_\text{open} &\propto \frac{[\text{GABA}]^2}{[\text{GABA}]^2 + K_d^2}(1 + \alpha[\text{drug}])
+    \end{align*}
+    Network dynamics shift from sustained to transient:
+    \begin{align*}
+        \tau \dot{r} &= -r + f(w_{EE}r_E - w_{EI}r_I)\\
+        w_{EI} &\xrightarrow{\text{anesthetic}} \beta w_{EI}, \quad \beta > 1
+    \end{align*}
+
+    \textbf{2. Readiness Potentials}\\[0.3em]
+    Libet measured Bereitschaftspotential timing:
+    \begin{itemize}
+        \item BP onset: $-550$ ms before movement
+        \item W-time (awareness): $-200$ ms
+        \item EMG onset: $0$ ms
+    \end{itemize}
+    Schurger's stochastic model:
+    \begin{align*}
+        x(t) &= \int_0^t \xi(s)ds, \quad \text{movement when } x(t) > \theta
+    \end{align*}
+    predicts BP without specific decision onset.
+
+    \textbf{3. Consciousness Metrics}\\[0.3em]
+    Integrated Information $\Phi$:
+    \begin{align*}
+        \Phi = \min_{\text{partition}} D_\text{KL}(p_\text{whole} \| p_\text{parts})
+    \end{align*}
+    Computational complexity: $\mathcal{O}(2^{2^N})$.
+    
+    Perturbational Complexity Index:
+    \begin{align*}
+        \text{PCI} = \text{LZ}(\text{binarized TMS response})
+    \end{align*}
+    Threshold: PCI $> 0.31$ correlates with consciousness.
+
+    \textbf{4. Phase Space Structure}\\[0.3em]
+    EEG microstates show power-law dwell times:
+    \begin{align*}
+        p(\tau) \sim \tau^{-1.5}e^{-\tau/\tau_0}
+    \end{align*}
+    Anesthesia increases transition matrix spectral gap, indicating loss of metastability.
+
+    \textbf{5. Fatal Familial Insomnia}\\[0.3em]
+    Mediodorsal thalamic lesions eliminate:
+    \begin{itemize}
+        \item Sleep spindles (7-14 Hz)
+        \item $\delta$ power (0.5-4 Hz)
+        \item NREM transitions
+    \end{itemize}
+    Wake $\alpha$ (8-12 Hz) preserved.
+
+    \textbf{6. Measurement Recursion}\\[0.3em]
+    Neural correlate validation requires:
+    \begin{align*}
+        P(C|N) = \frac{P(N|C)P(C)}{P(N)}
+    \end{align*}
+    But $P(N|C)$ depends on subject report $R$, which presupposes $C$. The recursion cannot ground.
+
+    \textbf{7. Superdeterminism}\\[0.3em]
+    Bell inequality assumes:
+    \begin{align*}
+        P(a,b|\lambda) = P(a|\lambda)P(b|\lambda)
+    \end{align*}
+    Superdeterminism denies this via:
+    \begin{align*}
+        \psi(t) &= U(t,t_0)\psi_0\\
+        M(t) &= F[\phi(t_0)]
+    \end{align*}
+    Measurement choice $M$ correlates with hidden state $\lambda$ through shared initial conditions.
+
+    \vspace{0.5em}
+    \textbf{References:}\newline
+    Libet, B. (1985). \emph{Unconscious cerebral initiative}.\newline
+    Schurger, A., et al. (2012). \emph{Accumulator model}.\newline
+    Casali, A. G., et al. (2013). \emph{Index of consciousness}.
+\end{technical}

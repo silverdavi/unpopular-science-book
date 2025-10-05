@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+
+\usepackage{tikz}
+\usetikzlibrary{lindenmayersystems}
+
+\usepackage[margin=0.5in, paperwidth=8.5in, paperheight=11in]{geometry}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{center}
+\begin{tikzpicture}
+  
+  % Generate 50 mirrored tree pairs (10x5 grid)
+  \foreach \x in {1,...,10} {
+    \foreach \y in {1,...,5} {
+      
+      % Calculate center position for each pair
+      \pgfmathsetmacro{\xpos}{(\x-1)*1.6 - 8}
+      \pgfmathsetmacro{\ypos}{(\y-1)*-2.2 + 5}
+      
+      % Randomize tree parameters slightly for variety
+      \pgfmathsetmacro{\treeorder}{int(3+random(0,2))}
+      \pgfmathsetmacro{\treestep}{1.2+random(0,8)/10}
+      \pgfmathsetmacro{\treeangle}{28+random(0,6)}
+      \pgfmathsetmacro{\treecolor}{60+random(0,30)}
+      
+      % Left-growing fractal (mirrored)
+      \begin{scope}[xscale=-1, shift={(-\xpos cm - 0.4cm, \ypos cm)}]
+        \draw[gray!\treecolor!black, thick,
+          l-system={
+            rule set={F -> FF-[-F+F]+[+F-F]},
+            axiom=F,
+            order=\treeorder,
+            step=\treestep pt,
+            randomize step percent=35,
+            angle=\treeangle,
+            randomize angle percent=10
+          }]
+          lindenmayer system;
+      \end{scope}
+      
+      % Right-growing fractal
+      \begin{scope}[shift={(\xpos cm + 0.4cm, \ypos cm)}]
+        \draw[gray!\treecolor!black, thick,
+          l-system={
+            rule set={F -> FF-[-F+F]+[+F-F]},
+            axiom=F,
+            order=\treeorder,
+            step=\treestep pt,
+            randomize step percent=35,
+            angle=\treeangle,
+            randomize angle percent=10
+          }]
+          lindenmayer system;
+      \end{scope}
+      
+    }
+  }
+  
+\end{tikzpicture}
+\end{center}
+
+\end{document}
