@@ -16,3 +16,4 @@ venv/
 compile_pass*.log
 *_page_structure.csv
 *.csv
+*.png
