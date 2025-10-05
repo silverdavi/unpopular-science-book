@@ -1,82 +1,81 @@
 \begin{technical}
-    {\Large\textbf{Neural Correlates and Measurement Paradoxes}}\\[0.7em]
+    {\Large\textbf{Agency as Axiomatic Ground}}\\[0.5em]
 
-    \textbf{1. Anesthetic Mechanisms}\\[0.3em]
-    GABA\textsubscript{A} potentiation by propofol follows:
-    \begin{align*}
-        I_\text{syn} &= g_\text{max} P_\text{open}(V_m - E_\text{Cl})\\
-        P_\text{open} &\propto \frac{[\text{GABA}]^2}{[\text{GABA}]^2 + K_d^2}(1 + \alpha[\text{drug}])
-    \end{align*}
-    Network dynamics shift from sustained to transient:
-    \begin{align*}
-        \tau \dot{r} &= -r + f(w_{EE}r_E - w_{EI}r_I)\\
-        w_{EI} &\xrightarrow{\text{anesthetic}} \beta w_{EI}, \quad \beta > 1
-    \end{align*}
-
-    \textbf{2. Readiness Potentials}\\[0.3em]
-    Libet measured Bereitschaftspotential timing:
-    \begin{itemize}
-        \item BP onset: $-550$ ms before movement
-        \item W-time (awareness): $-200$ ms
-        \item EMG onset: $0$ ms
-    \end{itemize}
-    Schurger's stochastic model:
-    \begin{align*}
-        x(t) &= \int_0^t \xi(s)ds, \quad \text{movement when } x(t) > \theta
-    \end{align*}
-    predicts BP without specific decision onset.
-
-    \textbf{3. Consciousness Metrics}\\[0.3em]
-    Integrated Information $\Phi$:
-    \begin{align*}
-        \Phi = \min_{\text{partition}} D_\text{KL}(p_\text{whole} \| p_\text{parts})
-    \end{align*}
-    Computational complexity: $\mathcal{O}(2^{2^N})$.
+    \textbf{Epistemic Formalism}\\[0.3em]
+    Let $S$ be a knowing subject, $\mathcal{P}$ the set of propositions, and $K_S \subseteq \mathcal{P}$ the commitment set of propositions $S$ holds true. For $p, q \in K_S$, write $p \vdash q$ if $q$ logically follows from $p$.
     
-    Perturbational Complexity Index:
-    \begin{align*}
-        \text{PCI} = \text{LZ}(\text{binarized TMS response})
-    \end{align*}
-    Threshold: PCI $> 0.31$ correlates with consciousness.
+    Define \textit{revision cost}:
+    \[
+    C(p) := |\{q \in K_S \mid p \vdash q\}|
+    \]
+    This induces partial order $(K_S, \preceq)$ where $p \preceq q \iff C(p) \leq C(q)$.
 
-    \textbf{4. Phase Space Structure}\\[0.3em]
-    EEG microstates show power-law dwell times:
-    \begin{align*}
-        p(\tau) \sim \tau^{-1.5}e^{-\tau/\tau_0}
-    \end{align*}
-    Anesthesia increases transition matrix spectral gap, indicating loss of metastability.
-
-    \textbf{5. Fatal Familial Insomnia}\\[0.3em]
-    Mediodorsal thalamic lesions eliminate:
-    \begin{itemize}
-        \item Sleep spindles (7-14 Hz)
-        \item $\delta$ power (0.5-4 Hz)
-        \item NREM transitions
+    \textbf{Hierarchy with Revision Costs}\\[0.3em]
+    \begin{itemize}[leftmargin=*,topsep=0pt,itemsep=1pt]
+        \item $p_1$: "Sky is blue"\\
+        \textit{If false}: Mildly interesting. Nothing breaks.
+        \item $p_2$: "Not in The Matrix"\\
+        \textit{If false}: Stunned. Rebuild ontology. Days to recover.
+        \item $p_3$: "Gravity exists"\\
+        \textit{If false}: Physics rebuilds. Weeks to recover.
+        \item $p_4$: "$2+3=5$"\\
+        \textit{If false}: Arithmetic collapses. Reasoning disassembles.
+        \item $p_5$: "$P \vee \neg P$" (excluded middle)\\
+        \textit{If false}: Logic fails. Cannot reason about contradictions.
+        \item $A$: "I direct my thought"\\
+        \textit{If false}: No subject remains to register the failure.
     \end{itemize}
-    Wake $\alpha$ (8-12 Hz) preserved.
+    Strictly: $C(p_1) \ll C(p_2) \ll C(p_3) \ll C(p_4) \ll C(p_5) \ll C(A)$.
 
-    \textbf{6. Measurement Recursion}\\[0.3em]
-    Neural correlate validation requires:
-    \begin{align*}
-        P(C|N) = \frac{P(N|C)P(C)}{P(N)}
-    \end{align*}
-    But $P(N|C)$ depends on subject report $R$, which presupposes $C$. The recursion cannot ground.
+    \textbf{Agency as Maximal Element}\\[0.3em]
+    \textit{Agency} ($A$): capacity to perform operations on $K_S$ (selecting, comparing, affirming, rejecting propositions). This is control over thought, not physical action.
+    
+    To revise $K_S$ by removing $A$ requires performing an operation on $K_S$, which presupposes $A$. Thus revision of $A$ is self-undermining:
+    \[
+    A \vdash p \quad \forall p \in K_S \quad \Rightarrow \quad C(A) = |K_S|
+    \]
+    Agency is the maximal element in $(K_S, \preceq)$.
 
-    \textbf{7. Superdeterminism}\\[0.3em]
-    Bell inequality assumes:
-    \begin{align*}
-        P(a,b|\lambda) = P(a|\lambda)P(b|\lambda)
-    \end{align*}
-    Superdeterminism denies this via:
-    \begin{align*}
-        \psi(t) &= U(t,t_0)\psi_0\\
-        M(t) &= F[\phi(t_0)]
-    \end{align*}
-    Measurement choice $M$ correlates with hidden state $\lambda$ through shared initial conditions.
+    \textbf{Resolution: Physics vs. Agency}\\[0.3em]
+    Let $P_{\text{phy}}$ = "Universe fully determined by physical law." If $P_{\text{phy}} \vdash \neg A$, we face contradiction: $\{P_{\text{phy}}, A, P_{\text{phy}} \to \neg A\}$.
+    
+    Comparing revision costs:
+    \begin{itemize}[leftmargin=*,topsep=0pt,itemsep=1pt]
+        \item $C(P_{\text{phy}})$: finite. Subject persists, rebuilds model.
+        \item $C(A)$: total. No subject remains.
+    \end{itemize}
+    
+    Since $C(P_{\text{phy}}) < C(A)$, agency dominates. Physical models invalidating agency are epistemologically incoherent.
+
+    \columnbreak
+
+    \textbf{Category Error Formalized}\\[0.3em]
+    Let $\mathcal{C}_{\text{phys}}$ be category of physical processes with morphisms as causal relations. Let $\mathcal{C}_{\text{agent}}$ be category of first-person agency with morphisms as deliberative acts.
+    
+    No structure-preserving functor $F: \mathcal{C}_{\text{phys}} \to \mathcal{C}_{\text{agent}}$ exists satisfying:
+    \[
+    F(\text{correlation}) = \text{constitution}
+    \]
+    Classifiers extract invariants; subjects exert control. These are distinct logical types. Classification $\not\cong$ first-personal presence.
+
+    \textbf{Philosophical Grounding}\\[0.3em]
+    \textit{Descartes' Cogito ergo sum} (1641): The act of doubting presupposes the existence of a doubter. Even radical skepticism cannot eliminate the thinking subject. This establishes the subject as the foundation of knowledge, not a conclusion derived from it.
+
+    \textit{Kant's Transcendental Apperception} (1781): The unity of consciousness is not empirically observed but is the logical precondition for any structured experience. The "I think" must accompany all representations. Without a unified subject, no comparison, judgment, or synthesis of data is possible.
+
+    \textit{Modern Parallel}: These establish that agency is axiomatic, not a theorem derived from lower-level descriptions. The subject is the condition for there being theorems, descriptions, and derivations at all.
+
+    \textbf{Implications}\\[0.3em]
+    \begin{itemize}[leftmargin=*,topsep=0pt,itemsep=2pt]
+        \item Neural correlates map \textit{when} consciousness appears, not \textit{what} it constitutes.
+        \item Illusions require a subject to be deceived. Denying the subject makes "illusion" incoherent.
+        \item Physical models constrain manifestation conditions but cannot invalidate the standpoint from which models are constructed and evaluated.
+    \end{itemize}
 
     \vspace{0.5em}
-    \textbf{References:}\newline
-    Libet, B. (1985). \emph{Unconscious cerebral initiative}.\newline
-    Schurger, A., et al. (2012). \emph{Accumulator model}.\newline
-    Casali, A. G., et al. (2013). \emph{Index of consciousness}.
+    \textbf{References:}\\
+    {\footnotesize
+    Descartes, R. (1641). \textit{Meditations on First Philosophy}.\\
+    Kant, I. (1781/1787). \textit{Critique of Pure Reason}.\\
+    }
 \end{technical}
