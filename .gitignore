@@ -15,7 +15,5 @@ venv/
 .env
 compile_pass*.log
 main_1-15.pdf
-*.png
 *_page_structure.csv
-*.pdf
 *.csv
