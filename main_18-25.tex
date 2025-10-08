@@ -1,0 +1,93 @@
+\documentclass[11pt,openany]{book}
+
+\input{preamble}
+
+% Title and author
+\title{Unpopular Science}
+\author{David H. Silver}
+\date{\today}
+
+\begin{document}
+
+% Cover page
+\begin{titlepage}
+
+    \begin{tikzpicture}[remember picture, overlay]
+        % Background image
+        \node[anchor=center] at (current page.center) {
+            \includegraphics[width=\paperwidth,height=\paperheight]{cover/ChatGPT Image Apr 18, 2025, 06_49_29 PM.png}
+        };
+
+        % Title
+        \node[anchor=center, align=center] at ([yshift=-9cm]current page.center) {
+            \fontsize{48}{52}\selectfont
+            \bfseries\color{white}{Unpopular Science}\\
+            \fontsize{48}{52}\selectfont
+            \bfseries\color{red}{DRAFT}
+        };
+
+        % Author
+        \node[anchor=center] at ([yshift=-11cm]current page.center) {
+            \fontsize{18}{32}\selectfont
+            \itshape\color{white} David H. Silver
+        };
+    \end{tikzpicture}
+    \vfill
+        
+\end{titlepage}
+
+% Academic title page
+\input{titlepage}
+
+% Table of contents
+\tableofcontents
+
+% Introduction
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\vfill
+\input{intro}
+\vfill
+\clearpage
+
+% Prologue
+\chapter*{Prologue}
+\addcontentsline{toc}{chapter}{Prologue}
+\input{prologue}
+
+
+\begin{comment}
+    \chapter[]{}
+    \label{ch:}
+    \inputstory{44_IronMask}
+\end{comment}
+
+
+\chapterwithsummaryfromfile[ch:planetaryskycolors]{27_PlanetarySkyColors}  %Approved
+\inputstory{27_PlanetarySkyColors}
+
+\chapterwithsummaryfromfile[ch:negativetemperature]{28_NegativeTemp}
+\inputstory{28_NegativeTemp} %Approved
+
+\chapterwithsummaryfromfile[ch:hatmonotile]{29_HatMonotile}
+\inputstory{29_HatMonotile} %Approved
+
+\chapterwithsummaryfromfile[ch:simpsonsparadox]{30_SimpsonsParadox}
+\inputstory{30_SimpsonsParadox}  %Approved
+
+\chapterwithsummaryfromfile[ch:osmosisdebye]{31_osmosis_Debye}
+\inputstory{31_osmosis_Debye} %Approved
+
+\chapterwithsummaryfromfile[ch:atomic]{32_AtomicClocks}
+\inputstory{32_AtomicClocks} %Approved
+
+\chapterwithsummaryfromfile[ch:incubationinequality]{33_IncubationInequality}
+\inputstory{33_IncubationInequality} %Approved
+
+\chapterwithsummaryfromfile[ch:boltzmannbrain]{34_BoltzmannBrain}
+\inputstory{34_BoltzmannBrain} %Approved
+
+\chapterwithsummaryfromfile[ch:treesfromair]{35_TreesFromAir}
+\inputstory{35_TreesFromAir} %Approved
+
+\end{document}
