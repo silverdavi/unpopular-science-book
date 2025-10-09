@@ -10,9 +10,9 @@ The number of permutations grows as follows:
 \]
 This rapid — factorial — growth means that although the idea of permutations is elementary, the total number becomes intractable to list or store explicitly even for moderate $n$.
 
-To visualize the implications, suppose one attempts to list all permutations of $\{1, 2, 3\}$: these are \texttt{123}, \texttt{132}, \texttt{213}, \texttt{231}, \texttt{312}, and \texttt{321}. Each permutation has length 3, so listing them end-to-end would yield a string of length $6 \times 3 = 18$. For larger $n$, such direct listings become prohibitively long. Moreover, this naive approach repeats overlapping segments across permutations, introducing redundancy. Understanding and managing this combinatorial explosion is relevant to more questions of encoding, compressing, or other problems in the space of permutations.
+Suppose one attempts to list all permutations of $\{1, 2, 3\}$: these are \texttt{123}, \texttt{132}, \texttt{213}, \texttt{231}, \texttt{312}, and \texttt{321}. Each permutation has length 3. If one were to list them end-to-end it would yield a string of length $6 \times 3 = 18$. For larger $n$, such direct listings become prohibitively long.
 
-A \emph{superpermutation} on $n$ symbols is a finite string that contains, as contiguous substrings, every one of the $n!$ distinct permutations of those symbols. In contrast to merely listing permutations separately, a superpermutation aims to \emph{compress} all of them into a single sequence, reusing overlapping segments wherever possible. The constraint is that each permutation must appear somewhere in the string uninterrupted.
+A string that contains all permutations as contiguous substrings is called a \emph{superpermutation}. For example, the naive concatenation \texttt{123132213231213321} is a superpermutation of $\{1, 2, 3\}$ because it contains all six permutations as contiguous substrings. However, it has length 18, which is not the minimal possible length. While the naive approach gives a superpermutation of length $n!*n$, it can be \emph{compressed} and made smaller by reusing overlapping segments wherever possible.
 
 Consider the case $n = 2$. The two permutations of the symbols $\{1, 2\}$ are \texttt{12} and \texttt{21}. A superpermutation must therefore include both \texttt{12} and \texttt{21} as substrings. The shortest such string is \texttt{121}. It contains \texttt{12} starting at position 1 and \texttt{21} starting at position 2. This is the minimal superpermutation for $n = 2$, and it has length 3.
 
@@ -58,13 +58,13 @@ $$
 L(n) \geq n! + (n - 1)! + (n - 2)! + n - 3
 $$
 
-This inequality, valid for all $n \geq 2$, immediately strengthened all previously known bounds. Though presented informally, the proof was ultimately correct. It treated permutations as vertices in a directed graph, with directed edges representing overlaps between adjacent substrings. The minimal-length superpermutation corresponded to a Hamiltonian path through this graph, and the proof established a lower bound on the total cost of any such path by analyzing the unavoidable overlaps.
+This inequality, valid for all $n \geq 2$, strengthened all previously known bounds. Though presented informally, the proof was ultimately correct. It treated permutations as vertices in a directed graph, with directed edges representing overlaps between adjacent substrings. The minimal-length superpermutation corresponded to a Hamiltonian path through this graph, and the proof established a lower bound on the total cost of any such path by analyzing the unavoidable overlaps.
 
 Despite its correctness and novelty, the result went largely unnoticed at the time. The platform offered no mechanisms for citation or persistence: posts were anonymous, threads expired automatically, and archival relied entirely on user initiative. The derivation was eventually copied to a fandom-hosted mathematics wiki, but remained obscure and disconnected from formal literature.
 
 In 2014, mathematician Robin Houston independently rediscovered the argument, verified its correctness, and recognized its significance. He publicized the result, incorporated it into ongoing research, and cited the unknown author as “Anonymous 4chan Poster” — a designation that remains standard in subsequent academic references. The original poster has never been identified.
 
-The impact was immediate. The new lower bound provided a rigorous floor against which all proposed constructions could be measured. Shortly thereafter, Houston constructed a superpermutation on six symbols of length 872 — one less than the conjectured minimum of 873 — thereby disproving the long-standing sum-of-factorials conjecture. The result showed that minimal lengths could deviate subtly, but definitively, from previous expectations.
+The impact was immediate. The new lower bound provided a rigorous floor against which all proposed constructions could be measured. Shortly thereafter, Houston constructed a superpermutation on six symbols of length 872 — one less than the conjectured minimum of 873 — thereby disproving the long-standing sum-of-factorials conjecture.
 
 In 2018, an accomplished sci-fi author and mathematician Greg Egan proposed a constructive upper bound:
 $$
