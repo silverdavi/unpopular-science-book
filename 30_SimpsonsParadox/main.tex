@@ -2,7 +2,7 @@ In North Carolina's 2012 congressional elections, Democratic candidates received
 
 Statistical association hinges on how data are grouped. The same population can yield opposite conclusions depending on the partition chosen. In extreme cases, a relationship positive in every subgroup becomes negative when groups combine — or a democratic majority becomes a legislative minority through strategic line-drawing.
 
-Simpson's paradox demonstrates correlation reversal. A kidney stone treatment shows 93\% success for small stones and 73\% for large stones. A competing treatment achieves only 87\% for small stones and 69\% for large stones. The first treatment beats the second in both categories. Yet overall success rates reverse: 79\% versus 85.5\%. The paradox arises because doctors used the superior treatment primarily on difficult cases — 70\% of its patients had large stones, while 91\% of the inferior treatment's patients had small stones.
+Simpson's paradox demonstrates correlation reversal. A kidney stone treatment shows 93\% success for small stones and 73\% for large stones. A competing treatment achieves only 87\% for small stones and 69\% for large stones. The first treatment beats the second in both categories. Yet overall success rates reverse: 79\% versus 85.5\%. The reversal arises because doctors used the superior treatment primarily on difficult cases — 70\% of its patients had large stones, while 91\% of the inferior treatment's patients had small stones.
 
 Gerrymandering engineers deliberate reversal. Both major parties employ this tactic when they control redistricting. Wisconsin's 2012 state assembly elections saw Democrats win 53\% of votes but only 39\% of seats. The mechanism: district lines packed Democratic voters into urban districts where they won by 70-80\% margins, while Republican victories spread efficiently across suburban and rural districts with 55-60\% margins. Both phenomena — Simpson's paradox and gerrymandering — exploit the mathematics of aggregation, but with different intent. The mathematics underlying both phenomena reduces to weighted averages. When calculating any aggregate statistic — whether treatment success rates or electoral outcomes — the result depends on two factors: the values within each group and the relative sizes of groups. Change either factor and the aggregate changes.
 
@@ -35,18 +35,27 @@ Treatment A wins in both stone categories yet loses overall. Treatment A handled
 Gerrymandering employs similar mathematics with manipulative intent. Consider a simplified state with 10 districts, 5 million voters split evenly between parties:
 
 \begin{center}
-\begin{tabular}{lcc}
-\toprule
-Districting Strategy & Party A Seats & Party B Seats \\
-\midrule
-Proportional (each district 50-50) & 5 & 5 \\
-Gerrymandered for A & 7 & 3 \\
-Gerrymandered for B & 3 & 7 \\
-\bottomrule
-\end{tabular}
-\end{center}
+  \begin{tabular}{lcccc}
+  \toprule
+  \textbf{District} & \textbf{Voters (A)} & \textbf{Voters (B)} & \textbf{Winner} & \textbf{Strategy} \\
+  \midrule
+  1 & 80\% & 20\% & B & Packed (B stronghold) \\
+  2 & 78\% & 22\% & B & Packed (B stronghold) \\
+  3 & 82\% & 18\% & B & Packed (B stronghold) \\
+  4 & 56\% & 44\% & A & Cracked (A edge win) \\
+  5 & 55\% & 45\% & A & Cracked (A edge win) \\
+  6 & 54\% & 46\% & A & Cracked (A edge win) \\
+  7 & 57\% & 43\% & A & Cracked (A edge win) \\
+  8 & 53\% & 47\% & A & Cracked (A edge win) \\
+  9 & 56\% & 44\% & A & Cracked (A edge win) \\
+  10 & 55\% & 45\% & A & Cracked (A edge win) \\
+  \midrule
+  \textbf{Totals (10 districts)} & \textbf{50\%} & \textbf{50\%} & \textbf{A wins 7, B wins 3} & Gerrymandered for A \\
+  \bottomrule
+  \end{tabular}
+  \end{center}
 
-The gerrymandered scenarios achieve 70\% of seats with 50\% of votes by controlling group boundaries. Party A might pack Party B voters into 3 districts where B wins 80-20, then spread remaining voters to secure 7 districts with 56-44 margins. Same voters, same preferences, inverted outcome.
+  \vspace{1em}
 
 In the UC Berkeley admissions case (1973), similar patterns appeared. Women showed lower overall acceptance rates (35\%) than men (44\%), suggesting discrimination. At the department level, women had equal or higher acceptance rates in 4 of 6 departments. The reversal occurred because women disproportionately applied to competitive departments — English admitted 3.4\% of applicants while Engineering admitted 65\%. 
 
@@ -58,22 +67,17 @@ For any partition of data into groups, the overall average equals:
 \]
 where $w_i = n_i/N$ represents the fraction of data in group $i$, and $\bar{y}_i$ is that group's average.
 
-Simpson's paradox: weights arise from existing patterns (sick patients get aggressive treatment)
-Gerrymandering: weights are engineered through boundaries (opposition voters get packed or cracked)
+Simpson’s paradox exposes existing groupings in the data; gerrymandering constructs groupings to exploit the same arithmetic.
 
 The efficiency gap quantifies gerrymandering's success by measuring "wasted" votes — those beyond the 50\%+1 needed to win a district. A party that wins districts by slim margins while losing others by wide margins achieves maximum efficiency. The formula:
 \[
 \text{Efficiency Gap} = \frac{|\text{Wasted}_A - \text{Wasted}_B|}{\text{Total Votes}}
 \]
-Values above 7\% typically indicate intentional manipulation rather than natural geographic clustering.
+Values above 7\% typically indicate intentional manipulation rather than natural clustering. Thus, gerrymandering leaves fingerprints. Districts snake through neighborhoods, splitting cities and joining disparate communities. Pennsylvania's 7th district (pre-2018) stretched like tentacles across five counties to link Republican areas while avoiding Democratic ones. Maryland's 3rd district exhibits similar contortions, engineered by Democrats to dilute Republican votes across Baltimore suburbs. 
 
-Real-world detection differs sharply between the phenomena:
+Simpson's paradox is revealed through careful analysis. Statisticians discover reversals by examining subgroups. The 2020 COVID-19 case fatality rates showed Italy with higher death rates than China overall, yet lower rates in every age group — Italy's older population created the bias.
 
-Simpson's paradox emerges through analysis. Statisticians discover reversals by examining subgroups. The 2020 COVID-19 case fatality rates showed Italy with higher death rates than China overall, yet lower rates in every age group — Italy's older population created the reversal.
-
-Gerrymandering leaves fingerprints. Districts snake through neighborhoods, splitting cities and joining disparate communities. Pennsylvania's 7th district (pre-2018) stretched like tentacles across five counties to link Republican areas while avoiding Democratic ones. Maryland's 3rd district exhibits similar contortions, engineered by Democrats to dilute Republican votes across Baltimore suburbs. 
-
- Simpson's paradox warns that natural parameters (patient severity, department selectivity) can mislead when ignored. Gerrymandering demonstrates that artificial boundaries can be weaponized to subvert democratic representation.
+Simpson's paradox warns that natural parameters (patient severity, department selectivity) can mislead when ignored. Gerrymandering demonstrates that artificial boundaries can be weaponized to subvert democratic representation.
 
 Solutions to Simpson's paradox require disaggregating data and examining subgroups. Medical trials now routinely report results by patient characteristics. Universities analyze admissions by department.
 
@@ -130,7 +134,7 @@ In spatial analysis, correlations and rates can shift significantly depending on
 
 \textbf{5. Low Birth-Weight Paradox}  
 \emph{Conditioning on an intermediate variable reverses risk comparisons.}  
-Infants born to smoking mothers have higher rates of low birth weight, and low birth weight is associated with higher mortality. But among low birth-weight babies, those born to smokers may show lower mortality than those of non-smokers. The paradox appears because birth weight is both an effect of smoking and a predictor of mortality. Conditioning on it introduces collider bias, obscuring causal direction.
+Infants born to smoking mothers have higher rates of low birth weight, and low birth-weight is associated with higher mortality. But among low birth-weight babies, those born to smokers may show lower mortality than those of non-smokers. The paradox appears because birth-weight is both an effect of smoking and a predictor of mortality. Conditioning on it introduces collider bias, obscuring causal direction.
 
 \vspace{1em}
 
