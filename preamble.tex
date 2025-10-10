@@ -363,6 +363,9 @@
     \hyphenpenalty=50 % Make hyphenation more likely
     \exhyphenpenalty=50 % Make hyphenation of already hyphenated words more likely
     
+    % Adjust itemize spacing for technical environment
+    \setlist[itemize]{nosep, leftmargin=1em, itemsep=0.1em, topsep=0.3em, partopsep=0pt}
+    
     % Use multicols directly with adjusted parameters
     \begin{multicols}{2}
     \setlength{\columnseprule}{0.1pt} % Thin rule between columns

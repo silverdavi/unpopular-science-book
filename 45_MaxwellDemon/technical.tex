@@ -23,26 +23,26 @@ This reflects the entropy gained by the gas during expansion under constant temp
 To begin a new cycle, the demon must erase one bit of information. Erasure is a logically irreversible operation mapping two equiprobable states to one. According to Landauer's principle, the minimum heat dissipated into the reservoir is:
 \[
 Q_{\text{erase}} \geq T \sigma
-\quad \text{with} \quad
+\quad, \quad
 \Delta S_{\text{mem}} = -\sigma, \quad
 \Delta S_{\text{env}} \geq \sigma
 \]
 This entropy increase in the environment offsets the decrease in the demon’s memory. Even in an idealized quasistatic erasure process, the bound cannot be avoided.
 
-\vspace{0.5em}
+\vspace{1.5em}
 \noindent\textbf{Entropy Ledger Over a Full Cycle}\\[0.5em]
 We now compute entropy changes for all subsystems. Let \( G \) be the gas, \( M \) the memory, and \( E \) the thermal environment. Then:
 \begin{align*}
-\Delta S_G &= -\sigma \quad \text{(localization during measurement)} \\
+\Delta S_G &= -\sigma \quad \text{(localization dur. measurement)} \\
 \Delta S_G &= +\sigma \quad \text{(isothermal expansion)} \\
 \Rightarrow \Delta S_G &= 0 \\
-\\[-1.5em]
+\\[0.5em]
 \Delta S_M &= +\sigma \quad \text{(information recorded)} \\
 \Delta S_M &= -\sigma \quad \text{(memory erased)} \\
 \Rightarrow \Delta S_M &= 0 \\
-\\[-1.5em]
-\Delta S_E &= -\sigma \quad \text{(heat drawn during expansion)} \\
-\Delta S_E &\geq +\sigma \quad \text{(heat dumped during erasure)} \\
+\\[0.5em]
+\Delta S_E &= -\sigma \quad \text{(heat drawn dur. expansion)} \\
+\Delta S_E &\geq +\sigma \quad \text{(heat dumped dur. erasure)} \\
 \Rightarrow \Delta S_E &\geq 0
 \end{align*}
 Summing over all contributions:
